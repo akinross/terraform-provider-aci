@@ -1,0 +1,46 @@
+name: Terraform Provider ACI Checks
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/checks.yaml'
+      - '**.go'
+
+permissions:
+  # Permission for checking out code
+  contents: read
+
+jobs:
+  build:
+    name: Build Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: 'go.mod'
+      - run: chmod +x ./scripts/gofmtcheck.sh
+      - name: gofmt Check
+        run: ./scripts/gofmtcheck.sh
+      - name: Build
+        run: go build -v
+  acceptance:
+    name: Acceptance Tests
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: 'go.mod'
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: '1.5.*'
+          terraform_wrapper: false
+      - run: go test github.com/CiscoDevNet/terraform-provider-aci/v2/internal/provider -v -cover -timeout 120m
+        env:
+          TF_ACC: '1'
+          TF_ACC_STATE_LINEAGE: '1'
+          ACI_USERNAME: ${{ secrets.TF_ACC_ACI_USERNAME }}
+          ACI_PASSWORD: ${{ secrets.TF_ACC_ACI_PASSWORD }}
+          ACI_URL: ${{ secrets.TF_ACC_ACI_URL }}

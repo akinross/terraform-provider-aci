@@ -10,4 +10,5 @@ if [[ -n ${gofmt_files} ]]; then
     exit 1
 fi
 
+echo "==> gofmt requirements passed"
 exit 0
