@@ -43,7 +43,7 @@ filter_unconventional = false
 split_commits = false
 commit_preprocessors = []
 commit_parsers = [
-  { message = "^.[I|i]gnore", skip = true },
+  { message = ".[I|i]gnore.", skip = true },
   { message = "^Bump", skip = true }, # Ignore Dependabot version bumps
   { message = "^Merge.branch", skip = true }, # Ignore merge commits
   { message = "^.[M|m]ajor", group = "<!-- 0 -->BREAKING CHANGES" },

@@ -3,7 +3,7 @@ name: release_pr
 on:
   push:
     branches:
-      - master
+      - release-pr-test
 
 jobs:
   release-pr:
@@ -14,11 +14,48 @@ jobs:
       - name: Unshallow
         run: git fetch --prune --unshallow
       
-      # git-cliff to generate CHANGELOG.md
+      # Setup
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - run: pip install git-cliff typos
+      - name: Set git config
+        run: git config user.email "dcn-ecosystem@cisco.com" && git config user.name "dcn-ecosystem"
+
+      # Check new changlog entry for version bump type
+      - name: Find version bump type
+        id: type
+        run: |
+          changelog=$(git cliff --unreleased)
+          case $changelog in
+              *"BREAKING CHANGES:"* )
+                  echo "MAJOR"
+                  echo "bump="MAJOR"" >> $GITHUB_OUTPUT
+                  ;;
+              *"IMPROVEMENTS:"* )
+                  echo "MINOR"
+                  echo "bump="MINOR"" >> $GITHUB_OUTPUT
+                  ;;
+              *"DEPRECATIONS:"* )
+                  echo "MINOR"
+                  echo "bump="MINOR"" >> $GITHUB_OUTPUT
+                  ;;
+              * )
+                  echo "PATCH"
+                  echo "bump="PATCH"" >> $GITHUB_OUTPUT
+                  ;;
+          esac
+
+      # Commit major or minor version change messages
+      # NOTE: Without these commit messages git-cliff will only increase patch version.
+      - name: Commit major version change message
+        if: steps.type.outputs.bump == 'MAJOR'
+        run: 'git commit -m "major: [ignore] Major version change" --allow-empty'
+      - name: Commit minor version change message
+        if: steps.type.outputs.bump == 'MINOR'
+        run: 'git commit -m "minor: [ignore] Minor version change" --allow-empty'
+
+      # git-cliff generates CHANGELOG.md
       - name: Get next version
         id: vars
         run: echo "version=$(git cliff --bumped-version)" >> $GITHUB_OUTPUT
@@ -37,8 +74,6 @@ jobs:
           GEN_ANNOTATION_UNSUPPORTED: '1'
 
       # Commit changes to release_pr branch
-      - name: Set git config
-        run: git config user.email "dcn-ecosystem@cisco.com" && git config user.name "dcn-ecosystem"
       - name: Commit
         run: git add -u && git status && git commit -m "[ignore] Update Changelog and annotation_unsupported.go for new release (${{ steps.vars.outputs.version }})"
       - name: Branch & Push
