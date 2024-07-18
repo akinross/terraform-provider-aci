@@ -43,13 +43,16 @@ filter_unconventional = false
 split_commits = false
 commit_preprocessors = []
 commit_parsers = [
-  { message = ".[I|i]gnore.", skip = true },
+  { message = "^.[I|i]gnore", skip = true },
   { message = "^Bump", skip = true }, # Ignore Dependabot version bumps
   { message = "^Merge.branch", skip = true }, # Ignore merge commits
   { message = "^.[M|m]ajor", group = "<!-- 0 -->BREAKING CHANGES" },
   { message = "[D|d]eprecat", group = "<!-- 1 -->DEPRECATIONS" },
   { message = "^.[M|m]inor", group = "<!-- 2 -->IMPROVEMENTS" },
   { message = "^.[B|b]ug", group = "<!-- 3 -->BUG FIXES" },
+  # Not skipped so version bumps are registered.
+  # However, not grouped so they don't show up in the changelog.
+  { message = ".*[Major|Minor] version change" },
   { message = ".*", group = "<!-- 4 -->OTHER" },
 ]
 protect_breaking_commits = false
