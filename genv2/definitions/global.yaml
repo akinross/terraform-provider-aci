@@ -1,0 +1,31 @@
+excludedclasses:
+  - polUni
+  - fabricInst
+
+alwaysincludeaschildren:
+  - tagTag
+  - tagAnnotation
+
+ignoreproperties:
+  - userdom
+
+pluralresourcenaming:
+  - single: policy
+    plural: policies
+
+overwrites:
+  naming:
+    Bd: "BD"
+  documentation:
+    annotation: "The annotation of the %s object."
+    name: "The name of the %s object."
+  propertyname:
+    count: "apic_count" # count is a terraform reserved schema entry
+    provider: "prov" # provider is a terraform reserved schema entry
+    id: "id_attribute" # id is a terraform reserved schema entry and needed in struct
+    tDn: "target_dn"
+    ctxName: "vrf_name"
+
+settings:
+  exampleamount: 2
+  parentdnamount: 20
