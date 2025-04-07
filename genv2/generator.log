@@ -1,0 +1,4456 @@
+2025/03/31 19:18:07 generator.go:203: Retrieving meta files for classes: [fvAEPg]
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'fvAEPg' for name space separation
+2025/03/31 19:18:07 generator.go:250: Retrieving meta data from 'https://pubhub.devnetcloud.com/media/model-doc-latest/docs/doc/jsonmeta/fv/AEPg.json'
+2025/03/31 19:18:07 generator.go:268: Writing meta data to './meta/fvAEPg.json'
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: fvAEPg.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'fvAEPg' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: fvAEPg, 1
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: application epg
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'fvAEPg.json'.
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: fvBD.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'fvBD' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: fvBD, 1
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: bridge_domain
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'fvBD.json'.
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: fvRsABDPolMonPol.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'fvRsABDPolMonPol' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: fvRsABDPolMonPol, 0
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: relation_from_bridge_domain_to_monitoring_policy
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'fvRsABDPolMonPol.json'.
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: fvRsPathAtt.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'fvRsPathAtt' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: fvRsPathAtt, 1
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: static path
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'fvRsPathAtt.json'.
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: fvTenant.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'fvTenant' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: fvTenant, 1
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: tenant
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'fvTenant.json'.
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: mgmtInstP.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'mgmtInstP' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: mgmtInstP, 1
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: external_management_network_instance_profile
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'mgmtInstP.json'.
+2025/03/31 19:18:07 generator.go:280: Loading metadata for class: monEPGPol.json
+2025/03/31 19:18:07 generator.go:115: Splitting class name 'monEPGPol' for name space separation
+2025/03/31 19:18:07 generator.go:127: Setting nested resource name for class: monEPGPol, 1
+2025/03/31 19:18:07 generator.go:415: Versions is not found for class 'monEPGPol' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:443: MetaDataMap resourceName: monitoring_policy
+2025/03/31 19:18:07 generator.go:587: Versions is not found for property 'ownerTag' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:587: Versions is not found for property 'descr' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:587: Versions is not found for property 'name' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:587: Versions is not found for property 'ownerKey' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:587: Versions is not found for property 'annotation' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:587: Versions is not found for property 'nameAlias' in meta file and not provided as overwrite.
+2025/03/31 19:18:07 generator.go:427: Metadata loaded successfully from 'monEPGPol.json'.
+2025/03/31 19:18:07 generator.go:712: Generating migration data for classes.
+2025/03/31 19:18:07 generator.go:719: Generating migration data for class: fvTenant
+2025/03/31 19:18:07 generator.go:726: Migration data for class 'fvTenant' version '1':
+2025/03/31 19:18:07 generator.go:727: migrationMetaData: map[block:map[attributes:map[annotation:map[computed:true description_kind:plain optional:true type:string] description:map[computed:true description_kind:plain optional:true type:string] id:map[computed:true description_kind:plain optional:true type:string] name:map[description_kind:plain required:true type:string] name_alias:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_tenant_mon_pol:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_tn_deny_rule:map[description_kind:plain optional:true type:[set string]]] description_kind:plain] version:1]
+2025/03/31 19:18:07 generator.go:728: attributes: map[annotation:map[computed:true description_kind:plain optional:true type:string] description:map[computed:true description_kind:plain optional:true type:string] id:map[computed:true description_kind:plain optional:true type:string] name:map[description_kind:plain required:true type:string] name_alias:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_tenant_mon_pol:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_tn_deny_rule:map[description_kind:plain optional:true type:[set string]]]
+2025/03/31 19:18:07 generator.go:719: Generating migration data for class: fvBD
+2025/03/31 19:18:07 generator.go:726: Migration data for class 'fvBD' version '1':
+2025/03/31 19:18:07 generator.go:727: migrationMetaData: map[block:map[attributes:map[annotation:map[computed:true description_kind:plain optional:true type:string] arp_flood:map[computed:true description_kind:plain optional:true type:string] bridge_domain_type:map[computed:true description_kind:plain optional:true type:string] description:map[computed:true description_kind:plain optional:true type:string] ep_clear:map[computed:true description_kind:plain optional:true type:string] ep_move_detect_mode:map[computed:true description_kind:plain optional:true type:string] host_based_routing:map[computed:true description_kind:plain optional:true type:string] id:map[computed:true description_kind:plain optional:true type:string] intersite_bum_traffic_allow:map[computed:true description_kind:plain optional:true type:string] intersite_l2_stretch:map[computed:true description_kind:plain optional:true type:string] ip_learning:map[computed:true description_kind:plain optional:true type:string] ipv6_mcast_allow:map[computed:true description_kind:plain optional:true type:string] limit_ip_learn_to_subnets:map[computed:true description_kind:plain optional:true type:string] ll_addr:map[computed:true description_kind:plain optional:true type:string] mac:map[computed:true description_kind:plain optional:true type:string] mcast_allow:map[computed:true description_kind:plain optional:true type:string] multi_dst_pkt_act:map[computed:true description_kind:plain optional:true type:string] name:map[description_kind:plain required:true type:string] name_alias:map[computed:true description_kind:plain optional:true type:string] optimize_wan_bandwidth:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_abd_pol_mon_pol:map[description_kind:plain optional:true type:string] relation_fv_rs_bd_flood_to:map[description_kind:plain optional:true type:[set string]] relation_fv_rs_bd_to_ep_ret:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_bd_to_fhs:map[description_kind:plain optional:true type:string] relation_fv_rs_bd_to_nd_p:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_bd_to_out:map[description_kind:plain optional:true type:[set string]] relation_fv_rs_bd_to_profile:map[description_kind:plain optional:true type:string] relation_fv_rs_bd_to_relay_p:map[description_kind:plain optional:true type:string] relation_fv_rs_ctx:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_igmpsn:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_mldsn:map[computed:true description_kind:plain optional:true type:string] tenant_dn:map[description_kind:plain required:true type:string] unicast_route:map[computed:true description_kind:plain optional:true type:string] unk_mac_ucast_act:map[computed:true description_kind:plain optional:true type:string] unk_mcast_act:map[computed:true description_kind:plain optional:true type:string] v6unk_mcast_act:map[computed:true description_kind:plain optional:true type:string] vmac:map[computed:true description_kind:plain optional:true type:string]] block_types:map[relation_fv_rs_bd_to_netflow_monitor_pol:map[block:map[attributes:map[flt_type:map[description_kind:plain required:true type:string] tn_netflow_monitor_pol_name:map[description_kind:plain required:true type:string]] description_kind:plain] nesting_mode:set]] description_kind:plain] version:1]
+2025/03/31 19:18:07 generator.go:728: attributes: map[annotation:map[computed:true description_kind:plain optional:true type:string] arp_flood:map[computed:true description_kind:plain optional:true type:string] bridge_domain_type:map[computed:true description_kind:plain optional:true type:string] description:map[computed:true description_kind:plain optional:true type:string] ep_clear:map[computed:true description_kind:plain optional:true type:string] ep_move_detect_mode:map[computed:true description_kind:plain optional:true type:string] host_based_routing:map[computed:true description_kind:plain optional:true type:string] id:map[computed:true description_kind:plain optional:true type:string] intersite_bum_traffic_allow:map[computed:true description_kind:plain optional:true type:string] intersite_l2_stretch:map[computed:true description_kind:plain optional:true type:string] ip_learning:map[computed:true description_kind:plain optional:true type:string] ipv6_mcast_allow:map[computed:true description_kind:plain optional:true type:string] limit_ip_learn_to_subnets:map[computed:true description_kind:plain optional:true type:string] ll_addr:map[computed:true description_kind:plain optional:true type:string] mac:map[computed:true description_kind:plain optional:true type:string] mcast_allow:map[computed:true description_kind:plain optional:true type:string] multi_dst_pkt_act:map[computed:true description_kind:plain optional:true type:string] name:map[description_kind:plain required:true type:string] name_alias:map[computed:true description_kind:plain optional:true type:string] optimize_wan_bandwidth:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_abd_pol_mon_pol:map[description_kind:plain optional:true type:string] relation_fv_rs_bd_flood_to:map[description_kind:plain optional:true type:[set string]] relation_fv_rs_bd_to_ep_ret:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_bd_to_fhs:map[description_kind:plain optional:true type:string] relation_fv_rs_bd_to_nd_p:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_bd_to_out:map[description_kind:plain optional:true type:[set string]] relation_fv_rs_bd_to_profile:map[description_kind:plain optional:true type:string] relation_fv_rs_bd_to_relay_p:map[description_kind:plain optional:true type:string] relation_fv_rs_ctx:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_igmpsn:map[computed:true description_kind:plain optional:true type:string] relation_fv_rs_mldsn:map[computed:true description_kind:plain optional:true type:string] tenant_dn:map[description_kind:plain required:true type:string] unicast_route:map[computed:true description_kind:plain optional:true type:string] unk_mac_ucast_act:map[computed:true description_kind:plain optional:true type:string] unk_mcast_act:map[computed:true description_kind:plain optional:true type:string] v6unk_mcast_act:map[computed:true description_kind:plain optional:true type:string] vmac:map[computed:true description_kind:plain optional:true type:string]]
+2025/03/31 19:18:07 generator.go:731: Migration data generation completed.
+2025/03/31 19:18:07 generator.go:735: Generating test data for all classes.
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: monEPGPol
+2025/03/31 19:18:07 generator.go:774: Test values for class 'monEPGPol' property 'ownerKey': {[initial_owner_key] [changed_owner_key]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'monEPGPol' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'monEPGPol' property 'nameAlias': {[initial_name_alias] [changed_name_alias]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'monEPGPol' property 'ownerTag': {[initial_owner_tag] [changed_owner_tag]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'monEPGPol' property 'descr': {[initial_descr] [changed_descr]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'monEPGPol' property 'name': {[initial_name] [changed_name]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class monEPGPol: {
+	"ClassName": "monEPGPol",
+	"Comment": "",
+	"Name": "EPGPol",
+	"ResourceClassName": "MonEPGPol",
+	"ResourceName": "monitoring_policy",
+	"ResourceNameNested": "monitoring_policies",
+	"RnFormat": "monepg-{name}",
+	"Package": "mon",
+	"Platform": "both",
+	"Versions": "",
+	"IncludedChildren": [
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": [
+		"fvTenant"
+	],
+	"Children": [
+		"callhomeSrc",
+		"tagAnnotation",
+		"monRtTenantMonPol",
+		"tacacsSrc",
+		"aaaRbacAnnotation",
+		"faultDelegate",
+		"monEPGTarget",
+		"monRtApMonPol",
+		"monRtMonPolLocalRefEvent",
+		"monRtMonPolSystemPolCons",
+		"monRtCtxMonPol",
+		"syslogSrc",
+		"faultLcP",
+		"snmpSrc",
+		"statslimitInstLimitPol",
+		"tagTag",
+		"healthInst",
+		"monRtAEPgMonPol",
+		"monRtEppToMonPol",
+		"monRtMonPolIfPolCons",
+		"monRtMonPolModulePolCons",
+		"monRtToRemoteMonPol",
+		"statsHierColl",
+		"callhomeSmartSrc",
+		"faultCounts",
+		"monRtABDPolMonPol",
+		"monRtMonPolRef",
+		"monRtMonPolRefEvent",
+		"statsExportP"
+	],
+	"DnFormats": [
+		"uni/tn-{name}/monepg-{name}"
+	],
+	"IdentifiedBy": [
+		"name"
+	],
+	"SingleNested": false,
+	"AllowDelete": false,
+	"Migration": false,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "",
+			"UiLocations": null
+		},
+		"Migration": null,
+		"Properties": null,
+		"ResourceName": "monitoring_policy",
+		"Reuired": false,
+		"DnFormats": null,
+		"ContainedBy": null,
+		"RnPrepend": ""
+	},
+	"Properties": {
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"descr": {
+			"Name": "Descr",
+			"AttributeName": "descr",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Specifies a description of the policy definition.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_descr"
+				],
+				"Changed": [
+					"changed_descr"
+				]
+			},
+			"Migrations": null
+		},
+		"name": {
+			"Name": "Name",
+			"AttributeName": "name",
+			"Required": true,
+			"Optional": false,
+			"Computed": false,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The name of the tenant monitoring policy group. This cannot be changed after it has been created.",
+			"Validators": [
+				{
+					"Min": 1,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name"
+				],
+				"Changed": [
+					"changed_name"
+				]
+			},
+			"Migrations": null
+		},
+		"nameAlias": {
+			"Name": "NameAlias",
+			"AttributeName": "name_alias",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Display Name.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 63,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name_alias"
+				],
+				"Changed": [
+					"changed_name_alias"
+				]
+			},
+			"Migrations": null
+		},
+		"ownerKey": {
+			"Name": "OwnerKey",
+			"AttributeName": "owner_key",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The key for enabling clients to own their data for entity correlation.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_owner_key"
+				],
+				"Changed": [
+					"changed_owner_key"
+				]
+			},
+			"Migrations": null
+		},
+		"ownerTag": {
+			"Name": "OwnerTag",
+			"AttributeName": "owner_tag",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "A tag for enabling clients to add their own data. For example, to indicate who created this object.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_owner_tag"
+				],
+				"Changed": [
+					"changed_owner_tag"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": [
+		"name"
+	],
+	"OptionalProperties": [
+		"owner_tag",
+		"descr",
+		"owner_key",
+		"annotation",
+		"name_alias"
+	],
+	"ReadOnlyProperties": null
+}
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: fvAEPg
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'prio': {[level1] [level2]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'pcEnfPref': {[enforced] [unenforced]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'prefGrMemb': {[exclude] [include]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'floodOnEncap': {[disabled] [enabled]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'hasMcastSource': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'shutdown': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'exceptionTag': {[initial_exception_tag] [changed_exception_tag]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'nameAlias': {[initial_name_alias] [changed_name_alias]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'fwdCtrl': {[none] [proxy-arp]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'name': {[initial_name] [changed_name]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'matchT': {[All] [AtleastOne]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'isAttrBasedEPg': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvAEPg' property 'descr': {[initial_descr] [changed_descr]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class fvAEPg: {
+	"ClassName": "fvAEPg",
+	"Comment": "",
+	"Name": "AEPg",
+	"ResourceClassName": "FvAEPg",
+	"ResourceName": "application epg",
+	"ResourceNameNested": "",
+	"RnFormat": "epg-{name}",
+	"Package": "fv",
+	"Platform": "apic",
+	"Versions": "1.0(1e)-",
+	"IncludedChildren": [
+		{
+			"ClassName": "fvRsConsIf",
+			"PointsToClass": "vzCPIf",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsIntraEpg",
+			"PointsToClass": "vzBrCP",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsQosRequirement",
+			"PointsToClass": "qosRequirement",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsTrustCtrl",
+			"PointsToClass": "fhsTrustCtrlPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsDomAtt",
+			"PointsToClass": "infraDomP",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsNodeAtt",
+			"PointsToClass": "fabricNode",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsSecInherited",
+			"PointsToClass": "fvEPg",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsFcPathAtt",
+			"PointsToClass": "fabricPathEp",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsGraphDef",
+			"PointsToClass": "vzGraphCont",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsPathAtt",
+			"PointsToClass": "fabricPathEp",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsProtBy",
+			"PointsToClass": "vzTaboo",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsProv",
+			"PointsToClass": "vzBrCP",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBd",
+			"PointsToClass": "fvBD",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsCons",
+			"PointsToClass": "vzBrCP",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsDppPol",
+			"PointsToClass": "qosDppPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsPublishEPg",
+			"PointsToClass": "mdpTopic",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsAEPgMonPol",
+			"PointsToClass": "monEPGPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsCustQosPol",
+			"PointsToClass": "qosCustomPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsProvDef",
+			"PointsToClass": "vzCtrctEPgCont",
+			"Relational": true
+		},
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": [
+		"fvAp"
+	],
+	"Children": [
+		"fvRtFromEpg",
+		"l2EgrBytesPartHist15min",
+		"l3MplsEgrBytesPart5min",
+		"l2IngrBytesPartHist1d",
+		"l2IngrPktsAg1mo",
+		"l3MplsEgrBytesPartHist1d",
+		"vnsNATDynPATReq",
+		"fvRsIntraEpg",
+		"l2EgrPktsPart15min",
+		"l2IngrPktsAg15min",
+		"l3MplsEgrBytesPartHist1qtr",
+		"vnsSvcPol",
+		"l3MplsEgrBytesAg1qtr",
+		"l3MplsEgrBytesAgHist15min",
+		"l3MplsEgrBytesPartHist1mo",
+		"l3MplsEgrPktsAg1mo",
+		"l3MplsIngrPktsPartHist5min",
+		"healthInst",
+		"l2EgrBytesAgHist1qtr",
+		"l2IngrBytesAgHist1mo",
+		"l2EgrBytesPartHist1year",
+		"l2IngrBytesAg1mo",
+		"l2IngrBytesAgHist15min",
+		"l2IngrBytesPart1mo",
+		"l3MplsIngrBytesPart1w",
+		"fvRsCons",
+		"fvRtRtdEpPToNatMappingEPg",
+		"l2EgrBytesAg15min",
+		"l3MplsIngrPktsAgHist1mo",
+		"tagAliasInst",
+		"l2EgrBytesAg1mo",
+		"l2EgrPktsAgHist1year",
+		"l2IngrBytesAgHist1year",
+		"fvRtProfileToEpg",
+		"l2EgrPktsPartHist5min",
+		"l3MplsEgrBytesPartHist5min",
+		"l3MplsIngrBytesAg1h",
+		"l3MplsIngrBytesAgHist1year",
+		"fvAEPgBkProp",
+		"fvRsPublishEPg",
+		"fvRtNtpProvToEpg",
+		"vnsParamInst",
+		"l2EgrBytesPartHist1d",
+		"l3MplsIngrBytesAg1w",
+		"fvFltCounter1d",
+		"l2EgrBytesAg1qtr",
+		"l2EgrBytesAgHist15min",
+		"l2EgrBytesPartHist1qtr",
+		"l2IngrBytesAg1year",
+		"l3MplsEgrBytesPartHist15min",
+		"l3MplsIngrBytesPart1qtr",
+		"fvCrtrn",
+		"fvRtToEpgForEpgToEpg",
+		"l2EgrBytesAgHist1year",
+		"vnsLBVSvrReq",
+		"fvFltCounter15min",
+		"fvRsProtBy",
+		"vnsAbsFolder",
+		"l2EgrPktsAg1h",
+		"faultDelegate",
+		"fvFltCounterHist5min",
+		"fvRtDcProfToEpg",
+		"l2IngrBytesAg1h",
+		"l2IngrBytesPart1h",
+		"l2IngrPktsPartHist1d",
+		"l3MplsIngrBytesPart5min",
+		"l3MplsIngrPktsAgHist15min",
+		"fvFltCounterHist1h",
+		"fvRtARemoteHostToEpg",
+		"l2EgrPktsAgHist1d",
+		"l3MplsIngrPktsPartHist1w",
+		"l2IngrBytesAgHist1d",
+		"l2IngrPktsPart15min",
+		"l2IngrPktsPartHist5min",
+		"l3MplsEgrPktsAg1d",
+		"l3MplsIngrBytesPart1h",
+		"fvRtSvcMgmtEpg",
+		"fvRtVsrcToEpg",
+		"l2IngrBytesAg1qtr",
+		"l3MplsIngrPktsPart1w",
+		"tagAliasDelInst",
+		"l2EgrPktsPart1year",
+		"l3MplsIngrPktsAgHist1qtr",
+		"vnsCtrlrEp",
+		"vnsCfgRelInst",
+		"l2EgrBytesPart1year",
+		"l2EgrPktsPartHist1mo",
+		"l3MplsIngrPktsAgHist1year",
+		"l2IngrPktsAg1h",
+		"l3MplsEgrPktsAg1w",
+		"vnsCParam",
+		"fvQinqFabEncap",
+		"l2EgrPktsPart1d",
+		"l2IngrPktsAg1d",
+		"l3MplsEgrPktsPart1w",
+		"l3MplsIngrBytesPart1year",
+		"l3MplsIngrBytesPartHist1mo",
+		"tagExtMngdInst",
+		"fvRtTermToEPg",
+		"l2EgrBytesAg1d",
+		"l3MplsEgrPktsPart1h",
+		"l3MplsIngrBytesPartHist1qtr",
+		"l3MplsIngrPktsAg1qtr",
+		"l3MplsEgrBytesPart1year",
+		"l3MplsEgrBytesPartHist1w",
+		"l3MplsIngrPktsAg1year",
+		"fvRtDestEpg",
+		"l2EgrBytesPart1qtr",
+		"l3MplsEgrBytesAg1mo",
+		"l2EgrPktsAgHist15min",
+		"orchsLDevVipCfg",
+		"l3MplsIngrBytesAgHist1mo",
+		"l3MplsIngrPktsPart1h",
+		"vzProvSubjLbl",
+		"fvRsNodeAtt",
+		"l2EgrPktsPart5min",
+		"l3MplsEgrPktsAgHist1w",
+		"l3MplsEgrBytesPart1mo",
+		"l3MplsEgrPktsPart1qtr",
+		"l3MplsIngrPktsPartHist15min",
+		"vnsFolderInst",
+		"fvRtSvrEpg",
+		"l2EgrPktsPartHist1w",
+		"l2IngrPktsAgHist1h",
+		"l3MplsEgrPktsAgHist1year",
+		"fvRsQosRequirement",
+		"fvStCEp",
+		"l2IngrPktsPartHist1mo",
+		"l3MplsEgrPktsAgHist1d",
+		"fvRsProv",
+		"fvRtMgmtEPg",
+		"l2EgrBytesPart1d",
+		"l3MplsIngrBytesPartHist15min",
+		"l3MplsIngrBytesPartHist1year",
+		"l3MplsIngrPktsAg1w",
+		"l3MplsIngrPktsPartHist1h",
+		"vnsLBRNatReq",
+		"fvFltCounter5min",
+		"fvUpdateContract",
+		"l2IngrPktsAg1qtr",
+		"vnsLBVSvcGrpSvrReq",
+		"l3MplsEgrPktsAgHist1qtr",
+		"l3MplsIngrBytesPart1d",
+		"aaaRbacAnnotation",
+		"fvRtChassisEpg",
+		"l2IngrPktsAgHist1mo",
+		"vnsAbsParam",
+		"fvFltCounterHist1d",
+		"l3MplsIngrBytesPart15min",
+		"l3MplsIngrPktsPart15min",
+		"l2IngrPktsPart5min",
+		"l3MplsIngrPktsAg1d",
+		"fvFltCounter1year",
+		"fvSubnet",
+		"l2EgrPktsAgHist1qtr",
+		"l2IngrPktsPartHist1year",
+		"l3MplsEgrBytesAgHist1qtr",
+		"l3MplsIngrPktsPart1d",
+		"l3MplsIngrPktsPartHist1mo",
+		"l3MplsIngrPktsPartHist1year",
+		"fvFltCounterHist1qtr",
+		"fvVipUpdate",
+		"l2EgrPktsAgHist1h",
+		"vzConsSubjLbl",
+		"l2IngrBytesPart15min",
+		"l2IngrBytesPartHist1year",
+		"l3MplsEgrPktsAg15min",
+		"vnsLBIPReq",
+		"fvRsConsIf",
+		"fvRsDppPol",
+		"l2EgrPktsPart1w",
+		"l2IngrBytesPart1w",
+		"l2IngrBytesPartHist1mo",
+		"l2IngrPktsAgHist1qtr",
+		"l2IngrPktsPart1d",
+		"l3MplsEgrBytesAgHist1d",
+		"l2EgrBytesAgHist1w",
+		"l2EgrPktsAg15min",
+		"l2EgrPktsAg1w",
+		"l3MplsEgrPktsPart15min",
+		"l3MplsEgrPktsPart1year",
+		"dhcpConsLbl",
+		"fvRtFromAbsEpg",
+		"fvRtToEpg",
+		"l2IngrPktsAg1year",
+		"l3MplsEgrBytesAg1d",
+		"l3MplsEgrBytesAgHist1year",
+		"vnsNATPATReq",
+		"fvCtrctCtxDefCont",
+		"fvRsGraphDef",
+		"fvRtLIfCtxToInstP",
+		"l2EgrBytesPart1h",
+		"l3MplsEgrBytesAgHist1h",
+		"l3MplsIngrBytesPartHist1d",
+		"l3MplsEgrPktsPart1mo",
+		"vzProvLbl",
+		"l2EgrBytesAg1year",
+		"l3MplsEgrBytesPart15min",
+		"l3MplsEgrPktsAg1qtr",
+		"l2EgrPktsAgHist1mo",
+		"l2IngrBytesPart1d",
+		"l2IngrBytesPart5min",
+		"l3MplsIngrBytesAg1year",
+		"l3MplsIngrPktsAg1mo",
+		"fvFltCounterHist1year",
+		"fvRsDomAtt",
+		"fvSharedService",
+		"vzConsLbl",
+		"l3MplsEgrBytesAg1w",
+		"fvFltCounter1qtr",
+		"fvRInfoHolder",
+		"l2IngrPktsAgHist1year",
+		"l2IngrPktsPartHist1h",
+		"l3MplsEgrBytesAgHist1w",
+		"l2EgrBytesPart1w",
+		"l2EgrBytesPartHist5min",
+		"l2IngrBytesPartHist1w",
+		"l3MplsIngrBytesAg15min",
+		"l3MplsIngrBytesPartHist5min",
+		"vnsCRel",
+		"fvFltCounterHist1w",
+		"l2EgrBytesAg1h",
+		"l2IngrPktsPart1year",
+		"l2EgrPktsAgHist1w",
+		"l2IngrBytesPartHist1h",
+		"l2IngrPktsAgHist15min",
+		"l3MplsEgrPktsPartHist1year",
+		"l3MplsIngrBytesAgHist1qtr",
+		"vnsAddrInst",
+		"faultInst",
+		"fvSiteAssociated",
+		"l2IngrBytesPart1year",
+		"l3MplsEgrPktsPartHist1qtr",
+		"l3MplsIngrPktsAgHist1w",
+		"fvRsCustQosPol",
+		"l2EgrBytesAgHist1mo",
+		"l2EgrPktsAg1mo",
+		"l3MplsIngrBytesPart1mo",
+		"fvOrchsInfo",
+		"fvRsSecInherited",
+		"fvRtExporterToEPg",
+		"l2EgrPktsAg1d",
+		"l2EgrPktsPartHist1h",
+		"l3MplsEgrBytesAg1h",
+		"l3MplsEgrBytesAg1year",
+		"l3MplsEgrPktsPart5min",
+		"fvFltCounter1h",
+		"fvRsBd",
+		"fvRsPathAtt",
+		"vsvcConsLbl",
+		"l3MplsEgrBytesPart1w",
+		"fvRtDcToEpg",
+		"fvVip",
+		"l2EgrPktsAg1qtr",
+		"l2IngrPktsPartHist15min",
+		"l3MplsEgrPktsPart1d",
+		"l3MplsIngrBytesAgHist1d",
+		"l3MplsIngrPktsAgHist1d",
+		"l3MplsIngrPktsPart1qtr",
+		"fvRsFcPathAtt",
+		"l2EgrPktsAg1year",
+		"l2IngrBytesAgHist1w",
+		"l2IngrPktsAgHist1w",
+		"fvRsAEPgMonPol",
+		"fvRtDevMgrEpg",
+		"l2EgrBytesPart5min",
+		"l2EgrPktsPartHist15min",
+		"l2IngrBytesPart1qtr",
+		"l3MplsEgrBytesPart1h",
+		"l3MplsEgrPktsPartHist1mo",
+		"l3MplsIngrBytesAgHist1h",
+		"fvRsProvDef",
+		"fvRtVConnToEpgEp",
+		"l2EgrBytesPartHist1h",
+		"l3MplsIngrPktsPart1mo",
+		"telemetryMatchedSelector",
+		"l2EgrBytesAgHist1d",
+		"l2IngrBytesAg15min",
+		"l2IngrPktsPart1mo",
+		"vnsCFolder",
+		"fvRsTrustCtrl",
+		"fvRtProv",
+		"fvRtSecInherited",
+		"l2IngrPktsAg1w",
+		"l3MplsIngrBytesAg1qtr",
+		"l3MplsIngrBytesPartHist1h",
+		"vnsGParam",
+		"faultCounts",
+		"fvFltCounterHist1mo",
+		"l2EgrBytesPartHist1mo",
+		"l2IngrBytesPartHist1qtr",
+		"l3MplsEgrPktsPartHist1d",
+		"l3MplsIngrPktsAg1h",
+		"fvCEp",
+		"fvFltCounterHist15min",
+		"l2IngrBytesAgHist1qtr",
+		"fvRtToAbsEpgForEpgToEpg",
+		"l2EgrBytesPart15min",
+		"l2IngrBytesAgHist1h",
+		"l2IngrPktsPart1h",
+		"l2IngrPktsPartHist1w",
+		"fvRtMatchEPg",
+		"fvRtSecProvToEpg",
+		"fvRtToAbsEpg",
+		"l3MplsEgrBytesPart1qtr",
+		"l3MplsIngrBytesAgHist1w",
+		"mdpLocalEp",
+		"l2IngrBytesPartHist5min",
+		"l2IngrPktsPart1w",
+		"l3MplsEgrPktsAgHist1mo",
+		"l3MplsIngrBytesAgHist15min",
+		"fvRtInstPToNatMappingEPg",
+		"l2EgrBytesPartHist1w",
+		"l2EgrPktsPart1h",
+		"l3MplsEgrBytesPart1d",
+		"mdpClassId",
+		"tagInst",
+		"fvRtFuncToEpg",
+		"fvRtVConnToEpgSubnet",
+		"l2EgrPktsPartHist1year",
+		"l2EgrPktsPartHist1d",
+		"l3MplsEgrPktsPartHist1w",
+		"l3MplsIngrPktsPartHist1qtr",
+		"fvFltCounter1mo",
+		"fvRtEpg",
+		"fvRtPoeEpg",
+		"l3MplsEgrPktsPartHist1h",
+		"l3MplsIngrPktsAgHist1h",
+		"l3MplsIngrPktsPart5min",
+		"healthNodeInst",
+		"l2IngrBytesAg1w",
+		"l3MplsEgrBytesPartHist1h",
+		"l3MplsIngrPktsPartHist1d",
+		"vzConsCtrctLbl",
+		"l2EgrBytesAg1w",
+		"l3MplsEgrBytesAg15min",
+		"l3MplsIngrPktsAg15min",
+		"l3MplsIngrBytesPartHist1w",
+		"l2EgrBytesAgHist1h",
+		"l2IngrBytesAg1d",
+		"l3MplsEgrPktsAgHist15min",
+		"l3MplsEgrPktsAg1h",
+		"vnsAbsCfgRel",
+		"vnsGRel",
+		"fvFltCounter1w",
+		"l2IngrPktsAgHist1d",
+		"l3MplsEgrBytesPartHist1year",
+		"l3MplsEgrPktsPartHist5min",
+		"l3MplsIngrBytesAg1d",
+		"l3MplsIngrBytesAg1mo",
+		"l3MplsIngrPktsPart1year",
+		"tagTag",
+		"fvRtDevEpg",
+		"l2EgrPktsPart1qtr",
+		"l3MplsEgrPktsPartHist15min",
+		"vnsGFolder",
+		"vzProvCtrctLbl",
+		"fvRtSvrToMgmtEPg",
+		"l2EgrBytesPart1mo",
+		"l2EgrPktsPartHist1qtr",
+		"l3MplsEgrBytesAgHist1mo",
+		"l3MplsEgrPktsAg1year",
+		"l3MplsEgrPktsAgHist1h",
+		"l2EgrPktsPart1mo",
+		"l2IngrBytesPartHist15min",
+		"l2IngrPktsPartHist1qtr",
+		"tagAnnotation",
+		"fvRtExtdevMgrMgmtEPg",
+		"fvRtSrcToEpg",
+		"l2IngrPktsPart1qtr"
+	],
+	"DnFormats": [
+		"uni/tn-{name}/ap-{name}/epg-{name}"
+	],
+	"IdentifiedBy": [
+		"name"
+	],
+	"SingleNested": false,
+	"AllowDelete": false,
+	"Migration": false,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "",
+			"UiLocations": null
+		},
+		"Migration": null,
+		"Properties": null,
+		"ResourceName": "",
+		"Reuired": false,
+		"DnFormats": null,
+		"ContainedBy": null,
+		"RnPrepend": ""
+	},
+	"Properties": {
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"descr": {
+			"Name": "Descr",
+			"AttributeName": "descr",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Specifies the description of a policy component.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_descr"
+				],
+				"Changed": [
+					"changed_descr"
+				]
+			},
+			"Migrations": null
+		},
+		"exceptionTag": {
+			"Name": "ExceptionTag",
+			"AttributeName": "exception_tag",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Contract Exception Tag.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 512,
+					"RegexList": null
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_exception_tag"
+				],
+				"Changed": [
+					"changed_exception_tag"
+				]
+			},
+			"Migrations": null
+		},
+		"floodOnEncap": {
+			"Name": "FloodOnEncap",
+			"AttributeName": "flood_on_encap",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "disabled",
+			"Documentation": "Control at EPG level if the traffic L2 Multicast/Broadcast and Link Local Layer should be flooded only on ENCAP or based on bridg-domain settings.",
+			"Validators": null,
+			"ValidValues": [
+				"disabled",
+				"enabled"
+			],
+			"Versions": "3.1(1i)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"disabled"
+				],
+				"Changed": [
+					"enabled"
+				]
+			},
+			"Migrations": null
+		},
+		"fwdCtrl": {
+			"Name": "FwdCtrl",
+			"AttributeName": "fwd_ctrl",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "bitmask",
+			"CustomType": false,
+			"DefaultValue": "none",
+			"Documentation": "Forwarding Control.",
+			"Validators": null,
+			"ValidValues": [
+				"none",
+				"proxy-arp"
+			],
+			"Versions": "2.0(2f)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"none"
+				],
+				"Changed": [
+					"proxy-arp"
+				]
+			},
+			"Migrations": null
+		},
+		"hasMcastSource": {
+			"Name": "HasMcastSource",
+			"AttributeName": "has_mcast_source",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "EPg with Multisite Mcast Source.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "4.0(1h)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"isAttrBasedEPg": {
+			"Name": "IsAttrBasedEPg",
+			"AttributeName": "is_attr_based_e_pg",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "Attribute Based EPG.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "1.2(1i)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"matchT": {
+			"Name": "MatchT",
+			"AttributeName": "match_t",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "AtleastOne",
+			"Documentation": "The provider label match criteria.",
+			"Validators": null,
+			"ValidValues": [
+				"All",
+				"AtleastOne",
+				"AtmostOne",
+				"None"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"All"
+				],
+				"Changed": [
+					"AtleastOne"
+				]
+			},
+			"Migrations": null
+		},
+		"name": {
+			"Name": "Name",
+			"AttributeName": "name",
+			"Required": true,
+			"Optional": false,
+			"Computed": false,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The name for the endpoint group.",
+			"Validators": [
+				{
+					"Min": 1,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name"
+				],
+				"Changed": [
+					"changed_name"
+				]
+			},
+			"Migrations": null
+		},
+		"nameAlias": {
+			"Name": "NameAlias",
+			"AttributeName": "name_alias",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Display Name.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 63,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "2.2(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name_alias"
+				],
+				"Changed": [
+					"changed_name_alias"
+				]
+			},
+			"Migrations": null
+		},
+		"pcEnfPref": {
+			"Name": "PcEnfPref",
+			"AttributeName": "pc_enf_pref",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "unenforced",
+			"Documentation": "Represents parameter used by the node (i.e. Leaf) to enforce filter rules in this EPG.",
+			"Validators": null,
+			"ValidValues": [
+				"enforced",
+				"unenforced"
+			],
+			"Versions": "1.2(2g)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"enforced"
+				],
+				"Changed": [
+					"unenforced"
+				]
+			},
+			"Migrations": null
+		},
+		"prefGrMemb": {
+			"Name": "PrefGrMemb",
+			"AttributeName": "pref_gr_memb",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "exclude",
+			"Documentation": "Represents parameter used to determine if EPg is part of a group that does not a contract for communication.",
+			"Validators": null,
+			"ValidValues": [
+				"exclude",
+				"include"
+			],
+			"Versions": "2.1(1h)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"exclude"
+				],
+				"Changed": [
+					"include"
+				]
+			},
+			"Migrations": null
+		},
+		"prio": {
+			"Name": "Prio",
+			"AttributeName": "prio",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": true,
+			"DefaultValue": "unspecified",
+			"Documentation": "The QoS priority class identifier.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 9,
+					"RegexList": null
+				}
+			],
+			"ValidValues": [
+				"level1",
+				"level2",
+				"level3",
+				"level4",
+				"level5",
+				"level6",
+				"unspecified"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"level1"
+				],
+				"Changed": [
+					"level2"
+				]
+			},
+			"Migrations": null
+		},
+		"shutdown": {
+			"Name": "Shutdown",
+			"AttributeName": "shutdown",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "Withdraw AEPg Configuration from all Nodes in the Fabric.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "4.0(1h)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": [
+		"name"
+	],
+	"OptionalProperties": [
+		"exception_tag",
+		"name_alias",
+		"fwd_ctrl",
+		"prio",
+		"is_attr_based_e_pg",
+		"pref_gr_memb",
+		"flood_on_encap",
+		"pc_enf_pref",
+		"has_mcast_source",
+		"annotation",
+		"descr",
+		"match_t",
+		"shutdown"
+	],
+	"ReadOnlyProperties": null
+}
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: fvBD
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'mcastAllow': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'intersiteBumTrafficAllow': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'name': {[initial_name] [changed_name]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'unicastRoute': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'epClear': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'limitIpLearnToSubnets': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'hostBasedRouting': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'ownerKey': {[initial_owner_key] [changed_owner_key]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'OptimizeWanBandwidth': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'unkMacUcastAct': {[flood] [proxy]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'vmac': {[not-applicable] [changed_vmac]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'serviceBdRoutingDisable': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'mac': {[00:22:BD:F8:19:FF] [00:22:BD:F8:19:FE]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'nameAlias': {[initial_name_alias] [changed_name_alias]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'multiDstPktAct': {[bd-flood] [drop]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'llAddr': {[fe80::1] [fe80::2]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'intersiteL2Stretch': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'ownerTag': {[initial_owner_tag] [changed_owner_tag]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'ipLearning': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'unkMcastAct': {[flood] [opt-flood]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'v6unkMcastAct': {[flood] [opt-flood]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'arpFlood': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'ipv6McastAllow': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'enableRogueExceptMac': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'type': {[fc] [regular]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'descr': {[initial_descr] [changed_descr]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'epMoveDetectMode': {[garp] []}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'mcastARPDrop': {[no] [yes]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvBD' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class fvBD: {
+	"ClassName": "fvBD",
+	"Comment": "",
+	"Name": "BD",
+	"ResourceClassName": "FvBD",
+	"ResourceName": "bridge_domain",
+	"ResourceNameNested": "",
+	"RnFormat": "BD-{name}",
+	"Package": "fv",
+	"Platform": "apic",
+	"Versions": "1.0(1e)-",
+	"IncludedChildren": [
+		{
+			"ClassName": "fvRsBDToNetflowMonitorPol",
+			"PointsToClass": "netflowMonitorPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBDToProfile",
+			"PointsToClass": "rtctrlProfile",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBDToRelayP",
+			"PointsToClass": "dhcpRelayP",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBdToEpRet",
+			"PointsToClass": "fvEpRetPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsMldsn",
+			"PointsToClass": "mldSnoopPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsABDPolMonPol",
+			"PointsToClass": "monEPGPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBDToFhs",
+			"PointsToClass": "fhsBDPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBdFloodTo",
+			"PointsToClass": "vzFilter",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsCtx",
+			"PointsToClass": "fvCtx",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsIgmpsn",
+			"PointsToClass": "igmpSnoopPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBDToNdP",
+			"PointsToClass": "ndIfPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsBDToOut",
+			"PointsToClass": "l3extOut",
+			"Relational": true
+		},
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": [
+		"fvTenant"
+	],
+	"Children": [
+		"aaaRbacAnnotation",
+		"l2EgrPktsAgHist1mo",
+		"l3MplsEgrBytesPart1year",
+		"l3MplsEgrPktsAg15min",
+		"l2IngrBytesPart1year",
+		"l2IngrPktsAgHist1d",
+		"l3MplsIngrBytesPartHist1mo",
+		"l3MplsIngrPktsPart1d",
+		"l2IngrBytesAg1mo",
+		"l2IngrBytesPartHist1h",
+		"l3MplsEgrBytesPartHist5min",
+		"l3MplsEgrPktsAg1h",
+		"l3MplsEgrPktsPartHist15min",
+		"l2EgrPktsAgHist1year",
+		"l2EgrPktsPart1d",
+		"l2IngrPktsPart1w",
+		"l3MplsEgrBytesAg15min",
+		"l3MplsIngrPktsPart1w",
+		"healthNodeInst",
+		"l3MplsEgrPktsAgHist1mo",
+		"l3MplsIngrPktsAgHist1d",
+		"l3MplsIngrPktsPart1h",
+		"vnsAbsCfgRel",
+		"l2EgrBytesPartHist1qtr",
+		"l2IngrPktsAg15min",
+		"l3MplsIngrBytesAgHist1h",
+		"l3MplsIngrPktsAg1d",
+		"tagInst",
+		"l2EgrPktsPartHist5min",
+		"l2IngrBytesAg1qtr",
+		"l2IngrBytesPart1w",
+		"fvFltCounter1mo",
+		"fvRsBDToOut",
+		"healthInst",
+		"l2EgrBytesAg1qtr",
+		"l2EgrBytesPartHist1w",
+		"l2IngrPktsPart15min",
+		"l3MplsEgrBytesAg1qtr",
+		"ndRaSubnet",
+		"l2IngrBytesAgHist1d",
+		"l3MplsIngrBytesAg1h",
+		"l3MplsIngrPktsPartHist1mo",
+		"fvSiteAssociated",
+		"l2IngrBytesAg1d",
+		"l2IngrBytesPartHist1year",
+		"l2IngrPktsPart5min",
+		"l2IngrPktsPartHist1d",
+		"fvFltCounterHist1qtr",
+		"l2EgrBytesAgHist1d",
+		"l2EgrBytesPartHist15min",
+		"l2IngrBytesPart15min",
+		"l3MplsIngrBytesAgHist1qtr",
+		"l2EgrBytesAgHist1h",
+		"l3MplsIngrBytesAgHist1w",
+		"pimBDP",
+		"vnsSvcPol",
+		"fvFltCounter1d",
+		"fvRtEBd",
+		"l3MplsEgrBytesAgHist15min",
+		"l3MplsEgrPktsPart1year",
+		"vnsCFolder",
+		"fvRtBd",
+		"l2EgrPktsAg1mo",
+		"l2IngrBytesPartHist1qtr",
+		"l3MplsIngrBytesPartHist1h",
+		"vnsParamInst",
+		"l2EgrPktsPart1year",
+		"l2IngrBytesPart1d",
+		"l3MplsIngrBytesAgHist1d",
+		"fvFltCounterHist1d",
+		"fvRtEPpInfoToBD",
+		"l2EgrBytesAg1w",
+		"l2IngrBytesAg1year",
+		"l3MplsIngrBytesPart1qtr",
+		"fvFltCounter5min",
+		"l2IngrPktsPart1d",
+		"l3MplsIngrBytesAg1qtr",
+		"l3MplsIngrPktsAg1year",
+		"fvRsBDToNetflowMonitorPol",
+		"l2IngrPktsAgHist1h",
+		"l2IngrPktsPart1qtr",
+		"l3MplsIngrPktsPart1qtr",
+		"l2EgrPktsPart15min",
+		"l3MplsEgrBytesPart1d",
+		"l3MplsEgrPktsAgHist1d",
+		"faultCounts",
+		"fvFltCounter1h",
+		"fvFltCounter1w",
+		"l2EgrPktsPartHist1h",
+		"l2IngrPktsAg1d",
+		"fvRtLIfCtxToBD",
+		"l2EgrBytesPart1qtr",
+		"l2IngrPktsPartHist5min",
+		"fvRogueExceptionMac",
+		"fvRtBDDefToBD",
+		"l2EgrPktsPartHist1d",
+		"vnsGRel",
+		"fvFltCounter1year",
+		"fvRtInfraBD",
+		"fvSubnet",
+		"l3MplsEgrBytesAgHist1year",
+		"l3MplsEgrPktsPart1mo",
+		"l2EgrPktsPartHist1w",
+		"l2IngrBytesAgHist15min",
+		"l2IngrPktsPart1year",
+		"l3MplsIngrBytesPart1mo",
+		"l3MplsIngrPktsPartHist1qtr",
+		"l3MplsEgrBytesAgHist1mo",
+		"l3MplsIngrPktsAgHist1mo",
+		"l2IngrPktsAgHist1mo",
+		"l3MplsEgrBytesAg1d",
+		"l3MplsIngrPktsAgHist1qtr",
+		"fvFltCounterHist15min",
+		"l2EgrBytesAg1year",
+		"l2EgrBytesPartHist1year",
+		"l2EgrPktsAg15min",
+		"l2IngrBytesAgHist1year",
+		"l2EgrBytesAg1d",
+		"tagAliasInst",
+		"tagExtMngdInst",
+		"l3MplsEgrBytesAg1h",
+		"l3MplsEgrBytesPartHist1w",
+		"l2EgrBytesAgHist1mo",
+		"l2EgrPktsAgHist1d",
+		"l2EgrPktsPart1h",
+		"l2EgrPktsPartHist1qtr",
+		"l2IngrPktsAg1mo",
+		"l3MplsIngrPktsPart15min",
+		"fvFltCounterHist1w",
+		"fvFltCounterHist5min",
+		"fvUnkMacUcastActMod",
+		"l2IngrBytesPartHist15min",
+		"l2IngrPktsAg1w",
+		"l2EgrBytesAgHist1w",
+		"l2EgrBytesPartHist1mo",
+		"l3MplsEgrBytesAg1mo",
+		"l3MplsEgrPktsAg1d",
+		"l3MplsIngrBytesAg15min",
+		"l2EgrPktsPart5min",
+		"l3MplsEgrPktsPartHist1h",
+		"vnsGFolder",
+		"l3MplsIngrBytesAg1w",
+		"l3MplsIngrBytesPart1year",
+		"vnsFolderInst",
+		"fvFltCounter1qtr",
+		"l2EgrPktsPart1w",
+		"l2IngrBytesPartHist1w",
+		"l2IngrPktsPartHist1h",
+		"l3MplsEgrPktsPartHist1mo",
+		"l3MplsEgrBytesPart1w",
+		"l3MplsEgrPktsAgHist1h",
+		"l3MplsIngrBytesPartHist1w",
+		"tagAliasDelInst",
+		"l3MplsIngrPktsAg15min",
+		"l3MplsIngrPktsAg1mo",
+		"l3MplsIngrPktsPartHist1d",
+		"fvAccP",
+		"l2EgrBytesAg15min",
+		"l2EgrPktsAg1d",
+		"l2EgrPktsAgHist1w",
+		"l3MplsIngrBytesPartHist1year",
+		"vnsCRel",
+		"fvRsCtx",
+		"l3MplsIngrBytesAgHist1year",
+		"fvRtREPpInfoToBD",
+		"l2EgrBytesPart1h",
+		"l2EgrPktsPartHist1mo",
+		"l2IngrPktsPartHist1year",
+		"l3MplsEgrPktsPartHist5min",
+		"l3MplsEgrBytesAg1w",
+		"l3MplsIngrBytesPart1h",
+		"fvPolMod",
+		"fvRsBdToEpRet",
+		"l2EgrBytesPartHist1d",
+		"l2EgrPktsAgHist1qtr",
+		"l2IngrBytesAg1h",
+		"l3MplsIngrBytesAg1year",
+		"fvRsBDToNdP",
+		"fvRsBDToProfile",
+		"fvRtDefInfraBd",
+		"l3MplsEgrPktsAgHist1qtr",
+		"l3MplsEgrPktsPartHist1qtr",
+		"fvFltCounterHist1mo",
+		"l2IngrPktsAgHist15min",
+		"l3MplsEgrPktsAgHist1w",
+		"l3MplsIngrBytesPart1d",
+		"l3MplsIngrPktsAg1h",
+		"l3MplsEgrPktsPart15min",
+		"l3MplsIngrPktsAgHist15min",
+		"l3MplsIngrPktsPartHist1year",
+		"fvFltCounterHist1year",
+		"l2IngrBytesPartHist1d",
+		"l2IngrPktsAg1year",
+		"l3MplsEgrBytesPart5min",
+		"l3MplsEgrPktsAgHist15min",
+		"l3MplsIngrPktsPartHist5min",
+		"fvRtMgmtBD",
+		"l2EgrBytesAgHist1qtr",
+		"l3MplsEgrBytesAg1year",
+		"l3MplsEgrPktsAg1w",
+		"l3MplsIngrPktsPartHist1h",
+		"tagAnnotation",
+		"fvFltCounter15min",
+		"fvRsBDToRelayP",
+		"l2EgrBytesPart1mo",
+		"l2IngrBytesAgHist1h",
+		"l3MplsEgrBytesPart1h",
+		"l2EgrPktsAg1w",
+		"l2IngrPktsPartHist1mo",
+		"tagTag",
+		"fvRsABDPolMonPol",
+		"l2EgrPktsPart1mo",
+		"l2IngrBytesPartHist1mo",
+		"l3MplsEgrPktsPart5min",
+		"l2EgrPktsPartHist1year",
+		"l3MplsIngrBytesPartHist1d",
+		"l2EgrPktsPart1qtr",
+		"l2IngrBytesAg1w",
+		"l3MplsEgrBytesAgHist1w",
+		"l2EgrBytesPart1w",
+		"l3MplsEgrPktsPartHist1d",
+		"l3MplsEgrPktsPartHist1year",
+		"l3MplsIngrBytesAg1mo",
+		"l3MplsIngrPktsPartHist15min",
+		"vnsGParam",
+		"fvRsBdFloodTo",
+		"l2EgrPktsAgHist15min",
+		"l2IngrBytesPart1h",
+		"l2IngrPktsAgHist1qtr",
+		"l3MplsEgrBytesPartHist1h",
+		"vnsAbsParam",
+		"l2EgrBytesPart1year",
+		"l3MplsEgrBytesPart15min",
+		"l3MplsEgrPktsPartHist1w",
+		"l3MplsIngrBytesPart1w",
+		"l3MplsIngrPktsPart5min",
+		"l2IngrPktsPart1h",
+		"l3MplsEgrBytesPartHist1mo",
+		"l3MplsEgrPktsPart1h",
+		"l3MplsIngrPktsPart1mo",
+		"vnsCParam",
+		"l3MplsEgrBytesAgHist1qtr",
+		"l3MplsEgrBytesPart1mo",
+		"l3MplsIngrBytesPartHist15min",
+		"dhcpLbl",
+		"fvRtIntBd",
+		"l2EgrBytesAg1mo",
+		"l2EgrPktsAg1h",
+		"l2IngrBytesAgHist1w",
+		"l3MplsIngrPktsAg1w",
+		"vnsAbsFolder",
+		"fvRsBDToFhs",
+		"l2IngrPktsAg1h",
+		"l3MplsEgrBytesPartHist1year",
+		"l3MplsIngrPktsAgHist1year",
+		"l3MplsIngrPktsPartHist1w",
+		"igmpIfP",
+		"l2EgrBytesAg1h",
+		"l2IngrBytesPart5min",
+		"l3MplsEgrBytesPart1qtr",
+		"l3MplsIngrPktsPart1year",
+		"l3MplsIngrBytesAgHist1mo",
+		"fvFltCounterHist1h",
+		"fvRtSvcBDToBDAtt",
+		"l2EgrBytesAgHist15min",
+		"l3MplsEgrPktsPart1w",
+		"l3MplsIngrBytesAg1d",
+		"fvRsIgmpsn",
+		"l2EgrBytesPart15min",
+		"l3MplsIngrBytesPart15min",
+		"l3MplsIngrBytesPart5min",
+		"vnsCfgRelInst",
+		"fvRsMldsn",
+		"l3MplsEgrBytesPartHist15min",
+		"l3MplsEgrPktsAg1year",
+		"l3MplsEgrPktsAgHist1year",
+		"l3MplsIngrPktsAg1qtr",
+		"faultInst",
+		"l2EgrBytesPartHist1h",
+		"l2EgrPktsPartHist15min",
+		"l2IngrBytesAgHist1qtr",
+		"l2IngrPktsPart1mo",
+		"l3MplsIngrPktsAgHist1w",
+		"fvVxGwFabrics",
+		"l2IngrBytesPart1qtr",
+		"l2IngrPktsAgHist1w",
+		"l2IngrPktsPartHist1qtr",
+		"l3MplsIngrBytesAgHist15min",
+		"fvRtEpTagBd",
+		"fvRtSrcToBD",
+		"l2EgrBytesPart5min",
+		"l3MplsEgrPktsPart1qtr",
+		"l3MplsIngrBytesPartHist5min",
+		"l2IngrBytesPart1mo",
+		"l2IngrBytesPartHist5min",
+		"l2IngrPktsAg1qtr",
+		"l2EgrBytesAgHist1year",
+		"l2EgrBytesPart1d",
+		"l2EgrPktsAg1qtr",
+		"l2EgrPktsAgHist1h",
+		"l2IngrBytesAgHist1mo",
+		"l2IngrPktsPartHist15min",
+		"l3MplsEgrBytesPartHist1d",
+		"l3MplsEgrPktsAg1qtr",
+		"l3MplsEgrPktsPart1d",
+		"faultDelegate",
+		"l2EgrPktsAg1year",
+		"l2IngrPktsAgHist1year",
+		"l3MplsEgrBytesAgHist1h",
+		"l3MplsIngrPktsAgHist1h",
+		"l3MplsEgrBytesAgHist1d",
+		"l3MplsEgrPktsAg1mo",
+		"l2EgrBytesPartHist5min",
+		"l3MplsEgrBytesPartHist1qtr",
+		"l3MplsIngrBytesPartHist1qtr",
+		"l2IngrBytesAg15min",
+		"l2IngrPktsPartHist1w"
+	],
+	"DnFormats": [
+		"uni/tn-{name}/BD-{name}"
+	],
+	"IdentifiedBy": [
+		"name"
+	],
+	"SingleNested": false,
+	"AllowDelete": false,
+	"Migration": true,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "Networking",
+			"UiLocations": [
+				"Tenants -\u003e Networking -\u003e Bridge Domains"
+			]
+		},
+		"Migration": [
+			{
+				"Blocks": {
+					"fvBD": {
+						"arp_flood": "arp_flooding",
+						"ep_clear": "clear_remote_mac_entries",
+						"ep_move_detect_mode": "endpoint_move_detection_mode",
+						"host_based_routing": "advertise_host_routes",
+						"intersite_bum_traffic_allow": "enable_intersite_bum_traffic",
+						"ipv6_mcast_allow": "pim_ipv6",
+						"ll_addr": "link_local_ipv6_address",
+						"mac": "custom_mac_address",
+						"mcast_allow": "pim",
+						"multi_dst_pkt_act": "multi_destination_flooding",
+						"tenant_dn": "parent_dn",
+						"unicast_route": "unicast_routing",
+						"unk_mac_ucast_act": "l2_unknown_unicast_flooding",
+						"unk_mcast_act": "l3_unknown_multicast_flooding",
+						"v6unk_mcast_act": "ipv6_l3_unknown_multicast_flooding",
+						"vmac": "virtual_mac_address"
+					},
+					"fvRsABDPolMonPol": {
+						"relation_fv_rs_abd_pol_mon_pol": "monitoring_policy_name"
+					},
+					"fvRsBDToFhs": {
+						"relation_fv_rs_bd_to_fhs": "first_hop_security_policy_name"
+					},
+					"fvRsBDToNdP": {
+						"relation_fv_rs_bd_to_nd_p": "neighbor_discovery_interface_policy_name"
+					},
+					"fvRsBDToNetflowMonitorPol": {
+						"flt_type": "filter_type",
+						"relation_fv_rs_bd_to_netflow_monitor_pol": "relation_to_netflow_monitor_policies",
+						"tn_netflow_monitor_pol_name": "netflow_monitor_policy_name"
+					},
+					"fvRsBDToOut": {
+						"relation_fv_rs_bd_to_out": "l3_outside_name"
+					},
+					"fvRsBDToRelayP": {
+						"relation_fv_rs_bd_to_relay_p": "dhcp_relay_policy_name"
+					},
+					"fvRsBdToEpRet": {
+						"relation_fv_rs_bd_to_ep_ret": "end_point_retention_policy_name"
+					},
+					"fvRsCtx": {
+						"relation_fv_rs_ctx": "vrf_name"
+					},
+					"fvRsIgmpsn": {
+						"relation_fv_rs_igmpsn": "igmp_snooping_policy_name"
+					},
+					"fvRsMldsn": {
+						"relation_fv_rs_mldsn": "mld_snooping_policy_name"
+					}
+				},
+				"Version": 1
+			}
+		],
+		"Properties": {
+			"arpFlood": {
+				"Exclude": false,
+				"DefaultValue": "",
+				"Documentation": "Enable ARP flooding for the %s object. If flooding is disabled, ARP requests for unknown endpoints will be forwarded by the leaf switch to the spine proxy for resolution and might trigger an ARP glean if the endpoint is not present in the COOP database.",
+				"OverwriteName": "arp_flooding",
+				"ReadOnly": false,
+				"RemoveValidValues": null,
+				"AddValidValues": null,
+				"Required": false,
+				"TestValues": {
+					"Initial": null,
+					"Changed": null
+				},
+				"MigrationMapping": {
+					"Type": "",
+					"Name": "",
+					"Required": false,
+					"Optional": false,
+					"Computed": false
+				},
+				"ValueType": "",
+				"Versions": ""
+			},
+			"epMoveDetectMode": {
+				"Exclude": false,
+				"DefaultValue": "",
+				"Documentation": "",
+				"OverwriteName": "endpoint_move_detection_mode",
+				"ReadOnly": false,
+				"RemoveValidValues": null,
+				"AddValidValues": [
+					""
+				],
+				"Required": false,
+				"TestValues": {
+					"Initial": null,
+					"Changed": null
+				},
+				"MigrationMapping": {
+					"Type": "",
+					"Name": "",
+					"Required": false,
+					"Optional": false,
+					"Computed": false
+				},
+				"ValueType": "",
+				"Versions": ""
+			},
+			"llAddr": {
+				"Exclude": false,
+				"DefaultValue": "",
+				"Documentation": "",
+				"OverwriteName": "link_local_ipv6_address",
+				"ReadOnly": false,
+				"RemoveValidValues": null,
+				"AddValidValues": null,
+				"Required": false,
+				"TestValues": {
+					"Initial": [
+						"fe80::1"
+					],
+					"Changed": [
+						"fe80::2"
+					]
+				},
+				"MigrationMapping": {
+					"Type": "",
+					"Name": "",
+					"Required": false,
+					"Optional": false,
+					"Computed": false
+				},
+				"ValueType": "",
+				"Versions": ""
+			},
+			"mac": {
+				"Exclude": false,
+				"DefaultValue": "",
+				"Documentation": "",
+				"OverwriteName": "custom_mac_address",
+				"ReadOnly": false,
+				"RemoveValidValues": null,
+				"AddValidValues": null,
+				"Required": false,
+				"TestValues": {
+					"Initial": [
+						"00:22:BD:F8:19:FF"
+					],
+					"Changed": [
+						"00:22:BD:F8:19:FE"
+					]
+				},
+				"MigrationMapping": {
+					"Type": "",
+					"Name": "",
+					"Required": false,
+					"Optional": false,
+					"Computed": false
+				},
+				"ValueType": "",
+				"Versions": ""
+			},
+			"pcTag": {
+				"Exclude": false,
+				"DefaultValue": "",
+				"Documentation": "",
+				"OverwriteName": "",
+				"ReadOnly": true,
+				"RemoveValidValues": [
+					"any"
+				],
+				"AddValidValues": null,
+				"Required": false,
+				"TestValues": {
+					"Initial": null,
+					"Changed": null
+				},
+				"MigrationMapping": {
+					"Type": "",
+					"Name": "",
+					"Required": false,
+					"Optional": false,
+					"Computed": false
+				},
+				"ValueType": "",
+				"Versions": ""
+			}
+		},
+		"ResourceName": "bridge_domain",
+		"Reuired": false,
+		"DnFormats": null,
+		"ContainedBy": null,
+		"RnPrepend": ""
+	},
+	"Properties": {
+		"OptimizeWanBandwidth": {
+			"Name": "OptimizeWanBandwidth",
+			"AttributeName": "optimize_wan_bandwidth",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "no",
+			"Documentation": "OptimizeWanBandwidth flag is enabled between sites.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "3.0(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"arpFlood": {
+			"Name": "ArpFlood",
+			"AttributeName": "arp_flooding",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "no",
+			"Documentation": "Enable ARP flooding for the %s object. If flooding is disabled, ARP requests for unknown endpoints will be forwarded by the leaf switch to the spine proxy for resolution and might trigger an ARP glean if the endpoint is not present in the COOP database.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"descr": {
+			"Name": "Descr",
+			"AttributeName": "descr",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Specifies a description of the policy definition root.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_descr"
+				],
+				"Changed": [
+					"changed_descr"
+				]
+			},
+			"Migrations": null
+		},
+		"enableRogueExceptMac": {
+			"Name": "EnableRogueExceptMac",
+			"AttributeName": "enable_rogue_except_mac",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "rogue exception mac wildcard support at bd level.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "6.0(2h)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"epClear": {
+			"Name": "EpClear",
+			"AttributeName": "ep_clear",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "no",
+			"Documentation": "Represents the parameter used by the node (i.e. Leaf) to clear all EPs in all leaves for this BD.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "2.2(2e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"epMoveDetectMode": {
+			"Name": "EpMoveDetectMode",
+			"AttributeName": "endpoint_move_detection_mode",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "bitmask",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The End Point move detection option uses the Gratuitous Address Resolution Protocol (GARP). A gratuitous ARP is an ARP broadcast-type of packet that is used to verify that no other device on the network has the same IP address as the sending device.",
+			"Validators": null,
+			"ValidValues": [
+				"garp",
+				""
+			],
+			"Versions": "1.1(1j)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"garp"
+				],
+				"Changed": [
+					""
+				]
+			},
+			"Migrations": null
+		},
+		"hostBasedRouting": {
+			"Name": "HostBasedRouting",
+			"AttributeName": "host_based_routing",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "Enables advertising host routes (/32 prefixes) out of the L3OUT(s) that are associated to this BD.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "4.0(1h)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"intersiteBumTrafficAllow": {
+			"Name": "IntersiteBumTrafficAllow",
+			"AttributeName": "intersite_bum_traffic_allow",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "Control whether BUM traffic is allowed between sites.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "3.0(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"intersiteL2Stretch": {
+			"Name": "IntersiteL2Stretch",
+			"AttributeName": "intersite_l2_stretch",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "no",
+			"Documentation": "l2Stretch flag is enabled between sites.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "3.0(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"ipLearning": {
+			"Name": "IpLearning",
+			"AttributeName": "ip_learning",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "true",
+			"Documentation": "IP Learning.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "2.0(1m)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"ipv6McastAllow": {
+			"Name": "Ipv6McastAllow",
+			"AttributeName": "ipv6_mcast_allow",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "Multicast. Flag to indicate if ipv6 multicast is enabled.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "4.2(1i)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"limitIpLearnToSubnets": {
+			"Name": "LimitIpLearnToSubnets",
+			"AttributeName": "limit_ip_learn_to_subnets",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "true",
+			"Documentation": "Limits IP address learning to the bridge domain subnets only. Every BD can have multiple subnets associated with it. By default, all IPs are learned.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "1.1(1j)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"llAddr": {
+			"Name": "LlAddr",
+			"AttributeName": "link_local_ipv6_address",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The override of the system generated IPv6 link-local address.",
+			"Validators": null,
+			"ValidValues": null,
+			"Versions": "1.1(1j)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"fe80::1"
+				],
+				"Changed": [
+					"fe80::2"
+				]
+			},
+			"Migrations": null
+		},
+		"mac": {
+			"Name": "Mac",
+			"AttributeName": "custom_mac_address",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "280487012409856",
+			"Documentation": "The MAC address of the bridge domain (BD) or switched virtual interface (SVI). Every BD by default takes the fabric-wide default MAC address. You can override that address with a different one. By default the BD will take a 00:22:BD:F8:19:FF mac address.",
+			"Validators": null,
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"00:22:BD:F8:19:FF"
+				],
+				"Changed": [
+					"00:22:BD:F8:19:FE"
+				]
+			},
+			"Migrations": null
+		},
+		"mcastARPDrop": {
+			"Name": "McastARPDrop",
+			"AttributeName": "mcast_arp_drop",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "true",
+			"Documentation": "rogue mcast ARP packet drop.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "5.2(5c)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"mcastAllow": {
+			"Name": "McastAllow",
+			"AttributeName": "mcast_allow",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "false",
+			"Documentation": "Multicast. Flag to indicate if multicast is enabled.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "2.0(1m)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"multiDstPktAct": {
+			"Name": "MultiDstPktAct",
+			"AttributeName": "multi_dst_pkt_act",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "bd-flood",
+			"Documentation": "The multiple destination forwarding method for L2 Multicast, Broadcast, and Link Layer traffic types.",
+			"Validators": null,
+			"ValidValues": [
+				"bd-flood",
+				"drop",
+				"encap-flood"
+			],
+			"Versions": "1.1(1j)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"bd-flood"
+				],
+				"Changed": [
+					"drop"
+				]
+			},
+			"Migrations": null
+		},
+		"name": {
+			"Name": "Name",
+			"AttributeName": "name",
+			"Required": true,
+			"Optional": false,
+			"Computed": false,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The bridge domain name.",
+			"Validators": [
+				{
+					"Min": 1,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name"
+				],
+				"Changed": [
+					"changed_name"
+				]
+			},
+			"Migrations": null
+		},
+		"nameAlias": {
+			"Name": "NameAlias",
+			"AttributeName": "name_alias",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Display Name.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 63,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "2.2(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name_alias"
+				],
+				"Changed": [
+					"changed_name_alias"
+				]
+			},
+			"Migrations": null
+		},
+		"ownerKey": {
+			"Name": "OwnerKey",
+			"AttributeName": "owner_key",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The key for enabling clients to own their data for entity correlation.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_owner_key"
+				],
+				"Changed": [
+					"changed_owner_key"
+				]
+			},
+			"Migrations": null
+		},
+		"ownerTag": {
+			"Name": "OwnerTag",
+			"AttributeName": "owner_tag",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "A tag for enabling clients to add their own data. For example, to indicate who created this object.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_owner_tag"
+				],
+				"Changed": [
+					"changed_owner_tag"
+				]
+			},
+			"Migrations": null
+		},
+		"pcTag": {
+			"Name": "PcTag",
+			"AttributeName": "pc_tag",
+			"Required": false,
+			"Optional": false,
+			"Computed": true,
+			"ValueType": "auto",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The default class ID for unknown unicast traffic terminating on this bridge domain.",
+			"Validators": null,
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": null,
+				"Changed": null
+			},
+			"Migrations": null
+		},
+		"serviceBdRoutingDisable": {
+			"Name": "ServiceBdRoutingDisable",
+			"AttributeName": "service_bd_routing_disable",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "no",
+			"Documentation": "Disable Routing on service BD.",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "6.0(4c)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"type": {
+			"Name": "Type",
+			"AttributeName": "type",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "regular",
+			"Documentation": "domain type.",
+			"Validators": null,
+			"ValidValues": [
+				"fc",
+				"regular"
+			],
+			"Versions": "2.0(1m)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"fc"
+				],
+				"Changed": [
+					"regular"
+				]
+			},
+			"Migrations": null
+		},
+		"unicastRoute": {
+			"Name": "UnicastRoute",
+			"AttributeName": "unicast_route",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "boolean",
+			"CustomType": false,
+			"DefaultValue": "yes",
+			"Documentation": "The forwarding method based on predefined forwarding criteria (IP or MAC address).",
+			"Validators": null,
+			"ValidValues": [
+				"no",
+				"yes"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"no"
+				],
+				"Changed": [
+					"yes"
+				]
+			},
+			"Migrations": null
+		},
+		"unkMacUcastAct": {
+			"Name": "UnkMacUcastAct",
+			"AttributeName": "unk_mac_ucast_act",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "proxy",
+			"Documentation": "The forwarding method for unknown layer 2 destinations.",
+			"Validators": null,
+			"ValidValues": [
+				"flood",
+				"proxy"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"flood"
+				],
+				"Changed": [
+					"proxy"
+				]
+			},
+			"Migrations": null
+		},
+		"unkMcastAct": {
+			"Name": "UnkMcastAct",
+			"AttributeName": "unk_mcast_act",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "flood",
+			"Documentation": "The parameter used by the node (i.e. a leaf) for forwarding data for an unknown multicast destination.",
+			"Validators": null,
+			"ValidValues": [
+				"flood",
+				"opt-flood"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"flood"
+				],
+				"Changed": [
+					"opt-flood"
+				]
+			},
+			"Migrations": null
+		},
+		"v6unkMcastAct": {
+			"Name": "V6unkMcastAct",
+			"AttributeName": "v6unk_mcast_act",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "flood",
+			"Documentation": "Unknown V6 Multicast Destination Action.",
+			"Validators": null,
+			"ValidValues": [
+				"flood",
+				"opt-flood"
+			],
+			"Versions": "4.1(1i)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"flood"
+				],
+				"Changed": [
+					"opt-flood"
+				]
+			},
+			"Migrations": null
+		},
+		"vmac": {
+			"Name": "Vmac",
+			"AttributeName": "vmac",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "not-applicable",
+			"Documentation": "Virtual MAC address of the BD/SVI. This is used when the BD is extended to multiple sites using l2 Outside.",
+			"Validators": null,
+			"ValidValues": [
+				"not-applicable"
+			],
+			"Versions": "1.2(1i)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"not-applicable"
+				],
+				"Changed": [
+					"changed_vmac"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": [
+		"name"
+	],
+	"OptionalProperties": [
+		"limit_ip_learn_to_subnets",
+		"link_local_ipv6_address",
+		"arp_flooding",
+		"host_based_routing",
+		"ipv6_mcast_allow",
+		"mcast_arp_drop",
+		"mcast_allow",
+		"owner_key",
+		"service_bd_routing_disable",
+		"enable_rogue_except_mac",
+		"ip_learning",
+		"custom_mac_address",
+		"intersite_bum_traffic_allow",
+		"name_alias",
+		"unk_mcast_act",
+		"annotation",
+		"intersite_l2_stretch",
+		"optimize_wan_bandwidth",
+		"multi_dst_pkt_act",
+		"type",
+		"unicast_route",
+		"descr",
+		"endpoint_move_detection_mode",
+		"owner_tag",
+		"unk_mac_ucast_act",
+		"ep_clear",
+		"v6unk_mcast_act",
+		"vmac"
+	],
+	"ReadOnlyProperties": [
+		"pc_tag"
+	]
+}
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: fvRsABDPolMonPol
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsABDPolMonPol' property 'tnMonEPGPolName': {[aci_monitoring_policy.initial.name] [aci_monitoring_policy.changed.name]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsABDPolMonPol' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class fvRsABDPolMonPol: {
+	"ClassName": "fvRsABDPolMonPol",
+	"Comment": "",
+	"Name": "RsABDPolMonPol",
+	"ResourceClassName": "FvRsABDPolMonPol",
+	"ResourceName": "relation_from_bridge_domain_to_monitoring_policy",
+	"ResourceNameNested": "relation_to_monitoring_policy",
+	"RnFormat": "rsABDPolMonPol",
+	"Package": "fv",
+	"Platform": "both",
+	"Versions": "1.0(1e)-",
+	"IncludedChildren": [
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": [
+		"fvBD",
+		"fvSvcBD"
+	],
+	"Children": [
+		"aaaRbacAnnotation",
+		"faultCounts",
+		"faultInst",
+		"healthInst",
+		"tagAnnotation",
+		"tagTag"
+	],
+	"DnFormats": [
+		"uni/tn-{name}/svcBD-{name}/rsABDPolMonPol",
+		"uni/tn-{name}/BD-{name}/rsABDPolMonPol",
+		"uni/tn-{name}/rsABDPolMonPol"
+	],
+	"IdentifiedBy": null,
+	"SingleNested": true,
+	"AllowDelete": false,
+	"Migration": false,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "",
+			"UiLocations": null
+		},
+		"Migration": null,
+		"Properties": null,
+		"ResourceName": "relation_from_bridge_domain_to_monitoring_policy",
+		"Reuired": false,
+		"DnFormats": null,
+		"ContainedBy": null,
+		"RnPrepend": ""
+	},
+	"Properties": {
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"tnMonEPGPolName": {
+			"Name": "TnMonEPGPolName",
+			"AttributeName": "name",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The monitoring policy name for the EPG semantic scope.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "monEPGPol",
+			"TestValues": {
+				"Initial": [
+					"aci_monitoring_policy.initial.name"
+				],
+				"Changed": [
+					"aci_monitoring_policy.changed.name"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": null,
+	"OptionalProperties": [
+		"name",
+		"annotation"
+	],
+	"ReadOnlyProperties": null
+}
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: fvRsPathAtt
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'encap': {[initial_encap] [changed_encap]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'mode': {[native] [regular]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'tDn': {[topology/pod-1/paths-101/pathep-[eth1/1]] [topology/pod-1/paths-101/pathep-[eth1/2]]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'descr': {[initial_descr] [changed_descr]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'instrImedcy': {[immediate] [lazy]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvRsPathAtt' property 'primaryEncap': {[initial_primary_encap] [changed_primary_encap]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class fvRsPathAtt: {
+	"ClassName": "fvRsPathAtt",
+	"Comment": "",
+	"Name": "RsPathAtt",
+	"ResourceClassName": "FvRsPathAtt",
+	"ResourceName": "static path",
+	"ResourceNameNested": "",
+	"RnFormat": "rspathAtt-[{tDn}]",
+	"Package": "fv",
+	"Platform": "apic",
+	"Versions": "1.0(1e)-",
+	"IncludedChildren": [
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": [
+		"fvAEPg"
+	],
+	"Children": [
+		"fvNlbStaticGroup",
+		"igmpSnoopStaticGroup",
+		"ptpEpgCfg",
+		"tagTag",
+		"tagAliasInst",
+		"faultCounts",
+		"igmpSnoopAccessGroup",
+		"tagAliasDelInst",
+		"aaaRbacAnnotation",
+		"healthInst",
+		"l2PortSecurityPol",
+		"mldSnoopAccessGroup",
+		"mldSnoopStaticGroup",
+		"tagAnnotation",
+		"tagExtMngdInst",
+		"tagInst"
+	],
+	"DnFormats": [
+		"uni/tn-{name}/ap-{name}/epg-{name}/rspathAtt-[{tDn}]"
+	],
+	"IdentifiedBy": [
+		"tDn"
+	],
+	"SingleNested": false,
+	"AllowDelete": false,
+	"Migration": false,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "",
+			"UiLocations": null
+		},
+		"Migration": null,
+		"Properties": {
+			"tDn": {
+				"Exclude": false,
+				"DefaultValue": "",
+				"Documentation": "",
+				"OverwriteName": "",
+				"ReadOnly": false,
+				"RemoveValidValues": null,
+				"AddValidValues": null,
+				"Required": false,
+				"TestValues": {
+					"Initial": [
+						"topology/pod-1/paths-101/pathep-[eth1/1]"
+					],
+					"Changed": [
+						"topology/pod-1/paths-101/pathep-[eth1/2]"
+					]
+				},
+				"MigrationMapping": {
+					"Type": "",
+					"Name": "",
+					"Required": false,
+					"Optional": false,
+					"Computed": false
+				},
+				"ValueType": "",
+				"Versions": ""
+			}
+		},
+		"ResourceName": "",
+		"Reuired": false,
+		"DnFormats": null,
+		"ContainedBy": null,
+		"RnPrepend": ""
+	},
+	"Properties": {
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"descr": {
+			"Name": "Descr",
+			"AttributeName": "descr",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The description of this configuration item.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(4g)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_descr"
+				],
+				"Changed": [
+					"changed_descr"
+				]
+			},
+			"Migrations": null
+		},
+		"encap": {
+			"Name": "Encap",
+			"AttributeName": "encap",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The encapsulation method (VLAN) of the path.",
+			"Validators": null,
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_encap"
+				],
+				"Changed": [
+					"changed_encap"
+				]
+			},
+			"Migrations": null
+		},
+		"instrImedcy": {
+			"Name": "InstrImedcy",
+			"AttributeName": "instr_imedcy",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "lazy",
+			"Documentation": "The deployment immediacy preference of this path association.",
+			"Validators": null,
+			"ValidValues": [
+				"immediate",
+				"lazy"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"immediate"
+				],
+				"Changed": [
+					"lazy"
+				]
+			},
+			"Migrations": null
+		},
+		"mode": {
+			"Name": "Mode",
+			"AttributeName": "mode",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": false,
+			"DefaultValue": "regular",
+			"Documentation": "The mode of the static association with the path.",
+			"Validators": null,
+			"ValidValues": [
+				"native",
+				"regular",
+				"untagged"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"native"
+				],
+				"Changed": [
+					"regular"
+				]
+			},
+			"Migrations": null
+		},
+		"primaryEncap": {
+			"Name": "PrimaryEncap",
+			"AttributeName": "primary_encap",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Represents the primary encap when the EPG is isolated.",
+			"Validators": null,
+			"ValidValues": null,
+			"Versions": "1.2(2g)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_primary_encap"
+				],
+				"Changed": [
+					"changed_primary_encap"
+				]
+			},
+			"Migrations": null
+		},
+		"tDn": {
+			"Name": "TDn",
+			"AttributeName": "target_dn",
+			"Required": true,
+			"Optional": false,
+			"Computed": false,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "null.",
+			"Validators": null,
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "fabricPathEp",
+			"TestValues": {
+				"Initial": [
+					"topology/pod-1/paths-101/pathep-[eth1/1]"
+				],
+				"Changed": [
+					"topology/pod-1/paths-101/pathep-[eth1/2]"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": [
+		"target_dn"
+	],
+	"OptionalProperties": [
+		"instr_imedcy",
+		"primary_encap",
+		"encap",
+		"mode",
+		"descr",
+		"annotation"
+	],
+	"ReadOnlyProperties": null
+}
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: fvTenant
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvTenant' property 'descr': {[initial_descr] [changed_descr]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvTenant' property 'nameAlias': {[initial_name_alias] [changed_name_alias]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvTenant' property 'name': {[initial_name] [changed_name]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvTenant' property 'ownerTag': {[initial_owner_tag] [changed_owner_tag]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvTenant' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'fvTenant' property 'ownerKey': {[initial_owner_key] [changed_owner_key]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class fvTenant: {
+	"ClassName": "fvTenant",
+	"Comment": "",
+	"Name": "Tenant",
+	"ResourceClassName": "FvTenant",
+	"ResourceName": "tenant",
+	"ResourceNameNested": "",
+	"RnFormat": "tn-{name}",
+	"Package": "fv",
+	"Platform": "both",
+	"Versions": "1.0(1e)-",
+	"IncludedChildren": [
+		{
+			"ClassName": "fvRsCloudAccount",
+			"PointsToClass": "cloudAccount",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsTenantMonPol",
+			"PointsToClass": "monEPGPol",
+			"Relational": true
+		},
+		{
+			"ClassName": "fvRsTnDenyRule",
+			"PointsToClass": "vzFilter",
+			"Relational": true
+		},
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": null,
+	"Children": [
+		"cloudAccessPolicy",
+		"cloudHostRouterEgressPktsAg15min",
+		"cloudHostRouterEgressPktsAgHist1h",
+		"cloudPoolHealthStatsAgHist15min",
+		"extdevSDWanVpnCont",
+		"l2EgrPktsAg1d",
+		"l2EgrPktsAgHist1w",
+		"fvOverallHealth1h",
+		"isakmpProfile",
+		"cloudDepl",
+		"cloudEgressBytesAgHist1h",
+		"cloudHostRouterEgressBytesAgHist1year",
+		"cloudHostRouterIngressBytesAg1year",
+		"cloudHostRouterIngressPktsAgHist1d",
+		"dhcpRelayP",
+		"telemetrySelector",
+		"cloudAD",
+		"cloudCredentials",
+		"cloudHostRouterEgressBytesAgHist1h",
+		"cloudLBStatsAgHist5min",
+		"cloudNLBStatsAg1mo",
+		"cloudEgressBytesAg1h",
+		"cloudLBStatsAg1h",
+		"cloudLBStatsAg5min",
+		"fvFltCounterHist1d",
+		"l3extBdProfile",
+		"vzCPIf",
+		"cloudHostRouterEgressBytesAgHist1w",
+		"cloudIngressPktsAg15min",
+		"l2IngrPktsAg15min",
+		"uribv4EgrPktsAgHist1d",
+		"vzOOBBrCP",
+		"cloudAppGwStatsAgHist1w",
+		"l2IngrBytesAg1w",
+		"qosRequirement",
+		"uribv4EgrPktsAg1d",
+		"cloudIngressBytesAg15min",
+		"cloudLB",
+		"cloudLBStatsAg1year",
+		"cloudtemplateInfraNetwork",
+		"fvFltCounter1qtr",
+		"l2EgrBytesAg1d",
+		"l2IngrBytesAgHist1qtr",
+		"bfdMhNodePol",
+		"cloudEgressBytesAg1mo",
+		"cloudEgressPktsAg15min",
+		"fvFabricExtConnP",
+		"fvFltCounter1d",
+		"uribv4EgrBytesAgHist1qtr",
+		"cloudCDevDef",
+		"cloudCtxProfile",
+		"cloudHostRouterEgressPktsAg1w",
+		"cloudIngressPktsAg1mo",
+		"mdpLocalTenant",
+		"uribv4EgrPktsAg1w",
+		"vnsAbsGraph",
+		"bgpBestPathCtrlPol",
+		"cloudAzNLBStatsAgHist1d",
+		"fvFltCounterHist1w",
+		"l2EgrBytesAgHist1mo",
+		"cloudAppGwStatsAgHist1qtr",
+		"cloudIngressPktsAgHist1year",
+		"cloudPoolResponseLatencyAg1year",
+		"fvIPSLAMonitoringPol",
+		"vnsLDevIf",
+		"cloudHostRouterEgressPktsAg5min",
+		"cloudHostRouterPol",
+		"qosMplsCustomPol",
+		"cloudAppGwStatsAgHist1d",
+		"cloudLBStatsAgHist1year",
+		"dhcpOptionPol",
+		"healthNodeInst",
+		"cloudHostRouterEgressBytesAg1qtr",
+		"l2EgrPktsAg15min",
+		"l2EgrPktsAg1mo",
+		"l2IngrPktsAgHist1w",
+		"uribv4EgrPktsAg1mo",
+		"vnsDevMgr",
+		"cloudAwsLogGroup",
+		"cloudBfdPol",
+		"cloudHostRouterIngressPktsAg1h",
+		"fvConnInstrPol",
+		"l2EgrBytesAgHist1d",
+		"l2IngrBytesAg1d",
+		"spanDestGrp",
+		"cloudPoolHealthStatsAg1w",
+		"uribv4EgrPktsAgHist1qtr",
+		"uribv4EgrPktsAgHist1w",
+		"cloudHostRouterIngressPktsAgHist1mo",
+		"fvFltCounterHist1year",
+		"eigrpCtxAfPol",
+		"cloudAzNLBStatsAg1qtr",
+		"cloudEgressPktsAgHist5min",
+		"cloudHostRouterEgressPktsAgHist1year",
+		"cloudHostRouterIngressPktsAg1qtr",
+		"cloudIngressPktsAg1qtr",
+		"cloudNLBStatsAgHist1qtr",
+		"cloudPoolResponseLatencyAgHist1h",
+		"traceroutepTrEp",
+		"cloudHostRouterIngressBytesAgHist15min",
+		"cloudIngressBytesAgHist1qtr",
+		"cloudIngressBytesAgHist1year",
+		"fhsBDPol",
+		"ipsecIsakmpPhase1Pol",
+		"l2IngrBytesAg1mo",
+		"netflowExporterPol",
+		"traceroutepTrExtExt",
+		"authSvrGroup",
+		"cloudEgressPktsAg1w",
+		"cloudHostRouterIngressPktsAgHist15min",
+		"l2EgrPktsAgHist1qtr",
+		"l2extOut",
+		"ndIfPol",
+		"tagAliasInst",
+		"cloudIngressBytesAg1d",
+		"cloudPoolHealthStatsAg1h",
+		"hostprotPol",
+		"cloudAwsFlowLogPol",
+		"cloudAzNLBStatsAgHist1w",
+		"dbgacEpToAny",
+		"fvBD",
+		"cloudLBStatsAg1qtr",
+		"uribv4EgrBytesAg1mo",
+		"cloudAppGwStatsAgHist1year",
+		"rtctrlSubjP",
+		"cloudHostRouterIngressPktsAg1d",
+		"cloudExtCtxProfile",
+		"fvRtTenant",
+		"l2EgrBytesAgHist1qtr",
+		"l2EgrPktsAgHist1h",
+		"ospfRtSummPol",
+		"vnsGParam",
+		"dbgacEpgToIp",
+		"dbgacIpToEpg",
+		"spanSrcGrp",
+		"vnsRtrCfg",
+		"cloudHostRouterIngressPktsAgHist1h",
+		"cloudIngressBytesAg1mo",
+		"cloudLBStatsAgHist15min",
+		"l2EgrBytesAg1w",
+		"orchsSvcRsrcPool",
+		"uribv4EgrPktsAgHist15min",
+		"vnsParamInst",
+		"cloudNLBStatsAg1year",
+		"cloudPoolHealthStatsAgHist1h",
+		"dbgacIpToIp",
+		"vnsLDevInst",
+		"cloudAppGwStatsAgHist1mo",
+		"cloudEgressBytesAg1year",
+		"cloudHostRouterIngressBytesAg1w",
+		"cloudPoolHealthStatsAgHist1year",
+		"fvAddrMgmtPool",
+		"fvFltCounter15min",
+		"tagAnnotation",
+		"cloudAzNLBStatsAg5min",
+		"cloudHostRouterIngressPktsAg1w",
+		"fvFltCounter5min",
+		"pimRouteMapPol",
+		"vnsPbrByPassCont",
+		"cloudEgressPktsAgHist1d",
+		"fhsTrustCtrlPol",
+		"fvFltCounterHist15min",
+		"mplsIfPol",
+		"uribv4EgrPktsAg15min",
+		"cloudAzNLBStatsAg1h",
+		"faultInst",
+		"netflowMonitorPol",
+		"uribv4EgrBytesAgHist1d",
+		"l2IngrBytesAg1h",
+		"cloudEgressPktsAgHist15min",
+		"cloudEgressPktsAgHist1year",
+		"cloudHostRouterEgressBytesAg1d",
+		"cloudHostRouterIngressBytesAgHist1qtr",
+		"cloudHostRouterIngressPktsAg15min",
+		"fvOverallHealthHist15min",
+		"l2EgrPktsAg1qtr",
+		"cloudAppGwStatsAg1year",
+		"cloudAzNLBStatsAg15min",
+		"cloudAzNLBStatsAg1mo",
+		"cloudIngressPktsAg1year",
+		"fvOverallHealthHist1year",
+		"l2EgrPktsAgHist1d",
+		"spanVDestGrp",
+		"vnsDevProf",
+		"dbgacEpgToEp",
+		"cloudAppGwStatsAg1d",
+		"cloudPoolHealthStatsAgHist1qtr",
+		"qosCustomPol",
+		"cloudAzNLBStatsAg1year",
+		"fvRsTenantMonPol",
+		"cloudAppGwStatsAgHist15min",
+		"cloudHostRouterIngressBytesAgHist1year",
+		"cloudSvcDevPol",
+		"fvTnlCtx",
+		"fvTnlEPg",
+		"ipsecIsakmpPhase2Pol",
+		"vnsCopyBdHolder",
+		"cloudAzNLBStatsAg1w",
+		"cloudIngressPktsAg1w",
+		"cloudIngressPktsAgHist1qtr",
+		"cloudsecIfPol",
+		"fvEpTags",
+		"l3extRogueExceptionMacGroup",
+		"qosVxlanCustomPol",
+		"cloudEgressPktsAgHist1h",
+		"cloudHostRouterEgressPktsAgHist1qtr",
+		"dbgacAnyToEp",
+		"fvOverallHealth1qtr",
+		"cloudEgressBytesAg15min",
+		"cloudHostRouterEgressBytesAgHist1mo",
+		"hsrpIfPol",
+		"rtctrlAttrP",
+		"cloudHostRouterIngressBytesAgHist1w",
+		"l2EgrPktsAgHist1year",
+		"l2IngrBytesAgHist1w",
+		"rtctrlProfile",
+		"cloudAppGwStatsAg1mo",
+		"fvFltCounterHist1qtr",
+		"l2IngrBytesAgHist1mo",
+		"l3extOutDef",
+		"cloudHostRouterEgressBytesAg1w",
+		"cloudHostRouterEgressPktsAg1year",
+		"cloudIngressBytesAg5min",
+		"cloudPoolHealthStatsAg1d",
+		"eigrpRtSummPol",
+		"l2EgrBytesAgHist1year",
+		"vnsSvcCont",
+		"cloudAzNLBStatsAgHist5min",
+		"l2IngrPktsAg1h",
+		"cloudAzNLBStatsAgHist1qtr",
+		"cloudPoolResponseLatencyAgHist1d",
+		"l2IngrBytesAg1qtr",
+		"l2IngrPktsAg1w",
+		"cloudAccount",
+		"cloudAppGwStatsAgHist5min",
+		"cloudHostRouterEgressBytesAgHist5min",
+		"fvFltCounter1h",
+		"cloudHostRouterEgressBytesAg1mo",
+		"cloudHostRouterEgressPktsAgHist5min",
+		"cloudNLBStatsAg1w",
+		"faultCountsWithDetails",
+		"cloudIngressBytesAg1year",
+		"tagInst",
+		"cloudApicSubnetPool",
+		"cloudHostRouterIngressBytesAg1mo",
+		"dbgacEpgToEpg",
+		"spanVSrcGrp",
+		"cloudIngressBytesAg1h",
+		"fvOverallHealthHist1qtr",
+		"netflowRecordPol",
+		"vmmOrchsExtTenant",
+		"cloudGcpFlowLogPol",
+		"cloudHostRouterEgressPktsAgHist1d",
+		"qosDppPol",
+		"traceroutepTrExtEp",
+		"uribv4EgrBytesAgHist1mo",
+		"arpIfPol",
+		"cloudHostRouterEgressPktsAgHist1mo",
+		"cloudIngressBytesAgHist1h",
+		"cloudPoolResponseLatencyAg1d",
+		"fvRtTenantInfra",
+		"l2EgrBytesAgHist1w",
+		"l2IngrPktsAgHist1d",
+		"aaaPartialRbacRule",
+		"cloudEgressPktsAg5min",
+		"cloudHostRouterIngressBytesAg1h",
+		"cloudHostRouterIngressBytesAgHist5min",
+		"vnsFolderInst",
+		"cloudAppGwStatsAg1w",
+		"cloudIngressPktsAgHist1h",
+		"mdpRemoteTenant",
+		"vnsCfgRelInst",
+		"vnsMscGraphXlateCont",
+		"fvEpRetPol",
+		"l2EgrBytesAg1mo",
+		"l2IngrPktsAg1year",
+		"bgpCtxAfPol",
+		"cloudAppGwStatsAg5min",
+		"cloudEgressBytesAg1d",
+		"cloudLBStatsAgHist1w",
+		"fvFltCounter1year",
+		"l2IngrPktsAgHist1h",
+		"vnsAbsCfgRel",
+		"vnsChassis",
+		"l2IngrBytesAg1year",
+		"aaaDomainRef",
+		"cloudAppGwStatsAg15min",
+		"cloudCounter",
+		"cloudEgressBytesAgHist1mo",
+		"cloudNLBStatsAgHist5min",
+		"cloudPoolHealthStatsAgHist1d",
+		"cloudVpnGwPol",
+		"l3extRouteTagPol",
+		"vnsCRel",
+		"cloudIngressBytesAg1qtr",
+		"cloudNLBStatsAgHist1d",
+		"igmpSnoopPol",
+		"uribv4EgrBytesAg1qtr",
+		"cloudHostRouterEgressBytesAgHist1qtr",
+		"cloudIngressPktsAg5min",
+		"cloudLDevDef",
+		"cloudNLBStatsAgHist1h",
+		"cloudNLBStatsAgHist1year",
+		"l2IngrPktsAg1mo",
+		"uribv4EgrBytesAg1year",
+		"cloudHostRouterIngressBytesAg5min",
+		"isakmpKeyring",
+		"vnsSvcPol",
+		"vzBrCP",
+		"cloudEgressPktsAg1year",
+		"cloudIngressBytesAgHist5min",
+		"cloudVpcInfoHolder",
+		"fvOverallHealthHist1h",
+		"vnsGFolder",
+		"vzFilter",
+		"cloudAzureStatsPol",
+		"dbgacEpToEpg",
+		"cloudLBStatsAgHist1h",
+		"cloudPoolResponseLatencyAg1qtr",
+		"cloudPoolResponseLatencyAg1w",
+		"dbgacExtToEp",
+		"fvAp",
+		"bfdIfPol",
+		"cloudHostRouterEgressPktsAg1h",
+		"cloudHostRouterIngressPktsAgHist1w",
+		"cloudNLBStatsAg1h",
+		"l2EgrBytesAgHist15min",
+		"l3extOut",
+		"cloudAppGwStatsAg1h",
+		"cloudEgressBytesAgHist1w",
+		"cloudEgressPktsAg1qtr",
+		"vzTaboo",
+		"cloudEgressPktsAg1h",
+		"cloudHostRouterEgressBytesAg15min",
+		"cloudHostRouterIngressBytesAgHist1mo",
+		"cloudIngressBytesAg1w",
+		"l2IngrBytesAg15min",
+		"l2IngrPktsAgHist1mo",
+		"uribv4EgrBytesAg15min",
+		"vnsAbsFuncProfContr",
+		"vnsInBHolder",
+		"cloudHostRouterIngressPktsAg1year",
+		"cloudIngressPktsAgHist5min",
+		"cloudEgressBytesAgHist1qtr",
+		"uribv4EgrPktsAg1h",
+		"cloudLBStatsAg15min",
+		"cloudPoolResponseLatencyAgHist15min",
+		"cloudStatsFilter",
+		"fvSlaDef",
+		"isakmpPolicy",
+		"l2EgrBytesAg1year",
+		"l2EgrPktsAg1h",
+		"cloudEgressBytesAg5min",
+		"cloudGatewayRouterP",
+		"l2EgrPktsAg1w",
+		"l2IngrBytesAgHist1d",
+		"vnsGraphInst",
+		"l2EgrPktsAgHist1mo",
+		"l2IngrPktsAgHist1year",
+		"vnsLDevCtx",
+		"bfdMhIfPol",
+		"cloudEgressPktsAgHist1mo",
+		"cloudIngressBytesAgHist15min",
+		"fvIntAp",
+		"cloudHostRouterEgressBytesAg1year",
+		"cloudPoolHealthStatsAg1year",
+		"cloudIngressPktsAgHist1mo",
+		"cloudPoolHealthStatsAgHist1mo",
+		"l2EgrBytesAg1qtr",
+		"vnsLDevVip",
+		"aaaRbacAnnotation",
+		"bgpRtSummPol",
+		"l2IngrPktsAgHist15min",
+		"cloudCertStore",
+		"cloudHostRouterEgressPktsAg1d",
+		"cloudIngressPktsAgHist1w",
+		"cloudNLBStatsAgHist15min",
+		"mgmtMgmtP",
+		"vnsAbsParam",
+		"cloudAzNLBStatsAgHist1year",
+		"cloudEgressBytesAgHist15min",
+		"cloudEgressBytesAgHist5min",
+		"cloudHostRouterIngressBytesAgHist1d",
+		"cloudIngressPktsAgHist15min",
+		"fvFltCounterHist5min",
+		"monEPGPol",
+		"cloudApp",
+		"cloudAzNLBStatsAg1d",
+		"cloudLBStatsAgHist1mo",
+		"fvOverallHealthHist1d",
+		"healthInst",
+		"cloudHostRouterEgressPktsAg1qtr",
+		"cloudNLBStatsAg1d",
+		"l2EgrPktsAg1year",
+		"tagExtMngdInst",
+		"cloudEgressBytesAg1w",
+		"cloudHostRouterEgressPktsAgHist1w",
+		"cloudNLBStatsAg5min",
+		"cloudPoolResponseLatencyAg1mo",
+		"cloudPoolResponseLatencyAgHist1mo",
+		"dbgacEpToExt",
+		"extdevSDWanPolCont",
+		"fvOverallHealth1d",
+		"uribv4EgrPktsAgHist1h",
+		"cloudPoolHealthStatsAg15min",
+		"fvOverallHealth1w",
+		"pimIfPol",
+		"uribv4EgrBytesAgHist15min",
+		"cloudAzNLBStatsAgHist1mo",
+		"cloudLBStatsAgHist1qtr",
+		"cloudPoolHealthStatsAg1mo",
+		"l2IngrPktsAgHist1qtr",
+		"bgpPeerPfxPol",
+		"cloudAzNLBStatsAgHist1h",
+		"cloudHostRouterIngressBytesAg1d",
+		"cloudIngressPktsAgHist1d",
+		"cloudNLBStatsAgHist1mo",
+		"ospfCtxPol",
+		"uribv4EgrBytesAgHist1w",
+		"cloudHostRouterIngressPktsAgHist1year",
+		"cloudPoolResponseLatencyAg1h",
+		"fvOverallHealthHist1mo",
+		"fvRsCloudAccount",
+		"fvTrackList",
+		"cloudHostRouterIngressPktsAg5min",
+		"cloudLDev",
+		"fvCtx",
+		"fvTrackMember",
+		"l3extVrfValidationPol",
+		"mldSnoopPol",
+		"cloudAwsProvider",
+		"l2EgrPktsAgHist15min",
+		"cloudEgressPktsAg1d",
+		"cloudLBStatsAg1mo",
+		"cloudTransitHubGwPol",
+		"fvOverallHealthHist1w",
+		"cloudHostRouterEgressBytesAg1h",
+		"cloudVrfRouteLeakPol",
+		"dbgacEpToEp",
+		"tagAliasDelInst",
+		"cloudNLBStatsAg1qtr",
+		"cloudNLBStatsAgHist1w",
+		"cloudPoolResponseLatencyAg5min",
+		"ndPfxPol",
+		"uribv4EgrPktsAg1year",
+		"uribv4EgrPktsAgHist1year",
+		"vxlanBgwSet",
+		"fvnsAddrInst",
+		"l2IngrPktsAg1qtr",
+		"cloudAzNLBStatsAgHist15min",
+		"fcPinningP",
+		"fvOverallHealth1mo",
+		"cloudPoolResponseLatencyAg15min",
+		"fvFltCounter1w",
+		"uribv4EgrBytesAgHist1year",
+		"uribv4EgrPktsAg1qtr",
+		"cloudHostRouterEgressBytesAgHist1d",
+		"fvOverallHealth1year",
+		"vnsCFolder",
+		"vnsSvcL3Cont",
+		"cloudEgressPktsAgHist1w",
+		"cloudPoolHealthStatsAgHist5min",
+		"isakmpGlobalPol",
+		"mgmtExtMgmtEntity",
+		"cloudAppGwStatsAg1qtr",
+		"cloudHostRouterIngressPktsAgHist5min",
+		"cloudPoolResponseLatencyAgHist1qtr",
+		"l2EgrBytesAgHist1h",
+		"uribv4EgrBytesAgHist1h",
+		"cloudEgressBytesAg1qtr",
+		"infraClP",
+		"uribv4EgrPktsAgHist1mo",
+		"vxlanRemoteFabric",
+		"tagTag",
+		"vnsUnitHolder",
+		"cloudEgressBytesAgHist1d",
+		"cloudEgressPktsAgHist1qtr",
+		"fvOverallHealth15min",
+		"l2EgrBytesAg15min",
+		"cloudHostRouterIngressPktsAg1mo",
+		"uribv4EgrBytesAg1d",
+		"uribv4EgrBytesAg1w",
+		"cloudIngressPktsAg1h",
+		"dnsepgSvrGrp",
+		"cloudIngressBytesAgHist1w",
+		"fvRsTnDenyRule",
+		"igmpIfPol",
+		"l2IngrBytesAgHist15min",
+		"vzERFltP",
+		"cloudHostRouterEgressBytesAgHist15min",
+		"cloudPoolResponseLatencyAgHist1w",
+		"fvSvcBD",
+		"bgpCtxPol",
+		"cloudHostRouterIngressPktsAgHist1qtr",
+		"cloudLBStatsAg1w",
+		"cloudLBStatsAgHist1d",
+		"fvInterShardTagSelectorCont",
+		"fvKeyChainPol",
+		"cloudHostRouterIngressBytesAg15min",
+		"fvFltCounterHist1mo",
+		"hsrpGroupPol",
+		"infraProvP",
+		"ospfIfPol",
+		"cloudHostRouterIngressBytesAgHist1h",
+		"vnsEPGExtRequest",
+		"cloudIngressBytesAgHist1mo",
+		"faultDelegate",
+		"vnsFWReq",
+		"vnsNatInst",
+		"cloudAppGwStatsAgHist1h",
+		"cloudEgressBytesAgHist1year",
+		"cloudHostRouterIngressBytesAg1qtr",
+		"cloudNLBStatsAg15min",
+		"cloudPoolHealthStatsAg1qtr",
+		"cloudHostRouterEgressBytesAg5min",
+		"cloudIngressPktsAg1d",
+		"cloudPoolResponseLatencyAgHist1year",
+		"l2EgrBytesAg1h",
+		"uribv4EgrBytesAg1h",
+		"vnsAbsFolder",
+		"vnsCParam",
+		"cloudEgressPktsAg1mo",
+		"cloudIngressBytesAgHist1d",
+		"fvFltCounter1mo",
+		"fvFltCounterHist1h",
+		"l2IngrPktsAg1d",
+		"mplsLabelPol",
+		"cloudHostRouterEgressPktsAg1mo",
+		"cloudLBStatsAg1d",
+		"cloudPoolHealthStatsAgHist1w",
+		"l2IngrBytesAgHist1h",
+		"qosDscpTransPol",
+		"vnsCtrlrMgmtPol",
+		"vnsGRel",
+		"cloudPoolHealthStatsAg5min",
+		"cloudPoolResponseLatencyAgHist5min",
+		"drawCont",
+		"eigrpIfPol",
+		"l2IngrBytesAgHist1year",
+		"vzRFltP",
+		"cloudHostRouterEgressPktsAgHist15min",
+		"traceroutepTrEpExt"
+	],
+	"DnFormats": [
+		"uni/tn-{name}"
+	],
+	"IdentifiedBy": [
+		"name"
+	],
+	"SingleNested": false,
+	"AllowDelete": false,
+	"Migration": true,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "Application Management",
+			"UiLocations": [
+				"Tenants"
+			]
+		},
+		"Migration": [
+			{
+				"Blocks": {
+					"fvRsTenantMonPol": {
+						"relation_fv_rs_tenant_mon_pol": "monitoring_policy_name"
+					}
+				},
+				"Version": 1
+			}
+		],
+		"Properties": null,
+		"ResourceName": "",
+		"Reuired": false,
+		"DnFormats": null,
+		"ContainedBy": null,
+		"RnPrepend": ""
+	},
+	"Properties": {
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"descr": {
+			"Name": "Descr",
+			"AttributeName": "descr",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The description of the tenant.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_descr"
+				],
+				"Changed": [
+					"changed_descr"
+				]
+			},
+			"Migrations": null
+		},
+		"name": {
+			"Name": "Name",
+			"AttributeName": "name",
+			"Required": true,
+			"Optional": false,
+			"Computed": false,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The name of the tenant.",
+			"Validators": [
+				{
+					"Min": 1,
+					"Max": 63,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name"
+				],
+				"Changed": [
+					"changed_name"
+				]
+			},
+			"Migrations": null
+		},
+		"nameAlias": {
+			"Name": "NameAlias",
+			"AttributeName": "name_alias",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Display Name.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 63,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "2.2(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name_alias"
+				],
+				"Changed": [
+					"changed_name_alias"
+				]
+			},
+			"Migrations": null
+		},
+		"ownerKey": {
+			"Name": "OwnerKey",
+			"AttributeName": "owner_key",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The key for enabling clients to own their data for entity correlation.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_owner_key"
+				],
+				"Changed": [
+					"changed_owner_key"
+				]
+			},
+			"Migrations": null
+		},
+		"ownerTag": {
+			"Name": "OwnerTag",
+			"AttributeName": "owner_tag",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "A tag for enabling clients to add their own data. For example, to indicate who created this object.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_owner_tag"
+				],
+				"Changed": [
+					"changed_owner_tag"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": [
+		"name"
+	],
+	"OptionalProperties": [
+		"descr",
+		"name_alias",
+		"owner_tag",
+		"annotation",
+		"owner_key"
+	],
+	"ReadOnlyProperties": null
+}
+2025/03/31 19:18:07 generator.go:737: Generating test data for class: mgmtInstP
+2025/03/31 19:18:07 generator.go:774: Test values for class 'mgmtInstP' property 'descr': {[initial_descr] [changed_descr]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'mgmtInstP' property 'name': {[initial_name] [changed_name]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'mgmtInstP' property 'annotation': {[initial_annotation] [changed_annotation]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'mgmtInstP' property 'nameAlias': {[initial_name_alias] [changed_name_alias]}
+2025/03/31 19:18:07 generator.go:774: Test values for class 'mgmtInstP' property 'prio': {[level1] [level2]}
+2025/03/31 19:18:07 generator.go:778: MetaDataMap for class mgmtInstP: {
+	"ClassName": "mgmtInstP",
+	"Comment": "",
+	"Name": "InstP",
+	"ResourceClassName": "MgmtInstP",
+	"ResourceName": "external_management_network_instance_profile",
+	"ResourceNameNested": "",
+	"RnFormat": "tn-mgmt/extmgmt-default/instp-{name}",
+	"Package": "mgmt",
+	"Platform": "both",
+	"Versions": "1.0(1e)-",
+	"IncludedChildren": [
+		{
+			"ClassName": "mgmtRsInstPCtx",
+			"PointsToClass": "fvCtx",
+			"Relational": true
+		},
+		{
+			"ClassName": "mgmtRsOoBCons",
+			"PointsToClass": "vzOOBBrCP",
+			"Relational": true
+		},
+		{
+			"ClassName": "tagTag",
+			"PointsToClass": "",
+			"Relational": false
+		},
+		{
+			"ClassName": "tagAnnotation",
+			"PointsToClass": "",
+			"Relational": false
+		}
+	],
+	"ContainedBy": null,
+	"Children": [
+		"fvRInfoHolder",
+		"fvRtARemoteHostToEpg",
+		"fvRtNtpProvToEpg",
+		"tagAliasInst",
+		"tagAnnotation",
+		"tagTag",
+		"faultDelegate",
+		"fvRtDcProfToEpg",
+		"fvRtDcToEpg",
+		"fvRtEpg",
+		"healthInst",
+		"tagExtMngdInst",
+		"faultCounts",
+		"fvRtProfileToEpg",
+		"fvRtSecProvToEpg",
+		"mgmtRsInstPCtx",
+		"mgmtSubnet",
+		"aaaRbacAnnotation",
+		"mgmtRsOoBCons",
+		"tagAliasDelInst",
+		"tagInst",
+		"faultInst"
+	],
+	"DnFormats": [
+		"uni/tn-mgmt/extmgmt-default/instp-{name}"
+	],
+	"IdentifiedBy": [
+		"name"
+	],
+	"SingleNested": false,
+	"AllowDelete": false,
+	"Migration": false,
+	"Definition": {
+		"Documentation": {
+			"SubCategory": "Node Management",
+			"UiLocations": [
+				"Tenants (mgmt) -\u003e External Management Network Instance Profiles"
+			]
+		},
+		"Migration": null,
+		"Properties": null,
+		"ResourceName": "external_management_network_instance_profile",
+		"Reuired": false,
+		"DnFormats": [
+			"uni/tn-mgmt/extmgmt-default/instp-{name}"
+		],
+		"ContainedBy": [
+			"polUni"
+		],
+		"RnPrepend": "tn-mgmt/extmgmt-default"
+	},
+	"Properties": {
+		"annotation": {
+			"Name": "Annotation",
+			"AttributeName": "annotation",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "User annotation. Suggested format orchestrator:value.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "3.2(1l)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_annotation"
+				],
+				"Changed": [
+					"changed_annotation"
+				]
+			},
+			"Migrations": null
+		},
+		"descr": {
+			"Name": "Descr",
+			"AttributeName": "descr",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Specifies the description of a policy component.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 128,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9\\\\!#$%()*,-./:;@ _{|}~?\u0026+]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_descr"
+				],
+				"Changed": [
+					"changed_descr"
+				]
+			},
+			"Migrations": null
+		},
+		"name": {
+			"Name": "Name",
+			"AttributeName": "name",
+			"Required": true,
+			"Optional": false,
+			"Computed": false,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "The external management entity instance profile name. This name can be up to 64 alphanumeric characters.",
+			"Validators": [
+				{
+					"Min": 1,
+					"Max": 64,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.:-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name"
+				],
+				"Changed": [
+					"changed_name"
+				]
+			},
+			"Migrations": null
+		},
+		"nameAlias": {
+			"Name": "NameAlias",
+			"AttributeName": "name_alias",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "string",
+			"CustomType": false,
+			"DefaultValue": "",
+			"Documentation": "Display Name.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 63,
+					"RegexList": [
+						{
+							"Regex": "^[a-zA-Z0-9_.-]+$",
+							"Type": "include"
+						}
+					]
+				}
+			],
+			"ValidValues": null,
+			"Versions": "2.2(1k)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"initial_name_alias"
+				],
+				"Changed": [
+					"changed_name_alias"
+				]
+			},
+			"Migrations": null
+		},
+		"prio": {
+			"Name": "Prio",
+			"AttributeName": "prio",
+			"Required": false,
+			"Optional": true,
+			"Computed": true,
+			"ValueType": "enum",
+			"CustomType": true,
+			"DefaultValue": "unspecified",
+			"Documentation": "The QoS priority class identifier.",
+			"Validators": [
+				{
+					"Min": 0,
+					"Max": 9,
+					"RegexList": null
+				}
+			],
+			"ValidValues": [
+				"level1",
+				"level2",
+				"level3",
+				"level4",
+				"level5",
+				"level6",
+				"unspecified"
+			],
+			"Versions": "1.0(1e)-",
+			"PointsToClass": "",
+			"TestValues": {
+				"Initial": [
+					"level1"
+				],
+				"Changed": [
+					"level2"
+				]
+			},
+			"Migrations": null
+		}
+	},
+	"RequiredProperties": [
+		"name"
+	],
+	"OptionalProperties": [
+		"name_alias",
+		"prio",
+		"descr",
+		"annotation"
+	],
+	"ReadOnlyProperties": null
+}
+2025/03/31 19:18:07 generator.go:781: Test data generation completed.

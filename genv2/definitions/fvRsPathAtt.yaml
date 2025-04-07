@@ -1,0 +1,14 @@
+resource_name: "relation_to_static_path"
+
+documentation:
+  ui_locations:
+    - "Tenants -> Application Profiles -> Application EPGs -> Static Ports"
+  sub_category: "Application Management"
+
+properties:
+  tDn:
+    testvalues:
+      initial: 
+        - "topology/pod-1/paths-101/pathep-[eth1/1]"
+      changed:
+        - "topology/pod-1/paths-101/pathep-[eth1/2]"

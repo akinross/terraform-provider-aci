@@ -1,0 +1,77 @@
+resourcename: bridge_domain
+
+documentation:
+  uilocations:
+  - "Tenants -> Networking -> Bridge Domains"
+  subcategory: "Networking"
+
+properties:
+  arpFlood:
+    overwritename: arp_flooding
+    documentation: "Enable ARP flooding for the %s object. If flooding is disabled, ARP requests for unknown endpoints will be forwarded by the leaf switch to the spine proxy for resolution and might trigger an ARP glean if the endpoint is not present in the COOP database."
+  mac:
+    overwritename: custom_mac_address
+    testvalues:
+      initial: 
+        - "00:22:BD:F8:19:FF"
+      changed:
+        - "00:22:BD:F8:19:FE"
+  llAddr:
+    overwritename: link_local_ipv6_address
+    testvalues:
+      initial: 
+        - "fe80::1"
+      changed:
+        - "fe80::2"
+  pcTag:
+    readonly: true
+    removevalidvalues:
+      - "any"
+  epMoveDetectMode:
+    overwritetype: string
+    overwritename: endpoint_move_detection_mode
+    addvalidvalues:
+      - ""
+
+migration:
+  - version: 1
+    blocks:
+      fvBD:
+        tenant_dn: parent_dn
+        arp_flood: arp_flooding
+        ep_clear: clear_remote_mac_entries
+        ep_move_detect_mode: endpoint_move_detection_mode
+        host_based_routing: advertise_host_routes
+        ipv6_mcast_allow: pim_ipv6
+        ll_addr: link_local_ipv6_address
+        mac: custom_mac_address
+        mcast_allow: pim
+        multi_dst_pkt_act: multi_destination_flooding
+        unicast_route: unicast_routing
+        unk_mac_ucast_act: l2_unknown_unicast_flooding
+        unk_mcast_act: l3_unknown_multicast_flooding
+        v6unk_mcast_act: ipv6_l3_unknown_multicast_flooding
+        vmac: virtual_mac_address
+        intersite_bum_traffic_allow: enable_intersite_bum_traffic
+      fvRsABDPolMonPol:
+        relation_fv_rs_abd_pol_mon_pol: monitoring_policy_name
+      fvRsBdToEpRet:
+        relation_fv_rs_bd_to_ep_ret: end_point_retention_policy_name
+      fvRsBDToFhs:
+        relation_fv_rs_bd_to_fhs: first_hop_security_policy_name
+      fvRsBDToNdP:
+        relation_fv_rs_bd_to_nd_p: neighbor_discovery_interface_policy_name
+      fvRsBDToNetflowMonitorPol:
+        relation_fv_rs_bd_to_netflow_monitor_pol: relation_to_netflow_monitor_policies
+        tn_netflow_monitor_pol_name: netflow_monitor_policy_name
+        flt_type: filter_type
+      fvRsBDToOut:
+        relation_fv_rs_bd_to_out: l3_outside_name
+      fvRsBDToRelayP:
+        relation_fv_rs_bd_to_relay_p: dhcp_relay_policy_name
+      fvRsCtx:
+        relation_fv_rs_ctx: vrf_name
+      fvRsIgmpsn:
+        relation_fv_rs_igmpsn: igmp_snooping_policy_name
+      fvRsMldsn:
+        relation_fv_rs_mldsn: mld_snooping_policy_name

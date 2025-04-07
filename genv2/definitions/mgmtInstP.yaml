@@ -1,0 +1,12 @@
+resourcename: "external_management_network_instance_profile"
+
+documentation:
+  uilocations:
+    - "Tenants (mgmt) -> External Management Network Instance Profiles"
+  subcategory: "Node Management"
+
+containedby:
+  - "polUni"
+rnprepend: "tn-mgmt/extmgmt-default"
+dnformats:
+  - "uni/tn-mgmt/extmgmt-default/instp-{name}"
