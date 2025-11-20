@@ -1751,7 +1751,7 @@ resource "aci_{{$target.target_resource_name}}" "test_{{$target.target_resource_
   {{$target.parent_dn_key}} = {{$target.parent_dependency_dn_ref}}
   {{- end}}
   			{{- range $key, $value := $target.properties}}
-				{{- if contains $value "."}}
+				{{- if isReference $value }}
   {{$key}} = {{$value}}
 				{{- else}}
   {{$key}} = "{{$value}}"
@@ -2519,10 +2519,14 @@ resource "aci_{{$.resourceName}}" "test" {
 			{{- end}}
   		{{- end}}
 	  {{- if $childDependencies }}
-	  	{{ $testIndex := 0 }}
-	  	{{- range $index, $target := .child_targets}}{{if not $target.static}}
-  depends_on = [aci_{{$target.target_resource_name}}.test_{{$target.target_resource_name}}_{{mod $testIndex 2}}]
-			{{- end}}
+	  	{{ $testIndex := 0 }}{{$first := true}}
+	  	{{- range $index, $target := .child_targets}}{{if not $target.static}}{{if eq $first true}}
+  depends_on = [{{$first = false}}{{- end}}
+    aci_{{$target.target_resource_name}}.test_{{$target.target_resource_name}}_{{mod $testIndex 2}}{{ $testIndex = add $testIndex 1 }},
+          {{- end}}
+        {{- end}}
+        {{- if not $first}}
+  ]
 		{{- end}}
   	  {{- end}}
 }
@@ -2698,13 +2702,13 @@ resource "aci_{{$.resourceName}}" "test" {
   {{$key}} = "{{$value}}"
 				{{- end}}
 			{{- end}}
-			{{- range $key, $value := $.legacy_attributes}}
+			{{- range $key, $value := $.legacy_attributes}}{{- if ne $value "target_dn_0"}}
 				{{- if isInterfaceSlice $value}}{{$list_value := index $value 0}}
   {{$key}} = {{if isReference $list_value}}{{$value}}{{else}}["{{$list_value}}"]{{end}}
 				{{- else}}
   {{$key}} = {{if isReference $value}}{{$value}}{{else}}"{{$value}}"{{end}}
 				{{- end}}
-			{{- end}}
+			{{- end}}{{- end}}
 			{{- range $key, $value := $.legacy_blocks}}
   {{$key}} {
 				{{- range $block_key, $block_value := $value}}
