@@ -17,6 +17,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
+	"github.com/hashicorp/terraform-plugin-framework/resource/identityschema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
@@ -31,7 +32,23 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &FvTenantResource{}
+var _ resource.ResourceWithIdentity = &FvTenantResource{}
 var _ resource.ResourceWithImportState = &FvTenantResource{}
+
+// Struct model for identity data handling
+type FvTenantIdentityModel struct {
+	Id types.String `tfsdk:"id"`
+}
+
+func (r FvTenantResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = identityschema.Schema{
+		Attributes: map[string]identityschema.Attribute{
+			"id": identityschema.StringAttribute{
+				RequiredForImport: true,
+			},
+		},
+	}
+}
 
 func NewFvTenantResource() resource.Resource {
 	return &FvTenantResource{}
@@ -742,6 +759,7 @@ func (r *FvTenantResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_tenant with id '%s'", data.Id.ValueString()))
 }
 
@@ -763,9 +781,12 @@ func (r *FvTenantResource) Read(ctx context.Context, req resource.ReadRequest, r
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *FvTenantResourceModel
+		var emptyIdData *FvTenantIdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_tenant with id '%s'", data.Id.ValueString()))
@@ -817,6 +838,7 @@ func (r *FvTenantResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_tenant with id '%s'", data.Id.ValueString()))
 }
 
@@ -849,6 +871,7 @@ func (r *FvTenantResource) ImportState(ctx context.Context, req resource.ImportS
 
 	var stateData *FvTenantResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: stateData.Id})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_tenant with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_tenant")

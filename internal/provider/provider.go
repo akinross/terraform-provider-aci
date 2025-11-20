@@ -17,6 +17,7 @@ import (
 	// "github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/list"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -34,6 +35,7 @@ var globalAllowExistingOnCreate bool
 // Ensure AciProvider satisfies various provider interfaces.
 var _ provider.Provider = &AciProvider{}
 var _ provider.ProviderWithFunctions = &AciProvider{}
+var _ provider.ProviderWithListResources = (*AciProvider)(nil)
 
 // AciProvider defines the provider implementation.
 type AciProvider struct {
@@ -202,6 +204,13 @@ func (p *AciProvider) Configure(ctx context.Context, req provider.ConfigureReque
 
 	resp.DataSourceData = aciClient
 	resp.ResourceData = aciClient
+	resp.ListResourceData = aciClient
+}
+
+func (p *AciProvider) ListResources(ctx context.Context) []func() list.ListResource {
+	return []func() list.ListResource{
+		NewFvTenantListResource,
+	}
 }
 
 func (p *AciProvider) Resources(ctx context.Context) []func() resource.Resource {
