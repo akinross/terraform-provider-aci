@@ -13,6 +13,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/list"
 	"github.com/hashicorp/terraform-plugin-framework/list/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
+	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-framework/types/basetypes"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 )
@@ -28,6 +29,10 @@ type FvTenantListResource struct {
 	client *client.Client
 }
 
+type FvTenantListResourceModel struct {
+	Filter types.String `tfsdk:"filter"`
+}
+
 func (r *FvTenantListResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
 	tflog.Debug(ctx, "Start metadata of list resource: aci_tenant")
 	resp.TypeName = req.ProviderTypeName + "_tenant"
@@ -36,7 +41,14 @@ func (r *FvTenantListResource) Metadata(ctx context.Context, req resource.Metada
 
 func (r *FvTenantListResource) ListResourceConfigSchema(ctx context.Context, req list.ListResourceSchemaRequest, resp *list.ListResourceSchemaResponse) {
 	tflog.Debug(ctx, "Start schema of list resource: aci_tenant")
-	resp.Schema = schema.Schema{}
+	resp.Schema = schema.Schema{
+		Attributes: map[string]schema.Attribute{
+			"filter": schema.StringAttribute{
+				Description: "The filter that should be applied to the query.",
+				Optional:    true,
+			},
+		},
+	}
 	tflog.Debug(ctx, "Start schema of list resource: aci_tenant")
 }
 
@@ -64,11 +76,23 @@ func (r *FvTenantListResource) Configure(ctx context.Context, req resource.Confi
 
 func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, stream *list.ListResultsStream) {
 
+	var configData FvTenantListResourceModel
+
 	var diags diag.Diagnostics
-	requestData := DoRestRequest(ctx, &diags, r.client, "api/node/class/fvTenant.json", "GET", nil)
+	diags.Append(req.Config.Get(ctx, &configData)...)
+	if diags.HasError() {
+		return
+	}
+
+	path := "api/node/class/fvTenant.json"
+	if !configData.Filter.IsNull() {
+		path = fmt.Sprintf("%s?%s", path, configData.Filter.ValueString())
+	}
+
+	requestData := DoRestRequest(ctx, &diags, r.client, path, "GET", nil)
 
 	stream.Results = func(push func(list.ListResult) bool) {
-		if requestData.Search("imdata").Data() != nil {
+		if requestData.Search("imdata").Search("fvTenant").Data() != nil {
 			for _, managedObject := range requestData.Search("imdata").Search("fvTenant").Data().([]interface{}) {
 				result := req.NewListResult(ctx)
 				attributeMap := managedObject.(map[string]interface{})["attributes"].(map[string]interface{})
@@ -80,9 +104,9 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 				fvTenant.NameAlias = basetypes.NewStringValue(getStringValueFromMap("nameAlias", attributeMap))
 				fvTenant.OwnerKey = basetypes.NewStringValue(getStringValueFromMap("ownerKey", attributeMap))
 				fvTenant.OwnerTag = basetypes.NewStringValue(getStringValueFromMap("ownerTag", attributeMap))
-				diags := result.Resource.Set(ctx, fvTenant)
+				diags.Append(result.Resource.Set(ctx, fvTenant)...)
 				if diags.HasError() {
-					tflog.Debug(ctx, fmt.Sprintf("AKINI diags error: %v", diags))
+					return
 				}
 				if !push(result) {
 					return
