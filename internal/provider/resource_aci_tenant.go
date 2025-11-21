@@ -867,7 +867,7 @@ func (r *FvTenantResource) Delete(ctx context.Context, req resource.DeleteReques
 
 func (r *FvTenantResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_tenant")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *FvTenantResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
