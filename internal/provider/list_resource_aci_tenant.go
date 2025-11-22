@@ -96,7 +96,13 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 			for _, managedObject := range requestData.Search("imdata").Search("fvTenant").Data().([]interface{}) {
 				result := req.NewListResult(ctx)
 				attributeMap := managedObject.(map[string]interface{})["attributes"].(map[string]interface{})
-				result.Identity.Set(ctx, FvTenantIdentityModel{Id: basetypes.NewStringValue(getStringValueFromMap("dn", attributeMap))})
+				diags.Append(result.Identity.Set(ctx, FvTenantIdentityModel{
+					Id:   basetypes.NewStringValue(getStringValueFromMap("dn", attributeMap)),
+					Host: basetypes.NewStringValue(r.client.BaseURL.Host),
+				})...)
+				if diags.HasError() {
+					return
+				}
 				fvTenant := getEmptyFvTenantResourceModel()
 				fvTenant.Annotation = basetypes.NewStringValue(getStringValueFromMap("annotation", attributeMap))
 				fvTenant.Descr = basetypes.NewStringValue(getStringValueFromMap("descr", attributeMap))
