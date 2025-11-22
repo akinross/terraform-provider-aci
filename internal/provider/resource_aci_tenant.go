@@ -884,11 +884,17 @@ func (r *FvTenantResource) ImportState(ctx context.Context, req resource.ImportS
 func getAndSetFvTenantAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *FvTenantResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "fvTenant,fvRsTenantMonPol,tagAnnotation,tagTag,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyFvTenantResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setFvTenantAttributes(ctx, diags, data, requestData)
+}
+
+func setFvTenantAttributes(ctx context.Context, diags *diag.Diagnostics, data *FvTenantResourceModel, requestData *container.Container) {
+
+	readData := getEmptyFvTenantResourceModel()
+
 	if requestData.Search("imdata").Search("fvTenant").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("fvTenant").Data().([]interface{})
 		if len(classReadInfo) == 1 {

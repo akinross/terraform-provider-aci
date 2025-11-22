@@ -9,6 +9,7 @@ import (
 	"fmt"
 
 	"github.com/ciscoecosystem/aci-go-client/v2/client"
+	"github.com/ciscoecosystem/aci-go-client/v2/container"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/list"
 	"github.com/hashicorp/terraform-plugin-framework/list/schema"
@@ -84,47 +85,46 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 		return
 	}
 
-	path := "api/node/class/fvTenant.json"
+	path := "api/node/class/fvTenant.json?rsp-subtree=full&rsp-subtree-class==fvRsTenantMonPol,tagAnnotation,tagTag"
 	if !configData.Filter.IsNull() {
-		path = fmt.Sprintf("%s?%s", path, configData.Filter.ValueString())
+		path = fmt.Sprintf("%s&%s", path, configData.Filter.ValueString())
 	}
 
 	requestData := DoRestRequest(ctx, &diags, r.client, path, "GET", nil)
 
 	stream.Results = func(push func(list.ListResult) bool) {
 		if requestData.Search("imdata").Search("fvTenant").Data() != nil {
-			for _, managedObject := range requestData.Search("imdata").Search("fvTenant").Data().([]interface{}) {
+			tenantAmount, _ := requestData.Search("imdata").ArrayCount()
+			for i := range tenantAmount {
+				tenant, err := requestData.Search("imdata").ArrayElement(i)
+				if err != nil {
+					return
+				}
+
+				imdataCont := container.New()
+				imdataCont.Set([]interface{}{tenant.Data()}, "imdata")
+				fvTenant := getEmptyFvTenantResourceModel()
+				setFvTenantAttributes(ctx, &diags, fvTenant, imdataCont)
 				result := req.NewListResult(ctx)
-				attributeMap := managedObject.(map[string]interface{})["attributes"].(map[string]interface{})
 				diags.Append(result.Identity.Set(ctx, FvTenantIdentityModel{
-					Id:   basetypes.NewStringValue(getStringValueFromMap("dn", attributeMap)),
+					Id:   fvTenant.Id,
 					Host: basetypes.NewStringValue(r.client.BaseURL.Host),
 				})...)
+
 				if diags.HasError() {
 					return
 				}
-				fvTenant := getEmptyFvTenantResourceModel()
-				fvTenant.Annotation = basetypes.NewStringValue(getStringValueFromMap("annotation", attributeMap))
-				fvTenant.Descr = basetypes.NewStringValue(getStringValueFromMap("descr", attributeMap))
-				fvTenant.Name = basetypes.NewStringValue(getStringValueFromMap("name", attributeMap))
-				fvTenant.NameAlias = basetypes.NewStringValue(getStringValueFromMap("nameAlias", attributeMap))
-				fvTenant.OwnerKey = basetypes.NewStringValue(getStringValueFromMap("ownerKey", attributeMap))
-				fvTenant.OwnerTag = basetypes.NewStringValue(getStringValueFromMap("ownerTag", attributeMap))
+
 				diags.Append(result.Resource.Set(ctx, fvTenant)...)
 				if diags.HasError() {
 					return
 				}
+
 				if !push(result) {
 					return
 				}
+
 			}
 		}
 	}
-}
-
-func getStringValueFromMap(key string, attributeMap map[string]interface{}) string {
-	if value, ok := attributeMap[key]; ok {
-		return value.(string)
-	}
-	return ""
 }
