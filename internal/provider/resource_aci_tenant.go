@@ -37,7 +37,8 @@ var _ resource.ResourceWithImportState = &FvTenantResource{}
 
 // Struct model for identity data handling
 type FvTenantIdentityModel struct {
-	Id types.String `tfsdk:"id"`
+	Id   types.String `tfsdk:"id"`
+	Host types.String `tfsdk:"host"`
 }
 
 func (r FvTenantResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
@@ -45,6 +46,9 @@ func (r FvTenantResource) IdentitySchema(_ context.Context, _ resource.IdentityS
 		Attributes: map[string]identityschema.Attribute{
 			"id": identityschema.StringAttribute{
 				RequiredForImport: true,
+			},
+			"host": identityschema.StringAttribute{
+				OptionalForImport: true,
 			},
 		},
 	}
@@ -759,7 +763,7 @@ func (r *FvTenantResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id})...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_tenant with id '%s'", data.Id.ValueString()))
 }
 
@@ -786,7 +790,7 @@ func (r *FvTenantResource) Read(ctx context.Context, req resource.ReadRequest, r
 		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-		resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id})...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_tenant with id '%s'", data.Id.ValueString()))
@@ -838,7 +842,7 @@ func (r *FvTenantResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id})...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, FvTenantIdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_tenant with id '%s'", data.Id.ValueString()))
 }
 
