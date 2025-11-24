@@ -106,7 +106,7 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 				fvTenant := getEmptyFvTenantResourceModel()
 				setFvTenantAttributes(ctx, &diags, fvTenant, imdataCont)
 				result := req.NewListResult(ctx)
-				diags.Append(result.Identity.Set(ctx, FvTenantIdentityModel{
+				diags.Append(result.Identity.Set(ctx, IdentityModel{
 					Id:   fvTenant.Id,
 					Host: basetypes.NewStringValue(r.client.BaseURL.Host),
 				})...)
