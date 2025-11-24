@@ -29,10 +29,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &L3extProvLblResource{}
+var _ resource.ResourceWithIdentity = &L3extProvLblResource{}
 var _ resource.ResourceWithImportState = &L3extProvLblResource{}
 
 func NewL3extProvLblResource() resource.Resource {
 	return &L3extProvLblResource{}
+}
+
+func (r L3extProvLblResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // L3extProvLblResource defines the resource implementation.
@@ -378,6 +383,7 @@ func (r *L3extProvLblResource) Create(ctx context.Context, req resource.CreateRe
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_l3out_provider_label with id '%s'", data.Id.ValueString()))
 }
 
@@ -399,9 +405,12 @@ func (r *L3extProvLblResource) Read(ctx context.Context, req resource.ReadReques
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *L3extProvLblResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_l3out_provider_label with id '%s'", data.Id.ValueString()))
@@ -444,6 +453,7 @@ func (r *L3extProvLblResource) Update(ctx context.Context, req resource.UpdateRe
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_l3out_provider_label with id '%s'", data.Id.ValueString()))
 }
 
@@ -472,10 +482,11 @@ func (r *L3extProvLblResource) Delete(ctx context.Context, req resource.DeleteRe
 
 func (r *L3extProvLblResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_l3out_provider_label")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *L3extProvLblResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_l3out_provider_label with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_l3out_provider_label")
@@ -484,11 +495,17 @@ func (r *L3extProvLblResource) ImportState(ctx context.Context, req resource.Imp
 func getAndSetL3extProvLblAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *L3extProvLblResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "l3extProvLbl,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyL3extProvLblResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setL3extProvLblAttributes(ctx, diags, data, requestData)
+}
+
+func setL3extProvLblAttributes(ctx context.Context, diags *diag.Diagnostics, data *L3extProvLblResourceModel, requestData *container.Container) {
+
+	readData := getEmptyL3extProvLblResourceModel()
+
 	if requestData.Search("imdata").Search("l3extProvLbl").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("l3extProvLbl").Data().([]interface{})
 		if len(classReadInfo) == 1 {

@@ -155,6 +155,7 @@ var templateFuncs = template.FuncMap{
 	"getCustomTestDependency":                  GetCustomTestDependency,
 	"getIgnoreInLegacy":                        GetIgnoreInLegacy,
 	"isSensitiveAttribute":                     IsSensitiveAttribute,
+	"getChildClassNames":                       GetChildClassNames,
 }
 
 func IsSensitiveAttribute(attributeName string, properties map[string]Property) bool {
@@ -165,6 +166,25 @@ func IsSensitiveAttribute(attributeName string, properties map[string]Property) 
 		}
 	}
 	return false
+}
+
+func GetChildClassNames(model Model, childClassNames []string) []string {
+
+	if childClassNames == nil {
+		childClassNames = []string{}
+	}
+
+	for _, child := range model.Children {
+		if !slices.Contains(childClassNames, child.PkgName) {
+			childClassNames = append(childClassNames, child.PkgName)
+		}
+
+		if child.HasChild {
+			childClassNames = GetChildClassNames(child, childClassNames)
+		}
+
+	}
+	return childClassNames
 }
 
 func GetDeprecatedExplanation(attributeName, replacedByAttributeName string) string {
@@ -1330,6 +1350,7 @@ func main() {
 				}
 			}
 			renderTemplate("resource.go.tmpl", fmt.Sprintf("resource_%s_%s.go", providerName, model.ResourceName), providerPath, model)
+			renderTemplate("resource_list.go.tmpl", fmt.Sprintf("resource_%s_%s_list.go", providerName, model.ResourceName), providerPath, model)
 			renderTemplate("datasource.go.tmpl", fmt.Sprintf("data_source_%s_%s.go", providerName, model.ResourceName), providerPath, model)
 
 			os.Mkdir(fmt.Sprintf("%s/%s_%s", resourcesExamplesPath, providerName, model.ResourceName), 0755)

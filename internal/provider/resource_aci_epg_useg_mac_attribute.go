@@ -27,10 +27,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &FvMacAttrResource{}
+var _ resource.ResourceWithIdentity = &FvMacAttrResource{}
 var _ resource.ResourceWithImportState = &FvMacAttrResource{}
 
 func NewFvMacAttrResource() resource.Resource {
 	return &FvMacAttrResource{}
+}
+
+func (r FvMacAttrResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // FvMacAttrResource defines the resource implementation.
@@ -372,6 +377,7 @@ func (r *FvMacAttrResource) Create(ctx context.Context, req resource.CreateReque
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_epg_useg_mac_attribute with id '%s'", data.Id.ValueString()))
 }
 
@@ -393,9 +399,12 @@ func (r *FvMacAttrResource) Read(ctx context.Context, req resource.ReadRequest, 
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *FvMacAttrResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_epg_useg_mac_attribute with id '%s'", data.Id.ValueString()))
@@ -438,6 +447,7 @@ func (r *FvMacAttrResource) Update(ctx context.Context, req resource.UpdateReque
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_epg_useg_mac_attribute with id '%s'", data.Id.ValueString()))
 }
 
@@ -466,10 +476,11 @@ func (r *FvMacAttrResource) Delete(ctx context.Context, req resource.DeleteReque
 
 func (r *FvMacAttrResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_epg_useg_mac_attribute")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *FvMacAttrResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_epg_useg_mac_attribute with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_epg_useg_mac_attribute")
@@ -478,11 +489,17 @@ func (r *FvMacAttrResource) ImportState(ctx context.Context, req resource.Import
 func getAndSetFvMacAttrAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *FvMacAttrResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "fvMacAttr,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyFvMacAttrResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setFvMacAttrAttributes(ctx, diags, data, requestData)
+}
+
+func setFvMacAttrAttributes(ctx context.Context, diags *diag.Diagnostics, data *FvMacAttrResourceModel, requestData *container.Container) {
+
+	readData := getEmptyFvMacAttrResourceModel()
+
 	if requestData.Search("imdata").Search("fvMacAttr").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("fvMacAttr").Data().([]interface{})
 		if len(classReadInfo) == 1 {

@@ -27,10 +27,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &FvRsSecInheritedResource{}
+var _ resource.ResourceWithIdentity = &FvRsSecInheritedResource{}
 var _ resource.ResourceWithImportState = &FvRsSecInheritedResource{}
 
 func NewFvRsSecInheritedResource() resource.Resource {
 	return &FvRsSecInheritedResource{}
+}
+
+func (r FvRsSecInheritedResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // FvRsSecInheritedResource defines the resource implementation.
@@ -318,6 +323,7 @@ func (r *FvRsSecInheritedResource) Create(ctx context.Context, req resource.Crea
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_relation_to_contract_master with id '%s'", data.Id.ValueString()))
 }
 
@@ -339,9 +345,12 @@ func (r *FvRsSecInheritedResource) Read(ctx context.Context, req resource.ReadRe
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *FvRsSecInheritedResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_relation_to_contract_master with id '%s'", data.Id.ValueString()))
@@ -384,6 +393,7 @@ func (r *FvRsSecInheritedResource) Update(ctx context.Context, req resource.Upda
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_relation_to_contract_master with id '%s'", data.Id.ValueString()))
 }
 
@@ -412,10 +422,11 @@ func (r *FvRsSecInheritedResource) Delete(ctx context.Context, req resource.Dele
 
 func (r *FvRsSecInheritedResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_relation_to_contract_master")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *FvRsSecInheritedResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_relation_to_contract_master with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_relation_to_contract_master")
@@ -424,11 +435,17 @@ func (r *FvRsSecInheritedResource) ImportState(ctx context.Context, req resource
 func getAndSetFvRsSecInheritedAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *FvRsSecInheritedResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "fvRsSecInherited,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyFvRsSecInheritedResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setFvRsSecInheritedAttributes(ctx, diags, data, requestData)
+}
+
+func setFvRsSecInheritedAttributes(ctx context.Context, diags *diag.Diagnostics, data *FvRsSecInheritedResourceModel, requestData *container.Container) {
+
+	readData := getEmptyFvRsSecInheritedResourceModel()
+
 	if requestData.Search("imdata").Search("fvRsSecInherited").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("fvRsSecInherited").Data().([]interface{})
 		if len(classReadInfo) == 1 {

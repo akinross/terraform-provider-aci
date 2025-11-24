@@ -30,10 +30,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &FhsBDPolResource{}
+var _ resource.ResourceWithIdentity = &FhsBDPolResource{}
 var _ resource.ResourceWithImportState = &FhsBDPolResource{}
 
 func NewFhsBDPolResource() resource.Resource {
 	return &FhsBDPolResource{}
+}
+
+func (r FhsBDPolResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // FhsBDPolResource defines the resource implementation.
@@ -724,6 +729,7 @@ func (r *FhsBDPolResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_first_hop_security_policy with id '%s'", data.Id.ValueString()))
 }
 
@@ -745,9 +751,12 @@ func (r *FhsBDPolResource) Read(ctx context.Context, req resource.ReadRequest, r
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *FhsBDPolResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_first_hop_security_policy with id '%s'", data.Id.ValueString()))
@@ -793,6 +802,7 @@ func (r *FhsBDPolResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_first_hop_security_policy with id '%s'", data.Id.ValueString()))
 }
 
@@ -821,10 +831,11 @@ func (r *FhsBDPolResource) Delete(ctx context.Context, req resource.DeleteReques
 
 func (r *FhsBDPolResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_first_hop_security_policy")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *FhsBDPolResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_first_hop_security_policy with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_first_hop_security_policy")
@@ -833,11 +844,17 @@ func (r *FhsBDPolResource) ImportState(ctx context.Context, req resource.ImportS
 func getAndSetFhsBDPolAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *FhsBDPolResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "fhsBDPol,fhsRaGuardPol,tagAnnotation,tagTag,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyFhsBDPolResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setFhsBDPolAttributes(ctx, diags, data, requestData)
+}
+
+func setFhsBDPolAttributes(ctx context.Context, diags *diag.Diagnostics, data *FhsBDPolResourceModel, requestData *container.Container) {
+
+	readData := getEmptyFhsBDPolResourceModel()
+
 	if requestData.Search("imdata").Search("fhsBDPol").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("fhsBDPol").Data().([]interface{})
 		if len(classReadInfo) == 1 {

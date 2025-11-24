@@ -29,10 +29,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &L3extRsInstPToProfileResource{}
+var _ resource.ResourceWithIdentity = &L3extRsInstPToProfileResource{}
 var _ resource.ResourceWithImportState = &L3extRsInstPToProfileResource{}
 
 func NewL3extRsInstPToProfileResource() resource.Resource {
 	return &L3extRsInstPToProfileResource{}
+}
+
+func (r L3extRsInstPToProfileResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // L3extRsInstPToProfileResource defines the resource implementation.
@@ -335,6 +340,7 @@ func (r *L3extRsInstPToProfileResource) Create(ctx context.Context, req resource
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_relation_from_external_epg_to_route_control_profile with id '%s'", data.Id.ValueString()))
 }
 
@@ -356,9 +362,12 @@ func (r *L3extRsInstPToProfileResource) Read(ctx context.Context, req resource.R
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *L3extRsInstPToProfileResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_relation_from_external_epg_to_route_control_profile with id '%s'", data.Id.ValueString()))
@@ -401,6 +410,7 @@ func (r *L3extRsInstPToProfileResource) Update(ctx context.Context, req resource
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_relation_from_external_epg_to_route_control_profile with id '%s'", data.Id.ValueString()))
 }
 
@@ -429,10 +439,11 @@ func (r *L3extRsInstPToProfileResource) Delete(ctx context.Context, req resource
 
 func (r *L3extRsInstPToProfileResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_relation_from_external_epg_to_route_control_profile")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *L3extRsInstPToProfileResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_relation_from_external_epg_to_route_control_profile with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_relation_from_external_epg_to_route_control_profile")
@@ -441,11 +452,17 @@ func (r *L3extRsInstPToProfileResource) ImportState(ctx context.Context, req res
 func getAndSetL3extRsInstPToProfileAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *L3extRsInstPToProfileResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "l3extRsInstPToProfile,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyL3extRsInstPToProfileResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setL3extRsInstPToProfileAttributes(ctx, diags, data, requestData)
+}
+
+func setL3extRsInstPToProfileAttributes(ctx context.Context, diags *diag.Diagnostics, data *L3extRsInstPToProfileResourceModel, requestData *container.Container) {
+
+	readData := getEmptyL3extRsInstPToProfileResourceModel()
+
 	if requestData.Search("imdata").Search("l3extRsInstPToProfile").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("l3extRsInstPToProfile").Data().([]interface{})
 		if len(classReadInfo) == 1 {

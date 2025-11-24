@@ -34,12 +34,12 @@ var _ resource.Resource = &FvTenantResource{}
 var _ resource.ResourceWithIdentity = &FvTenantResource{}
 var _ resource.ResourceWithImportState = &FvTenantResource{}
 
-func (r FvTenantResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
-	resp.IdentitySchema = getIdentitySchema()
-}
-
 func NewFvTenantResource() resource.Resource {
 	return &FvTenantResource{}
+}
+
+func (r FvTenantResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // FvTenantResource defines the resource implementation.

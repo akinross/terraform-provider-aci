@@ -29,10 +29,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &FvSCrtrnResource{}
+var _ resource.ResourceWithIdentity = &FvSCrtrnResource{}
 var _ resource.ResourceWithImportState = &FvSCrtrnResource{}
 
 func NewFvSCrtrnResource() resource.Resource {
 	return &FvSCrtrnResource{}
+}
+
+func (r FvSCrtrnResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // FvSCrtrnResource defines the resource implementation.
@@ -378,6 +383,7 @@ func (r *FvSCrtrnResource) Create(ctx context.Context, req resource.CreateReques
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_epg_useg_sub_block_statement with id '%s'", data.Id.ValueString()))
 }
 
@@ -399,9 +405,12 @@ func (r *FvSCrtrnResource) Read(ctx context.Context, req resource.ReadRequest, r
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *FvSCrtrnResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_epg_useg_sub_block_statement with id '%s'", data.Id.ValueString()))
@@ -444,6 +453,7 @@ func (r *FvSCrtrnResource) Update(ctx context.Context, req resource.UpdateReques
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_epg_useg_sub_block_statement with id '%s'", data.Id.ValueString()))
 }
 
@@ -472,10 +482,11 @@ func (r *FvSCrtrnResource) Delete(ctx context.Context, req resource.DeleteReques
 
 func (r *FvSCrtrnResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_epg_useg_sub_block_statement")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *FvSCrtrnResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_epg_useg_sub_block_statement with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_epg_useg_sub_block_statement")
@@ -484,11 +495,17 @@ func (r *FvSCrtrnResource) ImportState(ctx context.Context, req resource.ImportS
 func getAndSetFvSCrtrnAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *FvSCrtrnResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "fvSCrtrn,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyFvSCrtrnResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setFvSCrtrnAttributes(ctx, diags, data, requestData)
+}
+
+func setFvSCrtrnAttributes(ctx context.Context, diags *diag.Diagnostics, data *FvSCrtrnResourceModel, requestData *container.Container) {
+
+	readData := getEmptyFvSCrtrnResourceModel()
+
 	if requestData.Search("imdata").Search("fvSCrtrn").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("fvSCrtrn").Data().([]interface{})
 		if len(classReadInfo) == 1 {

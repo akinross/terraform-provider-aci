@@ -76,6 +76,7 @@ func (r *FvTenantListResource) Configure(ctx context.Context, req resource.Confi
 }
 
 func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, stream *list.ListResultsStream) {
+	tflog.Debug(ctx, "Start of list resource: aci_tenant")
 
 	var configData FvTenantListResourceModel
 
@@ -84,8 +85,7 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 	if diags.HasError() {
 		return
 	}
-
-	path := "api/node/class/fvTenant.json?rsp-subtree=full&rsp-subtree-class==fvRsTenantMonPol,tagAnnotation,tagTag"
+	path := "api/node/class/fvTenant.json?rsp-subtree=full&rsp-subtree-class=fvRsTenantMonPol,tagAnnotation,tagTag"
 	if !configData.Filter.IsNull() {
 		path = fmt.Sprintf("%s&%s", path, configData.Filter.ValueString())
 	}
@@ -94,15 +94,15 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 
 	stream.Results = func(push func(list.ListResult) bool) {
 		if requestData.Search("imdata").Search("fvTenant").Data() != nil {
-			tenantAmount, _ := requestData.Search("imdata").ArrayCount()
-			for i := range tenantAmount {
-				tenant, err := requestData.Search("imdata").ArrayElement(i)
+			imdataAmount, _ := requestData.Search("imdata").ArrayCount()
+			for i := range imdataAmount {
+				imdata, err := requestData.Search("imdata").ArrayElement(i)
 				if err != nil {
 					return
 				}
 
 				imdataCont := container.New()
-				imdataCont.Set([]interface{}{tenant.Data()}, "imdata")
+				imdataCont.Set([]interface{}{imdata.Data()}, "imdata")
 				fvTenant := getEmptyFvTenantResourceModel()
 				setFvTenantAttributes(ctx, &diags, fvTenant, imdataCont)
 				result := req.NewListResult(ctx)
@@ -127,4 +127,6 @@ func (r *FvTenantListResource) List(ctx context.Context, req list.ListRequest, s
 			}
 		}
 	}
+
+	tflog.Debug(ctx, "End of list resource: aci_tenant")
 }

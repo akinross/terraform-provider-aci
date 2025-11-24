@@ -27,10 +27,15 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var _ resource.Resource = &PimRouteMapPolResource{}
+var _ resource.ResourceWithIdentity = &PimRouteMapPolResource{}
 var _ resource.ResourceWithImportState = &PimRouteMapPolResource{}
 
 func NewPimRouteMapPolResource() resource.Resource {
 	return &PimRouteMapPolResource{}
+}
+
+func (r PimRouteMapPolResource) IdentitySchema(_ context.Context, _ resource.IdentitySchemaRequest, resp *resource.IdentitySchemaResponse) {
+	resp.IdentitySchema = getIdentitySchema()
 }
 
 // PimRouteMapPolResource defines the resource implementation.
@@ -362,6 +367,7 @@ func (r *PimRouteMapPolResource) Create(ctx context.Context, req resource.Create
 
 	// Save data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End create of resource aci_pim_route_map_policy with id '%s'", data.Id.ValueString()))
 }
 
@@ -383,9 +389,12 @@ func (r *PimRouteMapPolResource) Read(ctx context.Context, req resource.ReadRequ
 	// Save updated data into Terraform state
 	if data.Id.IsNull() {
 		var emptyData *PimRouteMapPolResourceModel
+		var emptyIdData *IdentityModel
 		resp.Diagnostics.Append(resp.State.Set(ctx, &emptyData)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, &emptyIdData)...)
 	} else {
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+		resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	}
 
 	tflog.Debug(ctx, fmt.Sprintf("End read of resource aci_pim_route_map_policy with id '%s'", data.Id.ValueString()))
@@ -428,6 +437,7 @@ func (r *PimRouteMapPolResource) Update(ctx context.Context, req resource.Update
 
 	// Save updated data into Terraform state
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: data.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("End update of resource aci_pim_route_map_policy with id '%s'", data.Id.ValueString()))
 }
 
@@ -456,10 +466,11 @@ func (r *PimRouteMapPolResource) Delete(ctx context.Context, req resource.Delete
 
 func (r *PimRouteMapPolResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
 	tflog.Debug(ctx, "Start import state of resource: aci_pim_route_map_policy")
-	resource.ImportStatePassthroughID(ctx, path.Root("id"), req, resp)
+	resource.ImportStatePassthroughWithIdentity(ctx, path.Root("id"), path.Root("id"), req, resp)
 
 	var stateData *PimRouteMapPolResourceModel
 	resp.Diagnostics.Append(resp.State.Get(ctx, &stateData)...)
+	resp.Diagnostics.Append(resp.Identity.Set(ctx, IdentityModel{Id: stateData.Id, Host: basetypes.NewStringValue(r.client.BaseURL.Host)})...)
 	tflog.Debug(ctx, fmt.Sprintf("Import state of resource aci_pim_route_map_policy with id '%s'", stateData.Id.ValueString()))
 
 	tflog.Debug(ctx, "End import of state resource: aci_pim_route_map_policy")
@@ -468,11 +479,17 @@ func (r *PimRouteMapPolResource) ImportState(ctx context.Context, req resource.I
 func getAndSetPimRouteMapPolAttributes(ctx context.Context, diags *diag.Diagnostics, client *client.Client, data *PimRouteMapPolResourceModel) {
 	requestData := DoRestRequest(ctx, diags, client, fmt.Sprintf("api/mo/%s.json?rsp-subtree=full&rsp-subtree-class=%s", data.Id.ValueString(), "pimRouteMapPol,tagAnnotation,tagTag"), "GET", nil)
 
-	readData := getEmptyPimRouteMapPolResourceModel()
-
 	if diags.HasError() {
 		return
 	}
+
+	setPimRouteMapPolAttributes(ctx, diags, data, requestData)
+}
+
+func setPimRouteMapPolAttributes(ctx context.Context, diags *diag.Diagnostics, data *PimRouteMapPolResourceModel, requestData *container.Container) {
+
+	readData := getEmptyPimRouteMapPolResourceModel()
+
 	if requestData.Search("imdata").Search("pimRouteMapPol").Data() != nil {
 		classReadInfo := requestData.Search("imdata").Search("pimRouteMapPol").Data().([]interface{})
 		if len(classReadInfo) == 1 {
