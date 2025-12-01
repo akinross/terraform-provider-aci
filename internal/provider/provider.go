@@ -303,6 +303,8 @@ func (p *AciProvider) Resources(ctx context.Context) []func() resource.Resource 
 		NewVzRsDenyRuleResource,
 		NewVzTSubjResource,
 		NewVzTabooResource,
+		NewXcvrZRIfPolResource,
+		NewXcvrZRPIfPolResource,
 		NewAciRestManagedResource,
 	}
 }
@@ -406,6 +408,8 @@ func (p *AciProvider) DataSources(ctx context.Context) []func() datasource.DataS
 		NewVzRsDenyRuleDataSource,
 		NewVzTSubjDataSource,
 		NewVzTabooDataSource,
+		NewXcvrZRIfPolDataSource,
+		NewXcvrZRPIfPolDataSource,
 		NewAciRestManagedDataSource,
 		NewTopSystemDataSource,
 	}
