@@ -2895,3 +2895,14 @@ infraRsAccBndlSubgrp:
       # Response Status Code: 400, Error Code: 182, Error Message: Validation failed PortBlk has a reln to AccBndlSubgrp not contained by AccBndlGrp its parent is associated to.
       target_dn: ""
 
+l2IfPol:
+  overwrites:
+    vepa: reflective_relay
+  documentation:
+    qinq: "The QinQ port type of the %s object."
+    vepa: "The reflective relay (802.1Qbg) state of the %s object."
+    vlanScope: "The vlan scope of the %s object."
+  test_values:
+    all:
+      reflective_relay: "enabled"
+      vlan_scope: "portlocal"
