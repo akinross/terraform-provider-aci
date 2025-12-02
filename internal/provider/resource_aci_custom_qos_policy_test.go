@@ -147,14 +147,12 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.description", "description_1"),
@@ -175,7 +173,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.1.target_cos", "1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.1.to", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.description", "description_1"),
@@ -196,7 +193,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.1.target_cos", "1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.1.to", "AF12"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "tags.0.value", "value_1"),
@@ -221,7 +217,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 				Config:             testConfigQosCustomPolChildrenRemoveFromConfigDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.0.value", "value_1"),
@@ -229,7 +224,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.annotations.0.key", "key_0"),
@@ -271,7 +265,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.1.to", "1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.annotations.0.key", "key_0"),
@@ -313,7 +306,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.1.to", "AF12"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "tags.0.value", "value_1"),
@@ -328,13 +320,11 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 				Config:             testConfigQosCustomPolChildrenRemoveOneDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.annotations.0.key", "key_1"),
@@ -353,7 +343,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.0.to", "1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dot1p_classifiers.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.annotations.0.key", "key_1"),
@@ -372,7 +361,6 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.0.to", "AF12"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "dscp_to_priority_maps.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "tags.0.value", "test_value"),

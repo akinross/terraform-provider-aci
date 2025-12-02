@@ -135,7 +135,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.0.value", "value_1"),
@@ -143,7 +142,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.annotations.0.key", "key_0"),
@@ -173,7 +171,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "tags.0.value", "value_1"),
@@ -191,7 +188,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.0.value", "value_1"),
@@ -199,7 +195,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.annotations.0.key", "key_0"),
@@ -229,7 +224,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "tags.0.value", "value_1"),
@@ -247,13 +241,11 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.annotations.0.key", "key_1"),
@@ -266,7 +258,6 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "relation_to_consumed_out_of_band_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "tags.0.value", "test_value"),

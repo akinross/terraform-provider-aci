@@ -380,14 +380,12 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "scope"),
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "segment"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.description", "description_1"),
@@ -397,50 +395,41 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.owner_key", "owner_key_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.owner_tag", "owner_tag_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-6.1(1e)", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_dhcp_relay_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_dhcp_relay_policy.dhcp_relay_policy_name", "dhcp_relay_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.end_point_retention_policy_name", "end_point_retention_policy_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.resolve_action", "inherit"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_first_hop_security_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_first_hop_security_policy.first_hop_security_policy_name", "first_hop_security_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.igmp_snooping_policy_name", "igmp_snooping_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.l3_outside_name", "l3_outside_name_0"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.1.l3_outside_name", "l3_outside_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.mld_snooping_policy_name", "mld_snooping_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.neighbor_discovery_interface_policy_name", "neighbor_discovery_interface_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.2(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.filter_type", "ce"),
@@ -449,18 +438,15 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.1.filter_type", "ipv4"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.1.netflow_monitor_policy_name", "netflow_monitor_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.l3_outside_name", "l3_outside_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.route_control_profile_name", "route_control_profile_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.vrf_name", "vrf_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.2(3e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.description", "description_1"),
@@ -473,7 +459,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.1.name", "name_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.1.name_alias", "name_alias_2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "tags.0.value", "value_1"),
@@ -501,7 +486,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "scope"),
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "segment"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.0.value", "value_1"),
@@ -509,7 +493,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.annotations.0.key", "key_0"),
@@ -529,7 +512,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.owner_key", "owner_key_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "legacy_mode.owner_tag", "owner_tag_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-6.1(1e)", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_dhcp_relay_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_dhcp_relay_policy.annotations.0.key", "key_0"),
@@ -544,7 +526,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_dhcp_relay_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_dhcp_relay_policy.dhcp_relay_policy_name", "dhcp_relay_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.annotations.0.key", "key_0"),
@@ -560,7 +541,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.end_point_retention_policy_name", "end_point_retention_policy_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.resolve_action", "inherit"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_first_hop_security_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_first_hop_security_policy.annotations.0.key", "key_0"),
@@ -575,7 +555,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_first_hop_security_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_first_hop_security_policy.first_hop_security_policy_name", "first_hop_security_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.annotations.0.key", "key_0"),
@@ -590,7 +569,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.igmp_snooping_policy_name", "igmp_snooping_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.annotations.0.key", "key_0"),
@@ -618,7 +596,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.1.l3_outside_name", "l3_outside_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.annotations.0.key", "key_0"),
@@ -633,7 +610,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.mld_snooping_policy_name", "mld_snooping_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_monitoring_policy.annotations.0.key", "key_0"),
@@ -648,7 +624,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_monitoring_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.annotations.0.key", "key_0"),
@@ -663,7 +638,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.neighbor_discovery_interface_policy_name", "neighbor_discovery_interface_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.2(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.annotations.0.key", "key_0"),
@@ -693,7 +667,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.1.netflow_monitor_policy_name", "netflow_monitor_policy_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.annotations.0.key", "key_0"),
@@ -709,7 +682,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.l3_outside_name", "l3_outside_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_route_control_profile.route_control_profile_name", "route_control_profile_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.annotations.0.key", "key_0"),
@@ -724,7 +696,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.vrf_name", "vrf_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.2(3e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.annotations.0.key", "key_0"),
@@ -758,7 +729,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.1.name_alias", "name_alias_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "tags.0.value", "value_1"),
@@ -776,17 +746,13 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "scope"),
 					resource.TestCheckResourceAttrSet("aci_bridge_domain.test", "segment"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-6.1(1e)", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.annotations.0.key", "key_1"),
@@ -798,9 +764,7 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.end_point_retention_policy_name", "end_point_retention_policy_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_end_point_retention_policy.resolve_action", "inherit"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.annotations.0.key", "key_1"),
@@ -811,7 +775,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_igmp_snooping_policy.igmp_snooping_policy_name", "igmp_snooping_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.annotations.0.key", "key_1"),
@@ -823,7 +786,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.0.l3_outside_name", "l3_outside_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_l3_outsides.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.annotations.0.key", "key_1"),
@@ -834,9 +796,7 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_mld_snooping_policy.mld_snooping_policy_name", "mld_snooping_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.annotations.0.key", "key_1"),
@@ -847,7 +807,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_neighbor_discovery_interface_policy.neighbor_discovery_interface_policy_name", "neighbor_discovery_interface_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.2(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.annotations.0.key", "key_1"),
@@ -860,9 +819,7 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.0.netflow_monitor_policy_name", "netflow_monitor_policy_name_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_netflow_monitor_policies.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.annotations.0.key", "key_1"),
@@ -873,7 +830,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "relation_to_vrf.vrf_name", "vrf_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.2(3e)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.annotations.0.key", "key_1"),
@@ -888,7 +844,6 @@ func TestAccResourceFvBDWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.0.name_alias", "name_alias_2"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "rogue_coop_exceptions.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_bridge_domain.test", "tags.0.value", "test_value"),

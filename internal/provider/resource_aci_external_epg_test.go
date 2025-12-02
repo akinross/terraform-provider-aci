@@ -209,14 +209,12 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "intra_epg_isolation", "unenforced")),
 					resource.TestCheckResourceAttrSet("aci_external_epg.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_external_epg.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.contract_name", "contract_name_0"),
@@ -225,19 +223,16 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.1.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.3(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-ext_epg_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.1.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-ext_epg_0"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.custom_qos_policy_name", "custom_qos_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.imported_contract_name", "imported_contract_name_0"),
@@ -246,14 +241,12 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.1.imported_contract_name", "imported_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.contract_name", "contract_name_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.1.contract_name", "contract_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.contract_name", "contract_name_0"),
@@ -264,7 +257,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.1.match_criteria", "AtleastOne"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.direction", "export"),
@@ -273,14 +265,12 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.1.direction", "import"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.1.route_control_profile_name", "route_control_profile_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.taboo_contract_name", "taboo_contract_name_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.1.taboo_contract_name", "taboo_contract_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "tags.0.value", "value_1"),
@@ -307,7 +297,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrSet("aci_external_epg.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_external_epg.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.0.value", "value_1"),
@@ -315,7 +304,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.annotations.0.key", "key_0"),
@@ -345,7 +333,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.3(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.annotations.0.key", "key_0"),
@@ -373,7 +360,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.1.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-ext_epg_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.annotations.0.key", "key_0"),
@@ -388,7 +374,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.custom_qos_policy_name", "custom_qos_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.annotations.0.key", "key_0"),
@@ -418,7 +403,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.annotations.0.key", "key_0"),
@@ -446,7 +430,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.1.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.annotations.0.key", "key_0"),
@@ -478,7 +461,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.annotations.0.key", "key_0"),
@@ -508,7 +490,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.1.route_control_profile_name", "route_control_profile_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.annotations.0.key", "key_0"),
@@ -536,7 +517,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.1.taboo_contract_name", "taboo_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "tags.0.value", "value_1"),
@@ -553,13 +533,11 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrSet("aci_external_epg.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_external_epg.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.annotations.0.key", "key_1"),
@@ -572,7 +550,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_consumed_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.3(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.annotations.0.key", "key_1"),
@@ -584,7 +561,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.0.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-ext_epg_0"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_contract_masters.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.annotations.0.key", "key_1"),
@@ -595,7 +571,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_custom_qos_policy.custom_qos_policy_name", "custom_qos_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.annotations.0.key", "key_1"),
@@ -608,7 +583,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_imported_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.annotations.0.key", "key_1"),
@@ -620,7 +594,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.0.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_intra_epg_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.annotations.0.key", "key_1"),
@@ -634,7 +607,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_provided_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.annotations.0.key", "key_1"),
@@ -647,7 +619,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.0.route_control_profile_name", "route_control_profile_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_route_control_profiles.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.annotations.0.key", "key_1"),
@@ -659,7 +630,6 @@ func TestAccResourceL3extInstPWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.0.taboo_contract_name", "taboo_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "relation_to_taboo_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_external_epg.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_external_epg.test", "tags.0.value", "test_value"),

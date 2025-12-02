@@ -140,14 +140,12 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "deployment_immediacy", "lazy"),
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "mode", "regular"),
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "primary_encapsulation", "unknown"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "tags.0.value", "value_1"),
@@ -172,7 +170,6 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsAepAttChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.0.value", "value_1"),
@@ -180,7 +177,6 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "tags.0.value", "value_1"),
@@ -195,13 +191,11 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsAepAttChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "tags.0.value", "test_value"),

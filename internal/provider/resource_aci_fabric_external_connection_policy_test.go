@@ -170,7 +170,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "site_id", "0"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.0.value", "value_1"),
@@ -178,7 +177,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.0(1m)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.annotations.0.key", "key_0"),
@@ -199,7 +197,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.password", "password_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.type", "automatic_with_full_mesh"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "tags.0.value", "value_1"),
@@ -220,7 +217,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "site_id", "0"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.0.value", "value_1"),
@@ -228,7 +224,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.0(1m)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.annotations.0.key", "key_0"),
@@ -249,7 +244,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.password", "password_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.type", "automatic_with_full_mesh"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "tags.0.value", "value_1"),
@@ -270,13 +264,11 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "site_id", "0"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.0(1m)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.annotations.0.key", "key_1"),
@@ -293,7 +285,6 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.password", "password_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "peering_profile.type", "automatic_with_full_mesh"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "tags.0.value", "test_value"),

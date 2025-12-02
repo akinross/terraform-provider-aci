@@ -287,21 +287,18 @@ func TestAccResourceFvRsDomAttWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "port_allocation", "none")),
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(3j)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "custom_epg_name", "")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "uplink_order_container.active_uplinks", "1,2"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "uplink_order_container.annotation", "annotation_1"),
@@ -330,7 +327,6 @@ func TestAccResourceFvRsDomAttWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsDomAttChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.0.value", "value_1"),
@@ -338,7 +334,6 @@ func TestAccResourceFvRsDomAttWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.0.value", "value_1"),
@@ -346,7 +341,6 @@ func TestAccResourceFvRsDomAttWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "uplink_order_container.active_uplinks", "1,2"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "uplink_order_container.annotation", "annotation_1"),
@@ -374,19 +368,16 @@ func TestAccResourceFvRsDomAttWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsDomAttChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "tags.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "uplink_order_container.active_uplinks", "1,2"),
 						resource.TestCheckResourceAttr("aci_relation_to_domain.test", "uplink_order_container.annotation", "annotation_1"),

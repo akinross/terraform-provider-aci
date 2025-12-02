@@ -169,14 +169,12 @@ func TestAccResourceRtctrlProfileWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_route_control_profile.test", "route_control_profile_type", "combinable"),
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(6d)-4.2(7w),5.1(3e)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "route_map_continue", "no")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.value", "value_1"),
@@ -201,7 +199,6 @@ func TestAccResourceRtctrlProfileWithFvTenant(t *testing.T) {
 				Config:             testConfigRtctrlProfileChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.value", "value_1"),
@@ -209,7 +206,6 @@ func TestAccResourceRtctrlProfileWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.value", "value_1"),
@@ -224,13 +220,11 @@ func TestAccResourceRtctrlProfileWithFvTenant(t *testing.T) {
 				Config:             testConfigRtctrlProfileChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.value", "test_value"),
@@ -409,14 +403,12 @@ func TestAccResourceRtctrlProfileWithL3extOut(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_route_control_profile.test", "route_control_profile_type", "combinable"),
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(6d)-4.2(7w),5.1(3e)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "route_map_continue", "no")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.value", "value_1"),
@@ -441,7 +433,6 @@ func TestAccResourceRtctrlProfileWithL3extOut(t *testing.T) {
 				Config:             testConfigRtctrlProfileChildrenRemoveFromConfigDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.value", "value_1"),
@@ -449,7 +440,6 @@ func TestAccResourceRtctrlProfileWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.value", "value_1"),
@@ -464,13 +454,11 @@ func TestAccResourceRtctrlProfileWithL3extOut(t *testing.T) {
 				Config:             testConfigRtctrlProfileChildrenRemoveOneDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_route_control_profile.test", "tags.0.value", "test_value"),

@@ -115,14 +115,12 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "target_dn", "uni/phys-physical_domain_0"),
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "tags.0.value", "value_1"),
@@ -147,7 +145,6 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 				Config:             testConfigInfraRsDomPChildrenRemoveFromConfigDependencyWithInfraAttEntityP,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.0.value", "value_1"),
@@ -155,7 +152,6 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "tags.0.value", "value_1"),
@@ -170,13 +166,11 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 				Config:             testConfigInfraRsDomPChildrenRemoveOneDependencyWithInfraAttEntityP,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "tags.0.value", "test_value"),

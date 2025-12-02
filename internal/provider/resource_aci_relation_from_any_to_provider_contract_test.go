@@ -131,14 +131,12 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "match_criteria", "AtleastOne"),
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "tags.0.value", "value_1"),
@@ -163,7 +161,6 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 				Config:             testConfigVzRsAnyToProvChildrenRemoveFromConfigDependencyWithVzAny,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.0.value", "value_1"),
@@ -171,7 +168,6 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "tags.0.value", "value_1"),
@@ -186,13 +182,11 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 				Config:             testConfigVzRsAnyToProvChildrenRemoveOneDependencyWithVzAny,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "tags.0.value", "test_value"),

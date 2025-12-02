@@ -124,14 +124,12 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "direction", "import"),
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_1"),
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "tags.0.value", "value_1"),
@@ -156,7 +154,6 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 				Config:             testConfigL3extRsLblToProfileChildrenRemoveFromConfigDependencyWithL3extConsLbl,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.0.value", "value_1"),
@@ -164,7 +161,6 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "tags.0.value", "value_1"),
@@ -179,13 +175,11 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 				Config:             testConfigL3extRsLblToProfileChildrenRemoveOneDependencyWithL3extConsLbl,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "tags.0.value", "test_value"),

@@ -172,14 +172,12 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "priority", "unspecified"),
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "target", "unspecified"),
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "target_cos", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "tags.0.value", "value_1"),
@@ -204,7 +202,6 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 				Config:             testConfigQosDot1PClassChildrenRemoveFromConfigDependencyWithQosCustomPol,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.0.value", "value_1"),
@@ -212,7 +209,6 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "tags.0.value", "value_1"),
@@ -227,13 +223,11 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 				Config:             testConfigQosDot1PClassChildrenRemoveOneDependencyWithQosCustomPol,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "tags.0.value", "test_value"),

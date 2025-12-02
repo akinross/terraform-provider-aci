@@ -145,14 +145,12 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_associated_site.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_associated_site.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_associated_site.test", "site_id", "0"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.description", "description_1"),
@@ -173,7 +171,6 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.1.remote_vrf_pc_tag", "any"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.1.site_id", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.value", "value_1"),
@@ -198,7 +195,6 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvSiteAssociatedChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.value", "value_1"),
@@ -206,7 +202,6 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotations.0.key", "key_0"),
@@ -248,7 +243,6 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.1.site_id", "1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.value", "value_1"),
@@ -263,13 +257,11 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvSiteAssociatedChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotations.0.key", "key_1"),
@@ -288,7 +280,6 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.site_id", "1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.value", "test_value"),
@@ -444,14 +435,12 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_associated_site.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_associated_site.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_associated_site.test", "site_id", "0"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.description", "description_1"),
@@ -472,7 +461,6 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.1.remote_vrf_pc_tag", "any"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.1.site_id", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.value", "value_1"),
@@ -497,7 +485,6 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 				Config:             testConfigFvSiteAssociatedChildrenRemoveFromConfigDependencyWithFvBD,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.value", "value_1"),
@@ -505,7 +492,6 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotations.0.key", "key_0"),
@@ -547,7 +533,6 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.1.site_id", "1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.value", "value_1"),
@@ -562,13 +547,11 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 				Config:             testConfigFvSiteAssociatedChildrenRemoveOneDependencyWithFvBD,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.annotations.0.key", "key_1"),
@@ -587,7 +570,6 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.0.site_id", "1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "remote_sites.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_associated_site.test", "tags.0.value", "test_value"),

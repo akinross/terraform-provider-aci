@@ -139,14 +139,12 @@ func TestAccResourceFvFBRouteWithFvFBRGroup(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "name", ""),
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "name_alias", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "tags.0.value", "value_1"),
@@ -171,7 +169,6 @@ func TestAccResourceFvFBRouteWithFvFBRGroup(t *testing.T) {
 				Config:             testConfigFvFBRouteChildrenRemoveFromConfigDependencyWithFvFBRGroup,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.0.value", "value_1"),
@@ -179,7 +176,6 @@ func TestAccResourceFvFBRouteWithFvFBRGroup(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "tags.0.value", "value_1"),
@@ -194,13 +190,11 @@ func TestAccResourceFvFBRouteWithFvFBRGroup(t *testing.T) {
 				Config:             testConfigFvFBRouteChildrenRemoveOneDependencyWithFvFBRGroup,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vrf_fallback_route.test", "tags.0.value", "test_value"),

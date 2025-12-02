@@ -204,14 +204,12 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "ip_data_plane_learning", "enabled")),
 					resource.TestCheckResourceAttrSet("aci_vrf.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_vrf.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.address_family", "ipv4-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.annotation", "annotation_1"),
@@ -220,7 +218,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.1.ospf_timers_name", "ospf_timers_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.address_family", "ipv4-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.annotation", "annotation_1"),
@@ -229,12 +226,10 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.1.bgp_address_family_context_name", "bgp_address_family_context_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.bgp_timers_name", "bgp_timers_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.address_family", "ipv4-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.annotation", "annotation_1"),
@@ -243,32 +238,26 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.1.eigrp_address_family_context_name", "eigrp_address_family_context_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.end_point_retention_policy_name", "end_point_retention_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.l3out_route_tag_policy_name", "l3out_route_tag_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.ospf_timers_name", "ospf_timers_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_wan_vpn.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_wan_vpn.target_dn", "uni/tn-test_tenant/sdwanvpncont/sdwanvpnentry-sdwanvpn_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "tags.0.value", "value_1"),
@@ -295,7 +284,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrSet("aci_vrf.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_vrf.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.0.value", "value_1"),
@@ -303,7 +291,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.address_family", "ipv4-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.annotation", "annotation_1"),
@@ -333,7 +320,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.1.ospf_timers_name", "ospf_timers_name_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.address_family", "ipv4-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.annotation", "annotation_1"),
@@ -363,7 +349,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.1.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.bgp_timers_name", "bgp_timers_name_1"),
@@ -378,7 +363,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.tags.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.tags.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.address_family", "ipv4-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.annotation", "annotation_1"),
@@ -408,7 +392,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.1.eigrp_address_family_context_name", "eigrp_address_family_context_name_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.annotations.0.key", "key_0"),
@@ -423,7 +406,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.end_point_retention_policy_name", "end_point_retention_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.annotations.0.key", "key_0"),
@@ -438,7 +420,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.l3out_route_tag_policy_name", "l3out_route_tag_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_monitoring_policy.annotations.0.key", "key_0"),
@@ -453,7 +434,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_monitoring_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.annotations.0.key", "key_0"),
@@ -468,7 +448,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.ospf_timers_name", "ospf_timers_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_wan_vpn.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_wan_vpn.annotations.0.key", "key_0"),
@@ -483,7 +462,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_wan_vpn.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_wan_vpn.target_dn", "uni/tn-test_tenant/sdwanvpncont/sdwanvpnentry-sdwanvpn_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "tags.0.value", "value_1"),
@@ -500,13 +478,11 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrSet("aci_vrf.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_vrf.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.address_family", "ipv6-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.annotation", "annotation_2"),
@@ -519,7 +495,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.0.ospf_timers_name", "ospf_timers_name_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_address_family_ospf_timers.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.address_family", "ipv6-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.annotation", "annotation_2"),
@@ -532,7 +507,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.0.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_address_family_contexts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.bgp_timers_name", "bgp_timers_name_1"),
@@ -543,7 +517,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.tags.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_bgp_timers.tags.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.address_family", "ipv6-ucast"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.annotation", "annotation_2"),
@@ -556,7 +529,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.0.eigrp_address_family_context_name", "eigrp_address_family_context_name_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_eigrp_address_family_contexts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.annotations.0.key", "key_1"),
@@ -567,7 +539,6 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_end_point_retention_policy.end_point_retention_policy_name", "end_point_retention_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.annotations.0.key", "key_1"),
@@ -578,9 +549,7 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_l3out_route_tag_policy.l3out_route_tag_policy_name", "l3out_route_tag_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.annotations.0.key", "key_1"),
@@ -591,9 +560,7 @@ func TestAccResourceFvCtxWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "relation_to_ospf_timers.ospf_timers_name", "ospf_timers_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vrf.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vrf.test", "tags.0.value", "test_value"),

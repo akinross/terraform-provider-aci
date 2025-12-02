@@ -187,14 +187,12 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "type", "percentage"),
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "weight_down", "0"),
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "weight_up", "1"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.target_dn", "uni/tn-test_tenant/trackmember-track_member_name_1"),
@@ -203,7 +201,6 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.1.target_dn", "uni/tn-test_tenant/trackmember-track_member_name_2"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.1.weight", "10"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "tags.0.value", "value_1"),
@@ -228,7 +225,6 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 				Config:             testConfigFvTrackListChildrenRemoveFromConfigDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.0.value", "value_1"),
@@ -236,7 +232,6 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.annotations.0.key", "key_0"),
@@ -266,7 +261,6 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.1.weight", "10"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "tags.0.value", "value_1"),
@@ -281,13 +275,11 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 				Config:             testConfigFvTrackListChildrenRemoveOneDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.annotations.0.key", "key_1"),
@@ -300,7 +292,6 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.0.weight", "10"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "relation_to_ip_sla_track_members.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "tags.0.value", "test_value"),

@@ -219,14 +219,12 @@ func TestAccResourceIgmpSnoopPolWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "start_query_interval", "31"),
 					composeAggregateTestCheckFuncWithVersion(t, "5.1(1h)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "querier_version", "v3")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "tags.0.value", "value_1"),
@@ -251,7 +249,6 @@ func TestAccResourceIgmpSnoopPolWithFvTenant(t *testing.T) {
 				Config:             testConfigIgmpSnoopPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.0.value", "value_1"),
@@ -259,7 +256,6 @@ func TestAccResourceIgmpSnoopPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "tags.0.value", "value_1"),
@@ -274,13 +270,11 @@ func TestAccResourceIgmpSnoopPolWithFvTenant(t *testing.T) {
 				Config:             testConfigIgmpSnoopPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_igmp_snooping_policy.test", "tags.0.value", "test_value"),

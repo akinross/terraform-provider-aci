@@ -115,14 +115,12 @@ func TestAccResourceFvRsSecInheritedWithFvAEPg(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "target_dn", "uni/tn-test_name/ap-test_name/epg-epg_0"),
 					resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.value", "value_1"),
@@ -147,7 +145,6 @@ func TestAccResourceFvRsSecInheritedWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsSecInheritedChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.value", "value_1"),
@@ -155,7 +152,6 @@ func TestAccResourceFvRsSecInheritedWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.value", "value_1"),
@@ -170,13 +166,11 @@ func TestAccResourceFvRsSecInheritedWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsSecInheritedChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.value", "test_value"),
@@ -301,14 +295,12 @@ func TestAccResourceFvRsSecInheritedWithFvESg(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "target_dn", "uni/tn-test_name/ap-test_name/esg-esg_0"),
 					resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.value", "value_1"),
@@ -333,7 +325,6 @@ func TestAccResourceFvRsSecInheritedWithFvESg(t *testing.T) {
 				Config:             testConfigFvRsSecInheritedChildrenRemoveFromConfigDependencyWithFvESg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.value", "value_1"),
@@ -341,7 +332,6 @@ func TestAccResourceFvRsSecInheritedWithFvESg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.value", "value_1"),
@@ -356,13 +346,11 @@ func TestAccResourceFvRsSecInheritedWithFvESg(t *testing.T) {
 				Config:             testConfigFvRsSecInheritedChildrenRemoveOneDependencyWithFvESg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_contract_master.test", "tags.0.value", "test_value"),

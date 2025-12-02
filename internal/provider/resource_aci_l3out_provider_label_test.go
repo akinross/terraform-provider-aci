@@ -155,14 +155,12 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tag", "yellow-green"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tags.0.value", "value_1"),
@@ -187,7 +185,6 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 				Config:             testConfigL3extProvLblChildrenRemoveFromConfigDependencyWithL3extOut,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.0.value", "value_1"),
@@ -195,7 +192,6 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tags.0.value", "value_1"),
@@ -210,13 +206,11 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 				Config:             testConfigL3extProvLblChildrenRemoveOneDependencyWithL3extOut,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "tags.0.value", "test_value"),

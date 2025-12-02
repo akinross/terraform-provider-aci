@@ -123,14 +123,12 @@ func TestAccResourceVzRsAnyToConsIfWithVzAny(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "imported_contract_name", "test_tn_vz_cp_if_name"),
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "tags.0.value", "value_1"),
@@ -155,7 +153,6 @@ func TestAccResourceVzRsAnyToConsIfWithVzAny(t *testing.T) {
 				Config:             testConfigVzRsAnyToConsIfChildrenRemoveFromConfigDependencyWithVzAny,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.0.value", "value_1"),
@@ -163,7 +160,6 @@ func TestAccResourceVzRsAnyToConsIfWithVzAny(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "tags.0.value", "value_1"),
@@ -178,13 +174,11 @@ func TestAccResourceVzRsAnyToConsIfWithVzAny(t *testing.T) {
 				Config:             testConfigVzRsAnyToConsIfChildrenRemoveOneDependencyWithVzAny,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_any_to_contract_interface.test", "tags.0.value", "test_value"),

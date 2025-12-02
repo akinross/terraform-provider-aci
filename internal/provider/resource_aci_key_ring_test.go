@@ -210,14 +210,12 @@ func TestAccResourcePkiKeyRing(t *testing.T) {
 					composeAggregateTestCheckFuncWithVersion(t, "6.0(2h)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "elliptic_curve", "none"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "key_type", "RSA")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.value", "value_1"),
@@ -243,7 +241,6 @@ func TestAccResourcePkiKeyRing(t *testing.T) {
 				Config:             testConfigPkiKeyRingChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.value", "value_1"),
@@ -251,7 +248,6 @@ func TestAccResourcePkiKeyRing(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.value", "value_1"),
@@ -266,13 +262,11 @@ func TestAccResourcePkiKeyRing(t *testing.T) {
 				Config:             testConfigPkiKeyRingChildrenRemoveOne + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.value", "test_value"),
@@ -492,14 +486,12 @@ func TestAccResourcePkiKeyRingWithFvTenant(t *testing.T) {
 					composeAggregateTestCheckFuncWithVersion(t, "6.0(2h)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "elliptic_curve", "none"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "key_type", "RSA")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.value", "value_1"),
@@ -525,7 +517,6 @@ func TestAccResourcePkiKeyRingWithFvTenant(t *testing.T) {
 				Config:             testConfigPkiKeyRingChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.value", "value_1"),
@@ -533,7 +524,6 @@ func TestAccResourcePkiKeyRingWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.value", "value_1"),
@@ -548,13 +538,11 @@ func TestAccResourcePkiKeyRingWithFvTenant(t *testing.T) {
 				Config:             testConfigPkiKeyRingChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_key_ring.test", "tags.0.value", "test_value"),

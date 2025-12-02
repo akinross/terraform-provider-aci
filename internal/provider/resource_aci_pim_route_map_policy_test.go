@@ -147,14 +147,12 @@ func TestAccResourcePimRouteMapPolWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "tags.0.value", "value_1"),
@@ -179,7 +177,6 @@ func TestAccResourcePimRouteMapPolWithFvTenant(t *testing.T) {
 				Config:             testConfigPimRouteMapPolChildrenRemoveFromConfigDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.0.value", "value_1"),
@@ -187,7 +184,6 @@ func TestAccResourcePimRouteMapPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "tags.0.value", "value_1"),
@@ -202,13 +198,11 @@ func TestAccResourcePimRouteMapPolWithFvTenant(t *testing.T) {
 				Config:             testConfigPimRouteMapPolChildrenRemoveOneDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_pim_route_map_policy.test", "tags.0.value", "test_value"),

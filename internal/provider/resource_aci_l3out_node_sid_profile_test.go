@@ -147,14 +147,12 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "loopback_address", "0.0.0.0"),
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "name", ""),
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "name_alias", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "tags.0.value", "value_1"),
@@ -179,7 +177,6 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 				Config:             testConfigMplsNodeSidPChildrenRemoveFromConfigDependencyWithL3extLoopBackIfP,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.0.value", "value_1"),
@@ -187,7 +184,6 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "tags.0.value", "value_1"),
@@ -202,13 +198,11 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 				Config:             testConfigMplsNodeSidPChildrenRemoveOneDependencyWithL3extLoopBackIfP,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "tags.0.value", "test_value"),

@@ -156,14 +156,12 @@ func TestAccResourceFvRsPathAttWithFvAEPg(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "mode", "regular"),
 					resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "primary_encapsulation", "unknown"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "tags.0.value", "value_1"),
@@ -188,7 +186,6 @@ func TestAccResourceFvRsPathAttWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsPathAttChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.0.value", "value_1"),
@@ -196,7 +193,6 @@ func TestAccResourceFvRsPathAttWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "tags.0.value", "value_1"),
@@ -211,13 +207,11 @@ func TestAccResourceFvRsPathAttWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsPathAttChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_static_path.test", "tags.0.value", "test_value"),

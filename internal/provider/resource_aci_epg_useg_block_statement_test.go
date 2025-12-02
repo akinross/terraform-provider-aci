@@ -164,14 +164,12 @@ func TestAccResourceFvCrtrnWithFvAEPg(t *testing.T) {
 					composeAggregateTestCheckFuncWithVersion(t, "4.1(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "precedence", "0"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "scope", "scope-bd")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "tags.0.value", "value_1"),
@@ -196,7 +194,6 @@ func TestAccResourceFvCrtrnWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvCrtrnChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.0.value", "value_1"),
@@ -204,7 +201,6 @@ func TestAccResourceFvCrtrnWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "tags.0.value", "value_1"),
@@ -219,13 +215,11 @@ func TestAccResourceFvCrtrnWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvCrtrnChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_epg_useg_block_statement.test", "tags.0.value", "test_value"),

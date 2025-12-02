@@ -144,7 +144,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.0.value", "value_1"),
@@ -152,7 +151,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.annotations.0.key", "key_0"),
@@ -180,7 +178,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.1.target_dn", "uni/phys-physical_domain_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "tags.0.value", "value_1"),
@@ -199,7 +196,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.0.value", "value_1"),
@@ -207,7 +203,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.annotations.0.key", "key_0"),
@@ -235,7 +230,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.1.target_dn", "uni/phys-physical_domain_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "tags.0.value", "value_1"),
@@ -254,13 +248,11 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.annotations.0.key", "key_1"),
@@ -272,7 +264,6 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.0.target_dn", "uni/phys-physical_domain_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "relation_to_domains.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "tags.0.value", "test_value"),

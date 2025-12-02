@@ -115,14 +115,12 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "taboo_contract_name", "test_tn_vz_taboo_name"),
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "tags.0.value", "value_1"),
@@ -147,7 +145,6 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsProtByChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.0.value", "value_1"),
@@ -155,7 +152,6 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "tags.0.value", "value_1"),
@@ -170,13 +166,11 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsProtByChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "tags.0.value", "test_value"),

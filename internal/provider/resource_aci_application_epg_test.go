@@ -236,14 +236,12 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "has_multicast_source", "no")),
 					resource.TestCheckResourceAttrSet("aci_application_epg.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_application_epg.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.description", "description_1"),
@@ -256,7 +254,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.precedence", "1"),
 							resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.scope", "scope-bd")),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "6.1(3f)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.attachable_access_entity_profile_name", "attachable_access_entity_profile_name_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.deployment_immediacy", "immediate"),
@@ -269,12 +266,10 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.1.mode", "regular"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.1.primary_encapsulation", "unknown"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.bridge_domain_name", "bridge_domain_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.contract_name", "contract_name_0"),
@@ -283,24 +278,20 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.1.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.3(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.target_dn", "uni/tn-test_name/ap-test_name/epg-epg_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.1.target_dn", "uni/tn-test_name/ap-test_name/epg-epg_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.custom_qos_policy_name", "custom_qos_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_data_plane_policing_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_data_plane_policing_policy.data_plane_policing_policy_name", "data_plane_policing_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.uplink_order_container.active_uplinks", "1,2"),
@@ -367,7 +358,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						composeAggregateTestCheckFuncWithVersion(t, "4.2(3j)-", "inside",
 							resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.1.custom_epg_name", "custom_epg_name_2")),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.0(1m)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.description", "description_1"),
@@ -380,7 +370,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.1.vsan", "unknown"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.1.vsan_mode", "regular"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.imported_contract_name", "imported_contract_name_0"),
@@ -389,19 +378,16 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.1.imported_contract_name", "imported_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.contract_name", "contract_name_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.1.contract_name", "contract_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.contract_name", "contract_name_0"),
@@ -412,7 +398,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.1.match_criteria", "AtleastOne"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.deployment_immediacy", "immediate"),
@@ -427,7 +412,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.1.mode", "regular"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.1.target_dn", "topology/pod-1/node-102"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.deployment_immediacy", "immediate"),
@@ -444,19 +428,16 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.1.primary_encapsulation", "unknown"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.1.target_dn", "topology/pod-1/paths-101/pathep-[eth1/2]"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.taboo_contract_name", "taboo_contract_name_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.1.taboo_contract_name", "taboo_contract_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_trust_control_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_trust_control_policy.trust_control_policy_name", "trust_control_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "tags.0.value", "value_1"),
@@ -483,7 +464,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrSet("aci_application_epg.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_application_epg.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.0.value", "value_1"),
@@ -491,7 +471,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.annotations.0.key", "key_0"),
@@ -514,7 +493,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.precedence", "1"),
 							resource.TestCheckResourceAttr("aci_application_epg.test", "epg_useg_block_statement.scope", "scope-bd")),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "6.1(3f)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.attachable_access_entity_profile_name", "attachable_access_entity_profile_name_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.annotations.0.key", "key_0"),
@@ -548,7 +526,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.1.primary_encapsulation", "unknown"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.bridge_domain_name", "bridge_domain_name_1"),
@@ -563,7 +540,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.tags.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.tags.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.annotations.0.key", "key_0"),
@@ -593,7 +569,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.3(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.annotations.0.key", "key_0"),
@@ -621,7 +596,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.1.target_dn", "uni/tn-test_name/ap-test_name/epg-epg_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.annotations.0.key", "key_0"),
@@ -636,7 +610,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.custom_qos_policy_name", "custom_qos_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_data_plane_policing_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_data_plane_policing_policy.annotations.0.key", "key_0"),
@@ -651,7 +624,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_data_plane_policing_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_data_plane_policing_policy.data_plane_policing_policy_name", "data_plane_policing_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.annotations.0.key", "key_0"),
@@ -759,7 +731,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.1.custom_epg_name", "custom_epg_name_2")),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.0(1m)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.annotations.0.key", "key_0"),
@@ -793,7 +764,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.1.vsan_mode", "regular"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.annotations.0.key", "key_0"),
@@ -823,7 +793,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.annotations.0.key", "key_0"),
@@ -851,7 +820,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.1.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_monitoring_policy.annotations.0.key", "key_0"),
@@ -866,7 +834,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_monitoring_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.annotations.0.key", "key_0"),
@@ -898,7 +865,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.annotations.0.key", "key_0"),
@@ -934,7 +900,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.1.target_dn", "topology/pod-1/node-102"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.annotations.0.key", "key_0"),
@@ -972,7 +937,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.1.target_dn", "topology/pod-1/paths-101/pathep-[eth1/2]"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.annotations.0.key", "key_0"),
@@ -1000,7 +964,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.1.taboo_contract_name", "taboo_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_trust_control_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_trust_control_policy.annotations.0.key", "key_0"),
@@ -1015,7 +978,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_trust_control_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_trust_control_policy.trust_control_policy_name", "trust_control_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "tags.0.value", "value_1"),
@@ -1032,15 +994,12 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrSet("aci_application_epg.test", "pc_tag"),
 					resource.TestCheckResourceAttrSet("aci_application_epg.test", "scope"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.1(1j)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "6.1(3f)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.attachable_access_entity_profile_name", "attachable_access_entity_profile_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.annotations.0.key", "key_1"),
@@ -1055,7 +1014,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.0.primary_encapsulation", "unknown"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_attachable_access_entity_profiles.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.bridge_domain_name", "bridge_domain_name_1"),
@@ -1066,7 +1024,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.tags.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_bridge_domain.tags.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.annotations.0.key", "key_1"),
@@ -1079,7 +1036,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_consumed_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.3(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.annotations.0.key", "key_1"),
@@ -1091,7 +1047,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.0.target_dn", "uni/tn-test_name/ap-test_name/epg-epg_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_contract_masters.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.annotations.0.key", "key_1"),
@@ -1102,9 +1057,7 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.tags.#", "1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_custom_qos_policy.custom_qos_policy_name", "custom_qos_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.annotations.0.key", "key_1"),
@@ -1152,7 +1105,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.0.custom_epg_name", "custom_epg_name_2")),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_domains.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "2.0(1m)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.annotations.0.key", "key_1"),
@@ -1167,7 +1119,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.0.vsan_mode", "regular"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_fibre_channel_paths.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.annotations.0.key", "key_1"),
@@ -1180,7 +1131,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_imported_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.annotations.0.key", "key_1"),
@@ -1192,9 +1142,7 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.0.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_intra_epg_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.annotations.0.key", "key_1"),
@@ -1208,7 +1156,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_provided_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.annotations.0.key", "key_1"),
@@ -1224,7 +1171,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.0.target_dn", "topology/pod-1/node-102"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_leafs.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.annotations.0.key", "key_1"),
@@ -1241,7 +1187,6 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.0.target_dn", "topology/pod-1/paths-101/pathep-[eth1/2]"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_static_paths.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.annotations.0.key", "key_1"),
@@ -1253,9 +1198,7 @@ func TestAccResourceFvAEPgWithFvAp(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.0.taboo_contract_name", "taboo_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "relation_to_taboo_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_epg.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_application_epg.test", "tags.0.value", "test_value"),

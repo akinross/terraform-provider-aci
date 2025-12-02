@@ -131,14 +131,12 @@ func TestAccResourceFvRsProvWithFvAEPg(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "match_criteria", "AtleastOne"),
 					resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.value", "value_1"),
@@ -163,7 +161,6 @@ func TestAccResourceFvRsProvWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsProvChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.value", "value_1"),
@@ -171,7 +168,6 @@ func TestAccResourceFvRsProvWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.value", "value_1"),
@@ -186,13 +182,11 @@ func TestAccResourceFvRsProvWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsProvChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.value", "test_value"),
@@ -342,14 +336,12 @@ func TestAccResourceFvRsProvWithFvESg(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "match_criteria", "AtleastOne"),
 					resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.value", "value_1"),
@@ -374,7 +366,6 @@ func TestAccResourceFvRsProvWithFvESg(t *testing.T) {
 				Config:             testConfigFvRsProvChildrenRemoveFromConfigDependencyWithFvESg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.value", "value_1"),
@@ -382,7 +373,6 @@ func TestAccResourceFvRsProvWithFvESg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.value", "value_1"),
@@ -397,13 +387,11 @@ func TestAccResourceFvRsProvWithFvESg(t *testing.T) {
 				Config:             testConfigFvRsProvChildrenRemoveOneDependencyWithFvESg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_provided_contract.test", "tags.0.value", "test_value"),

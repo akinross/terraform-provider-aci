@@ -138,14 +138,12 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_any.test", "name", ""),
 					resource.TestCheckResourceAttr("aci_any.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_any.test", "preferred_group_member", "disabled"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.contract_name", "contract_name_0"),
@@ -154,7 +152,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.1.contract_name", "contract_name_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.imported_contract_name", "imported_contract_name_0"),
@@ -163,7 +160,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.1.imported_contract_name", "imported_contract_name_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.contract_name", "contract_name_0"),
@@ -174,7 +170,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.1.match_criteria", "AtleastOne"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.1.priority", "level2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_any.test", "tags.0.value", "value_1"),
@@ -199,7 +194,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 				Config:             testConfigVzAnyChildrenRemoveFromConfigDependencyWithFvCtx,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.0.value", "value_1"),
@@ -207,7 +201,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.annotations.0.key", "key_0"),
@@ -237,7 +230,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.annotations.0.key", "key_0"),
@@ -267,7 +259,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.annotations.0.key", "key_0"),
@@ -299,7 +290,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.1.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_any.test", "tags.0.value", "value_1"),
@@ -314,13 +304,11 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 				Config:             testConfigVzAnyChildrenRemoveOneDependencyWithFvCtx,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_any.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.annotations.0.key", "key_1"),
@@ -333,7 +321,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_consumer_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.annotations.0.key", "key_1"),
@@ -346,7 +333,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_contract_interfaces.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.annotations.0.key", "key_1"),
@@ -360,7 +346,6 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.0.priority", "level2"),
 						resource.TestCheckResourceAttr("aci_any.test", "relation_to_provider_contracts.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_any.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_any.test", "tags.0.value", "test_value"),

@@ -174,14 +174,12 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "router_advertisement", "enabled"),
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "source_guard", "enabled-both"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.description", "description_1"),
@@ -197,7 +195,6 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.owner_key", "owner_key_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.owner_tag", "owner_tag_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "tags.0.value", "value_1"),
@@ -222,7 +219,6 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 				Config:             testConfigFhsBDPolChildrenRemoveFromConfigDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.0.value", "value_1"),
@@ -230,7 +226,6 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.annotations.0.key", "key_0"),
@@ -256,7 +251,6 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.owner_key", "owner_key_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "route_advertisement_guard_policy.owner_tag", "owner_tag_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "tags.0.value", "value_1"),
@@ -271,15 +265,12 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 				Config:             testConfigFhsBDPolChildrenRemoveOneDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.0(1k)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "tags.0.value", "test_value"),

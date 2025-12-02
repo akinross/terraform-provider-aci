@@ -123,21 +123,18 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "number_of_uplinks", "2"),
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "name_alias", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "uplink_policies.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "uplink_policies.0.name_alias", "name_alias_1"),
@@ -166,7 +163,6 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 				Config:             testConfigVmmUplinkPContChildrenRemoveFromConfigDependencyWithVmmDomP,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.0.value", "value_1"),
@@ -174,7 +170,6 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.0.value", "value_1"),
@@ -182,7 +177,6 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "uplink_policies.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "uplink_policies.0.annotations.0.key", "key_0"),
@@ -221,19 +215,16 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 				Config:             testConfigVmmUplinkPContChildrenRemoveOneDependencyWithVmmDomP,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "tags.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "4.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "uplink_policies.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "uplink_policies.0.annotations.0.key", "key_1"),

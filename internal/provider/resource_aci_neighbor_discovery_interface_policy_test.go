@@ -250,14 +250,12 @@ func TestAccResourceNdIfPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "nud_retry_base", "1"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "nud_retry_interval", "1000"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "nud_retry_max_attempts", "3")),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "tags.0.value", "value_1"),
@@ -282,7 +280,6 @@ func TestAccResourceNdIfPolWithFvTenant(t *testing.T) {
 				Config:             testConfigNdIfPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.0.value", "value_1"),
@@ -290,7 +287,6 @@ func TestAccResourceNdIfPolWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "tags.0.value", "value_1"),
@@ -305,13 +301,11 @@ func TestAccResourceNdIfPolWithFvTenant(t *testing.T) {
 				Config:             testConfigNdIfPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_neighbor_discovery_interface_policy.test", "tags.0.value", "test_value"),

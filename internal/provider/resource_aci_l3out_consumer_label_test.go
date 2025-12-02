@@ -163,21 +163,18 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tag", "yellow-green"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.1.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.1.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.direction", "export"),
@@ -186,7 +183,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.1.direction", "import"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.1.target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tags.0.value", "value_1"),
@@ -211,7 +207,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 				Config:             testConfigL3extConsLblChildrenRemoveFromConfigDependencyWithL3extOut,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.0.value", "value_1"),
@@ -219,7 +214,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.annotations.0.key", "key_0"),
@@ -247,7 +241,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.1.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.annotations.0.key", "key_0"),
@@ -277,7 +270,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.1.target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tags.0.value", "value_1"),
@@ -292,13 +284,11 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 				Config:             testConfigL3extConsLblChildrenRemoveOneDependencyWithL3extOut,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.annotations.0.key", "key_1"),
@@ -310,7 +300,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.0.target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_external_epgs.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "5.0(1k)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.annotation", "annotation_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.annotations.0.key", "key_1"),
@@ -323,7 +312,6 @@ func TestAccResourceL3extConsLblWithL3extOut(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.0.target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_2"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "relation_to_route_control_profiles.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_l3out_consumer_label.test", "tags.0.value", "test_value"),

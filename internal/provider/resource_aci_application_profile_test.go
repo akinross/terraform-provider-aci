@@ -158,19 +158,16 @@ func TestAccResourceFvApWithFvTenant(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_application_profile.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_application_profile.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_application_profile.test", "priority", "unspecified"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "tags.0.value", "value_1"),
@@ -195,7 +192,6 @@ func TestAccResourceFvApWithFvTenant(t *testing.T) {
 				Config:             testConfigFvApChildrenRemoveFromConfigDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.0.value", "value_1"),
@@ -203,7 +199,6 @@ func TestAccResourceFvApWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "relation_to_monitoring_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "relation_to_monitoring_policy.annotations.0.key", "key_0"),
@@ -218,7 +213,6 @@ func TestAccResourceFvApWithFvTenant(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_application_profile.test", "relation_to_monitoring_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "relation_to_monitoring_policy.monitoring_policy_name", "monitoring_policy_name_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "tags.0.value", "value_1"),
@@ -233,15 +227,12 @@ func TestAccResourceFvApWithFvTenant(t *testing.T) {
 				Config:             testConfigFvApChildrenRemoveOneDependencyWithFvTenant,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_application_profile.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_application_profile.test", "tags.0.value", "test_value"),

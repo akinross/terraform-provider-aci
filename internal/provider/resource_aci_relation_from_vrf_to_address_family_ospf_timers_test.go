@@ -124,14 +124,12 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "address_family", "ipv4-ucast"),
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "ospf_timers_name", "test_tn_ospf_ctx_pol_name"),
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "tags.0.value", "value_1"),
@@ -156,7 +154,6 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveFromConfigDependencyWithFvCtx,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.0.value", "value_1"),
@@ -164,7 +161,6 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "tags.0.value", "value_1"),
@@ -179,13 +175,11 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveOneDependencyWithFvCtx,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "tags.0.value", "test_value"),

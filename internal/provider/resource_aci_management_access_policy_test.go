@@ -147,7 +147,6 @@ func TestAccResourceCommPol(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.0.value", "value_1"),
@@ -155,7 +154,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.allow_credentials", "disabled"),
@@ -191,7 +189,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.node_exporter", "disabled")),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.visore_access", "disabled"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.admin_state", "enabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.allow_credentials", "disabled"),
@@ -257,7 +254,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.referer", "referer_1")),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.visore_access", "disabled"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.annotation", "annotation_1"),
@@ -275,7 +271,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.name", "name_1"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.name_alias", "name_alias_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.annotation", "annotation_1"),
@@ -303,7 +298,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.kex_algorithms.#", "1"),
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.kex_algorithms.0", "curve25519-sha256")),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.0.value", "value_1"),
@@ -311,7 +305,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "telnet_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "telnet_service.annotation", "annotation_1"),
@@ -341,7 +334,6 @@ func TestAccResourceCommPol(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.0.value", "value_1"),
@@ -349,7 +341,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.allow_credentials", "disabled"),
@@ -385,7 +376,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.node_exporter", "disabled")),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.visore_access", "disabled"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.admin_state", "enabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.allow_credentials", "disabled"),
@@ -451,7 +441,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.referer", "referer_1")),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.visore_access", "disabled"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.annotation", "annotation_1"),
@@ -469,7 +458,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.name", "name_1"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.name_alias", "name_alias_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.annotation", "annotation_1"),
@@ -497,7 +485,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.kex_algorithms.#", "1"),
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.kex_algorithms.0", "curve25519-sha256")),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.0.value", "value_1"),
@@ -505,7 +492,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "telnet_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "telnet_service.annotation", "annotation_1"),
@@ -535,13 +521,11 @@ func TestAccResourceCommPol(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_management_access_policy.test", "owner_tag", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.allow_credentials", "disabled"),
@@ -573,7 +557,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.node_exporter", "disabled")),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_service.visore_access", "disabled"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.admin_state", "enabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.allow_credentials", "disabled"),
@@ -619,7 +602,6 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.referer", "referer_1")),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "http_ssl_configuration.visore_access", "disabled"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.2(1i)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.annotation", "annotation_1"),
@@ -633,7 +615,6 @@ func TestAccResourceCommPol(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.name", "name_1"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_access_via_web.name_alias", "name_alias_1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.annotation", "annotation_1"),
@@ -657,13 +638,11 @@ func TestAccResourceCommPol(t *testing.T) {
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.kex_algorithms.#", "1"),
 							resource.TestCheckResourceAttr("aci_management_access_policy.test", "ssh_service.kex_algorithms.0", "curve25519-sha256")),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "tags.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "telnet_service.admin_state", "disabled"),
 						resource.TestCheckResourceAttr("aci_management_access_policy.test", "telnet_service.annotation", "annotation_1"),

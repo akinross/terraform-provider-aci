@@ -166,19 +166,16 @@ func TestAccResourceInfraPortBlkWithInfraHPortS(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_access_port_block.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_access_port_block.test", "to_card", "1"),
 					resource.TestCheckResourceAttr("aci_access_port_block.test", "to_port", "1"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.target_dn", ""),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.value", "value_1"),
@@ -203,7 +200,6 @@ func TestAccResourceInfraPortBlkWithInfraHPortS(t *testing.T) {
 				Config:             testConfigInfraPortBlkChildrenRemoveFromConfigDependencyWithInfraHPortS,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.value", "value_1"),
@@ -211,7 +207,6 @@ func TestAccResourceInfraPortBlkWithInfraHPortS(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.annotations.0.key", "key_0"),
@@ -226,7 +221,6 @@ func TestAccResourceInfraPortBlkWithInfraHPortS(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.target_dn", ""),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.value", "value_1"),
@@ -241,15 +235,12 @@ func TestAccResourceInfraPortBlkWithInfraHPortS(t *testing.T) {
 				Config:             testConfigInfraPortBlkChildrenRemoveOneDependencyWithInfraHPortS,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.value", "test_value"),
@@ -465,19 +456,16 @@ func TestAccResourceInfraPortBlkWithInfraSHPortS(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_access_port_block.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_access_port_block.test", "to_card", "1"),
 					resource.TestCheckResourceAttr("aci_access_port_block.test", "to_port", "1"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.target_dn", ""),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.value", "value_1"),
@@ -502,7 +490,6 @@ func TestAccResourceInfraPortBlkWithInfraSHPortS(t *testing.T) {
 				Config:             testConfigInfraPortBlkChildrenRemoveFromConfigDependencyWithInfraSHPortS,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.value", "value_1"),
@@ -510,7 +497,6 @@ func TestAccResourceInfraPortBlkWithInfraSHPortS(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.annotation", "annotation_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.annotations.0.key", "key_0"),
@@ -525,7 +511,6 @@ func TestAccResourceInfraPortBlkWithInfraSHPortS(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.tags.#", "2"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "relation_to_pc_vpc_override_policy.target_dn", ""),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.value", "value_1"),
@@ -540,15 +525,12 @@ func TestAccResourceInfraPortBlkWithInfraSHPortS(t *testing.T) {
 				Config:             testConfigInfraPortBlkChildrenRemoveOneDependencyWithInfraSHPortS,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "1.0(1e)-", "inside"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_access_port_block.test", "tags.0.value", "test_value"),

@@ -139,14 +139,12 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "name", ""),
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "name_alias", ""),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "tags.0.value", "value_1"),
@@ -171,7 +169,6 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 				Config:             testConfigFvRogueExceptionMacChildrenRemoveFromConfigDependencyWithFvBD,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.0.value", "value_1"),
@@ -179,7 +176,6 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "tags.0.value", "value_1"),
@@ -194,13 +190,11 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 				Config:             testConfigFvRogueExceptionMacChildrenRemoveOneDependencyWithFvBD,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "tags.0.value", "test_value"),

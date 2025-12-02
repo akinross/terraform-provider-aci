@@ -124,14 +124,12 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "address_family", "ipv4-ucast"),
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "eigrp_address_family_context_name", "test_tn_eigrp_ctx_af_pol_name"),
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "tags.0.value", "value_1"),
@@ -156,7 +154,6 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveFromConfigDependencyWithFvCtx,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.0.value", "value_1"),
@@ -164,7 +161,6 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "tags.0.value", "value_1"),
@@ -179,13 +175,11 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveOneDependencyWithFvCtx,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "tags.0.value", "test_value"),

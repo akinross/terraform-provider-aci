@@ -115,14 +115,12 @@ func TestAccResourceFvRsIntraEpgWithFvAEPg(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
 					resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.value", "value_1"),
@@ -147,7 +145,6 @@ func TestAccResourceFvRsIntraEpgWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsIntraEpgChildrenRemoveFromConfigDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.value", "value_1"),
@@ -155,7 +152,6 @@ func TestAccResourceFvRsIntraEpgWithFvAEPg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.value", "value_1"),
@@ -170,13 +166,11 @@ func TestAccResourceFvRsIntraEpgWithFvAEPg(t *testing.T) {
 				Config:             testConfigFvRsIntraEpgChildrenRemoveOneDependencyWithFvAEPg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.value", "test_value"),
@@ -301,14 +295,12 @@ func TestAccResourceFvRsIntraEpgWithFvESg(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
 					resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotation", "orchestrator:terraform"),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.value", "value_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.1.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.1.value", "test_value"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.value", "value_1"),
@@ -333,7 +325,6 @@ func TestAccResourceFvRsIntraEpgWithFvESg(t *testing.T) {
 				Config:             testConfigFvRsIntraEpgChildrenRemoveFromConfigDependencyWithFvESg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.value", "value_1"),
@@ -341,7 +332,6 @@ func TestAccResourceFvRsIntraEpgWithFvESg(t *testing.T) {
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.1.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.#", "2"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.key", "key_0"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.value", "value_1"),
@@ -356,13 +346,11 @@ func TestAccResourceFvRsIntraEpgWithFvESg(t *testing.T) {
 				Config:             testConfigFvRsIntraEpgChildrenRemoveOneDependencyWithFvESg,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.0.value", "test_value"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "annotations.#", "1"),
 					),
-					// foo
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.key", "key_1"),
 						resource.TestCheckResourceAttr("aci_relation_to_intra_epg_contract.test", "tags.0.value", "test_value"),
