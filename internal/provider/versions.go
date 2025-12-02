@@ -15,6 +15,7 @@ func classVersions() map[string]string {
 		"commShellinabox":            "1.2(1i)-",
 		"commSsh":                    "1.0(1e)-",
 		"commTelnet":                 "1.0(1e)-",
+		"dwdmIfPol":                  "3.1(1i)-",
 		"eigrpCtxAfPol":              "1.1(1j)-",
 		"fhsBDPol":                   "3.0(1k)-",
 		"fhsRaGuardPol":              "3.0(1k)-",
