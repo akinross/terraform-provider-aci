@@ -19,7 +19,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroupAllowExisting,
+				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroupAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.allow_test", "fallback_member", "2.2.2.3"),
@@ -44,7 +44,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvFBRMemberMinDependencyWithFvFBRGroupAllowExisting,
+				Config:      testConfigFvFBRMemberMinDependencyWithFvFBRGroupAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -57,7 +57,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroupAllowExisting,
+				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroupAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.allow_test", "fallback_member", "2.2.2.3"),
@@ -81,7 +81,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.test", "fallback_member", "2.2.2.3"),
@@ -93,7 +93,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvFBRMemberAllDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberAllDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.test", "fallback_member", "2.2.2.3"),
@@ -105,7 +105,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberMinDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.test", "fallback_member", "2.2.2.3"),
@@ -113,7 +113,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvFBRMemberResetDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberResetDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.test", "fallback_member", "2.2.2.3"),
@@ -131,7 +131,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvFBRMemberChildrenDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberChildrenDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.test", "fallback_member", "2.2.2.3"),
@@ -166,7 +166,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvFBRMemberChildrenRemoveFromConfigDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberChildrenRemoveFromConfigDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -187,7 +187,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvFBRMemberChildrenRemoveOneDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberChildrenRemoveOneDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -204,7 +204,7 @@ func TestAccResourceFvFBRMemberWithFvFBRGroup(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvFBRMemberChildrenRemoveAllDependencyWithFvFBRGroup,
+				Config:             testConfigFvFBRMemberChildrenRemoveAllDependencyWithFvFBRGroup + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vrf_fallback_route_group_member.test", "annotations.#", "0"),

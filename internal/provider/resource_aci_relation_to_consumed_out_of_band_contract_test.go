@@ -19,7 +19,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstPAllowExisting,
+				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.allow_test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -40,7 +40,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigMgmtRsOoBConsMinDependencyWithMgmtInstPAllowExisting,
+				Config:      testConfigMgmtRsOoBConsMinDependencyWithMgmtInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstPAllowExisting,
+				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.allow_test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -73,7 +73,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -83,7 +83,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigMgmtRsOoBConsAllDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsAllDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -93,7 +93,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsMinDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -101,7 +101,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigMgmtRsOoBConsResetDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsResetDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -117,7 +117,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigMgmtRsOoBConsChildrenDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsChildrenDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),
@@ -150,7 +150,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigMgmtRsOoBConsChildrenRemoveFromConfigDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsChildrenRemoveFromConfigDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -171,7 +171,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigMgmtRsOoBConsChildrenRemoveOneDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsChildrenRemoveOneDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -188,7 +188,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigMgmtRsOoBConsChildrenRemoveAllDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsChildrenRemoveAllDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "annotations.#", "0"),
@@ -197,7 +197,7 @@ func TestAccResourceMgmtRsOoBConsWithMgmtInstP(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigMgmtRsOoBConsCustomTypeDependencyWithMgmtInstP,
+				Config:             testConfigMgmtRsOoBConsCustomTypeDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_out_of_band_contract.test", "out_of_band_contract_name", "test_tn_vz_oob_br_cp_name"),

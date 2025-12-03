@@ -19,7 +19,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvEpMacTagMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvEpMacTagMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.allow_test", "bd_name", "test_bd_name"),
@@ -46,7 +46,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvEpMacTagMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigFvEpMacTagMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvEpMacTagMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvEpMacTagMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.allow_test", "bd_name", "test_bd_name"),
@@ -85,7 +85,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvEpMacTagMinDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.test", "bd_name", "test_bd_name"),
@@ -98,7 +98,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvEpMacTagAllDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.test", "bd_name", "test_bd_name"),
@@ -111,7 +111,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvEpMacTagMinDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.test", "bd_name", "test_bd_name"),
@@ -120,7 +120,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvEpMacTagResetDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.test", "bd_name", "test_bd_name"),
@@ -139,7 +139,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvEpMacTagChildrenDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.test", "bd_name", "test_bd_name"),
@@ -175,7 +175,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvEpMacTagChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -196,7 +196,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvEpMacTagChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -213,7 +213,7 @@ func TestAccResourceFvEpMacTagWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvEpMacTagChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigFvEpMacTagChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_mac.test", "annotations.#", "0"),

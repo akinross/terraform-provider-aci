@@ -19,7 +19,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvTrackMemberMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvTrackMemberMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.allow_test", "name", "test_name"),
@@ -50,7 +50,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvTrackMemberMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigFvTrackMemberMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -63,7 +63,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvTrackMemberMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvTrackMemberMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.allow_test", "name", "test_name"),
@@ -93,7 +93,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvTrackMemberMinDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.test", "name", "test_name"),
@@ -108,7 +108,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvTrackMemberAllDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.test", "name", "test_name"),
@@ -123,7 +123,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvTrackMemberMinDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.test", "destination_ip_address", "1.1.1.1"),
@@ -133,7 +133,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvTrackMemberResetDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.test", "destination_ip_address", "1.1.1.1"),
@@ -154,7 +154,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvTrackMemberChildrenDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.test", "destination_ip_address", "1.1.1.1"),
@@ -196,7 +196,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvTrackMemberChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -231,7 +231,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvTrackMemberChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -258,7 +258,7 @@ func TestAccResourceFvTrackMemberWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvTrackMemberChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigFvTrackMemberChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_member.test", "annotations.#", "0"),

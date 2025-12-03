@@ -19,7 +19,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLblAllowExisting,
+				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLblAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.allow_test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -38,7 +38,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigL3extRsLblToInstPMinDependencyWithL3extConsLblAllowExisting,
+				Config:      testConfigL3extRsLblToInstPMinDependencyWithL3extConsLblAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -51,7 +51,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLblAllowExisting,
+				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLblAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.allow_test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -69,7 +69,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -78,7 +78,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToInstPAllDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPAllDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -87,7 +87,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPMinDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -95,7 +95,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigL3extRsLblToInstPResetDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPResetDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -110,7 +110,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigL3extRsLblToInstPChildrenDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPChildrenDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.test", "target_dn", "uni/tn-test_name/out-test_l3_outside/instP-inst_profile_1"),
@@ -142,7 +142,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigL3extRsLblToInstPChildrenRemoveFromConfigDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPChildrenRemoveFromConfigDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -163,7 +163,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigL3extRsLblToInstPChildrenRemoveOneDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPChildrenRemoveOneDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceL3extRsLblToInstPWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigL3extRsLblToInstPChildrenRemoveAllDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToInstPChildrenRemoveAllDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_external_epg.test", "annotations.#", "0"),

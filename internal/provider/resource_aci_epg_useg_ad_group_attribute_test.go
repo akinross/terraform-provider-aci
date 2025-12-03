@@ -19,7 +19,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.allow_test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -48,7 +48,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvIdGroupAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:      testConfigFvIdGroupAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -61,7 +61,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.allow_test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -89,7 +89,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -103,7 +103,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvIdGroupAttrAllDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -117,7 +117,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -125,7 +125,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvIdGroupAttrResetDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrResetDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -145,7 +145,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvIdGroupAttrChildrenDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrChildrenDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.test", "selector", "adepg/authsvr-common-sg1-ISE_1/grpcont/dom-cisco.com/grp-Eng"),
@@ -182,7 +182,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvIdGroupAttrChildrenRemoveFromConfigDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrChildrenRemoveFromConfigDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -203,7 +203,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvIdGroupAttrChildrenRemoveOneDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrChildrenRemoveOneDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceFvIdGroupAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvIdGroupAttrChildrenRemoveAllDependencyWithFvCrtrn,
+				Config:             testConfigFvIdGroupAttrChildrenRemoveAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ad_group_attribute.test", "annotations.#", "0"),

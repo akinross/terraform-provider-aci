@@ -19,7 +19,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzAnyMinDependencyWithFvCtxAllowExisting,
+				Config:             testConfigVzAnyMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_any.allow_test", "annotation", "orchestrator:terraform"),
@@ -46,7 +46,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVzAnyMinDependencyWithFvCtxAllowExisting,
+				Config:      testConfigVzAnyMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzAnyMinDependencyWithFvCtxAllowExisting,
+				Config:             testConfigVzAnyMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_any.allow_test", "annotation", "orchestrator:terraform"),
@@ -85,7 +85,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzAnyMinDependencyWithFvCtx,
+				Config:             testConfigVzAnyMinDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_any.test", "annotation", "orchestrator:terraform"),
@@ -98,7 +98,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVzAnyAllDependencyWithFvCtx,
+				Config:             testConfigVzAnyAllDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_any.test", "annotation", "annotation"),
@@ -111,13 +111,13 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVzAnyMinDependencyWithFvCtx,
+				Config:             testConfigVzAnyMinDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check:              resource.ComposeAggregateTestCheckFunc(),
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVzAnyResetDependencyWithFvCtx,
+				Config:             testConfigVzAnyResetDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check:              resource.ComposeAggregateTestCheckFunc(),
 			},
@@ -129,7 +129,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVzAnyChildrenDependencyWithFvCtx,
+				Config:             testConfigVzAnyChildrenDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_any.test", "annotation", "orchestrator:terraform"),
@@ -191,7 +191,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVzAnyChildrenRemoveFromConfigDependencyWithFvCtx,
+				Config:             testConfigVzAnyChildrenRemoveFromConfigDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -301,7 +301,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVzAnyChildrenRemoveOneDependencyWithFvCtx,
+				Config:             testConfigVzAnyChildrenRemoveOneDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -355,7 +355,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVzAnyChildrenRemoveAllDependencyWithFvCtx,
+				Config:             testConfigVzAnyChildrenRemoveAllDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_any.test", "annotations.#", "0"),
@@ -367,7 +367,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config:             testConfigVzAnyLegacyAttributesWithFvCtx,
+				Config:             testConfigVzAnyLegacyAttributesWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -379,7 +379,7 @@ func TestAccResourceVzAnyWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:             testConfigVzAnyLegacyAttributesWithFvCtx,
+				Config:             testConfigVzAnyLegacyAttributesWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},

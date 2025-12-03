@@ -22,7 +22,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFhsBDPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFhsBDPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.allow_test", "name", "test_name"),
@@ -55,7 +55,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFhsBDPolMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigFhsBDPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -68,7 +68,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFhsBDPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFhsBDPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.allow_test", "name", "test_name"),
@@ -100,7 +100,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFhsBDPolMinDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "name", "test_name"),
@@ -116,7 +116,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFhsBDPolAllDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "name", "test_name"),
@@ -132,7 +132,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFhsBDPolMinDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "name", "test_name"),
@@ -140,7 +140,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFhsBDPolResetDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "name", "test_name"),
@@ -162,7 +162,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFhsBDPolChildrenDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "name", "test_name"),
@@ -216,7 +216,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFhsBDPolChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -262,7 +262,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFhsBDPolChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -304,7 +304,7 @@ func TestAccResourceFhsBDPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFhsBDPolChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigFhsBDPolChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_first_hop_security_policy.test", "annotations.#", "0"),

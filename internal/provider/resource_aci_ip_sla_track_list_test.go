@@ -19,7 +19,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvTrackListMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvTrackListMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.allow_test", "name", "test_name"),
@@ -56,7 +56,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvTrackListMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigFvTrackListMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -69,7 +69,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvTrackListMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvTrackListMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.allow_test", "name", "test_name"),
@@ -105,7 +105,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvTrackListMinDependencyWithFvTenant,
+				Config:             testConfigFvTrackListMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "name", "test_name"),
@@ -123,7 +123,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvTrackListAllDependencyWithFvTenant,
+				Config:             testConfigFvTrackListAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "name", "test_name"),
@@ -141,7 +141,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvTrackListMinDependencyWithFvTenant,
+				Config:             testConfigFvTrackListMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "name", "test_name"),
@@ -149,7 +149,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvTrackListResetDependencyWithFvTenant,
+				Config:             testConfigFvTrackListResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "name", "test_name"),
@@ -173,7 +173,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvTrackListChildrenDependencyWithFvTenant,
+				Config:             testConfigFvTrackListChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "name", "test_name"),
@@ -222,7 +222,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvTrackListChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigFvTrackListChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -272,7 +272,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvTrackListChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigFvTrackListChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -301,7 +301,7 @@ func TestAccResourceFvTrackListWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvTrackListChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigFvTrackListChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_ip_sla_track_list.test", "annotations.#", "0"),

@@ -19,7 +19,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigFvTenantMinAllowExisting,
+				Config: testConfigFvTenantMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_tenant.allow_test_2", "name", "test_name"),
@@ -58,7 +58,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigFvTenantMinAllowExisting,
+				Config: testConfigFvTenantMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_tenant.allow_test_2", "name", "test_name"),
@@ -83,7 +83,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigFvTenantMin,
+				Config: testConfigFvTenantMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
@@ -95,7 +95,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfigFvTenantAll,
+				Config: testConfigFvTenantAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "annotation"),
@@ -107,7 +107,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfigFvTenantMin,
+				Config: testConfigFvTenantMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
@@ -119,7 +119,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfigFvTenantReset,
+				Config: testConfigFvTenantReset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
@@ -137,7 +137,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config: testConfigFvTenantChildren,
+				Config: testConfigFvTenantChildren + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "description", ""),
@@ -176,7 +176,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfigFvTenantChildrenRemoveFromConfig,
+				Config: testConfigFvTenantChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "description", ""),
@@ -215,7 +215,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfigFvTenantChildrenRemoveOne,
+				Config: testConfigFvTenantChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "description", ""),
@@ -246,7 +246,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfigFvTenantChildrenRemoveAll,
+				Config: testConfigFvTenantChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_tenant.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_tenant.test", "description", ""),
@@ -263,7 +263,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config: testConfigFvTenantLegacyAttributes,
+				Config: testConfigFvTenantLegacyAttributes + testConfigDataSourceSystem,
 			},
 		},
 		CheckDestroy: testCheckResourceDestroy,
@@ -274,7 +274,7 @@ func TestAccResourceFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config: testConfigFvTenantLegacyAttributes,
+				Config: testConfigFvTenantLegacyAttributes + testConfigDataSourceSystem,
 			},
 		},
 		CheckDestroy: testCheckResourceDestroy,

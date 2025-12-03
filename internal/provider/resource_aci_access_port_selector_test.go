@@ -22,7 +22,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortPAllowExisting,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.allow_test", "name", "test_name"),
@@ -51,7 +51,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigInfraHPortSMinDependencyWithInfraAccPortPAllowExisting,
+				Config:      testConfigInfraHPortSMinDependencyWithInfraAccPortPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -64,7 +64,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortPAllowExisting,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.allow_test", "name", "test_name"),
@@ -92,7 +92,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -106,7 +106,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSAllDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSAllDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -120,7 +120,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -129,7 +129,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigInfraHPortSResetDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSResetDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -149,7 +149,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigInfraHPortSChildrenDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSChildrenDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -191,7 +191,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigInfraHPortSChildrenRemoveFromConfigDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSChildrenRemoveFromConfigDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -227,7 +227,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigInfraHPortSChildrenRemoveOneDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSChildrenRemoveOneDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -259,7 +259,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigInfraHPortSChildrenRemoveAllDependencyWithInfraAccPortP,
+				Config:             testConfigInfraHPortSChildrenRemoveAllDependencyWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "annotations.#", "0"),
@@ -282,7 +282,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config:             testConfigInfraHPortSLegacyAttributesWithInfraAccPortP,
+				Config:             testConfigInfraHPortSLegacyAttributesWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -294,7 +294,7 @@ func TestAccResourceInfraHPortSWithInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:             testConfigInfraHPortSLegacyAttributesWithInfraAccPortP,
+				Config:             testConfigInfraHPortSLegacyAttributesWithInfraAccPortP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -309,7 +309,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraFexPAllowExisting,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraFexPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.allow_test", "name", "test_name"),
@@ -338,7 +338,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigInfraHPortSMinDependencyWithInfraFexPAllowExisting,
+				Config:      testConfigInfraHPortSMinDependencyWithInfraFexPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -351,7 +351,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraFexPAllowExisting,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraFexPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.allow_test", "name", "test_name"),
@@ -379,7 +379,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -393,7 +393,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigInfraHPortSAllDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSAllDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -407,7 +407,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigInfraHPortSMinDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSMinDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -416,7 +416,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigInfraHPortSResetDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSResetDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -436,7 +436,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigInfraHPortSChildrenDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSChildrenDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "name", "test_name"),
@@ -478,7 +478,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigInfraHPortSChildrenRemoveFromConfigDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSChildrenRemoveFromConfigDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -514,7 +514,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigInfraHPortSChildrenRemoveOneDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSChildrenRemoveOneDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -546,7 +546,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigInfraHPortSChildrenRemoveAllDependencyWithInfraFexP,
+				Config:             testConfigInfraHPortSChildrenRemoveAllDependencyWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_port_selector.test", "annotations.#", "0"),
@@ -569,7 +569,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config:             testConfigInfraHPortSLegacyAttributesWithInfraFexP,
+				Config:             testConfigInfraHPortSLegacyAttributesWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -581,7 +581,7 @@ func TestAccResourceInfraHPortSWithInfraFexP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:             testConfigInfraHPortSLegacyAttributesWithInfraFexP,
+				Config:             testConfigInfraHPortSLegacyAttributesWithInfraFexP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},

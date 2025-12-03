@@ -19,7 +19,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzTabooMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigVzTabooMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.allow_test", "name", "test_name"),
@@ -46,7 +46,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVzTabooMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigVzTabooMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzTabooMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigVzTabooMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.allow_test", "name", "test_name"),
@@ -85,7 +85,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzTabooMinDependencyWithFvTenant,
+				Config:             testConfigVzTabooMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.test", "name", "test_name"),
@@ -98,7 +98,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVzTabooAllDependencyWithFvTenant,
+				Config:             testConfigVzTabooAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.test", "name", "test_name"),
@@ -111,7 +111,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVzTabooMinDependencyWithFvTenant,
+				Config:             testConfigVzTabooMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.test", "name", "test_name"),
@@ -119,7 +119,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVzTabooResetDependencyWithFvTenant,
+				Config:             testConfigVzTabooResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.test", "name", "test_name"),
@@ -138,7 +138,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVzTabooChildrenDependencyWithFvTenant,
+				Config:             testConfigVzTabooChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.test", "name", "test_name"),
@@ -174,7 +174,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVzTabooChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigVzTabooChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -195,7 +195,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVzTabooChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigVzTabooChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -212,7 +212,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVzTabooChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigVzTabooChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract.test", "annotations.#", "0"),
@@ -221,7 +221,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config:             testConfigVzTabooLegacyAttributesWithFvTenant,
+				Config:             testConfigVzTabooLegacyAttributesWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -233,7 +233,7 @@ func TestAccResourceVzTabooWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:             testConfigVzTabooLegacyAttributesWithFvTenant,
+				Config:             testConfigVzTabooLegacyAttributesWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},

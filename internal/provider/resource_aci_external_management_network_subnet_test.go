@@ -19,7 +19,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstPAllowExisting,
+				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.allow_test", "ip", "1.1.1.0/24"),
@@ -44,7 +44,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigMgmtSubnetMinDependencyWithMgmtInstPAllowExisting,
+				Config:      testConfigMgmtSubnetMinDependencyWithMgmtInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -57,7 +57,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstPAllowExisting,
+				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.allow_test", "ip", "1.1.1.0/24"),
@@ -81,7 +81,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.test", "ip", "1.1.1.0/24"),
@@ -93,7 +93,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigMgmtSubnetAllDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetAllDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.test", "ip", "1.1.1.0/24"),
@@ -105,7 +105,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetMinDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.test", "ip", "1.1.1.0/24"),
@@ -113,7 +113,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigMgmtSubnetResetDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetResetDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.test", "ip", "1.1.1.0/24"),
@@ -131,7 +131,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigMgmtSubnetChildrenDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetChildrenDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.test", "ip", "1.1.1.0/24"),
@@ -166,7 +166,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigMgmtSubnetChildrenRemoveFromConfigDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetChildrenRemoveFromConfigDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -187,7 +187,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigMgmtSubnetChildrenRemoveOneDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetChildrenRemoveOneDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -204,7 +204,7 @@ func TestAccResourceMgmtSubnetWithMgmtInstP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigMgmtSubnetChildrenRemoveAllDependencyWithMgmtInstP,
+				Config:             testConfigMgmtSubnetChildrenRemoveAllDependencyWithMgmtInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_subnet.test", "annotations.#", "0"),

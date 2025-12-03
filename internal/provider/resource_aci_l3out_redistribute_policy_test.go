@@ -19,7 +19,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOutAllowExisting,
+				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.allow_test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -40,7 +40,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigL3extRsRedistributePolMinDependencyWithL3extOutAllowExisting,
+				Config:      testConfigL3extRsRedistributePolMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOutAllowExisting,
+				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.allow_test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -73,7 +73,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -83,7 +83,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigL3extRsRedistributePolAllDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolAllDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -93,7 +93,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolMinDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -102,7 +102,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigL3extRsRedistributePolResetDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolResetDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -118,7 +118,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigL3extRsRedistributePolChildrenDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolChildrenDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -151,7 +151,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigL3extRsRedistributePolChildrenRemoveFromConfigDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolChildrenRemoveFromConfigDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -172,7 +172,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigL3extRsRedistributePolChildrenRemoveOneDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolChildrenRemoveOneDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -189,7 +189,7 @@ func TestAccResourceL3extRsRedistributePolWithL3extOut(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigL3extRsRedistributePolChildrenRemoveAllDependencyWithL3extOut,
+				Config:             testConfigL3extRsRedistributePolChildrenRemoveAllDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_redistribute_policy.test", "annotations.#", "0"),

@@ -19,7 +19,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.allow_test", "netflow_monitor_policy_name", "test_tn_netflow_monitor_pol_name"),
@@ -40,7 +40,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBDAllowExisting,
+				Config:      testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.allow_test", "netflow_monitor_policy_name", "test_tn_netflow_monitor_pol_name"),
@@ -73,7 +73,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.test", "netflow_monitor_policy_name", "test_tn_netflow_monitor_pol_name"),
@@ -83,7 +83,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolAllDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.test", "netflow_monitor_policy_name", "test_tn_netflow_monitor_pol_name"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.test", "filter_type", "ipv4"),
@@ -102,7 +102,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolResetDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolResetDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.test", "filter_type", "ipv4"),
@@ -118,7 +118,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.test", "filter_type", "ipv4"),
@@ -151,7 +151,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenRemoveFromConfigDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenRemoveFromConfigDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -172,7 +172,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenRemoveOneDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenRemoveOneDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -189,7 +189,7 @@ func TestAccResourceFvRsBDToNetflowMonitorPolWithFvBD(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenRemoveAllDependencyWithFvBD,
+				Config:             testConfigFvRsBDToNetflowMonitorPolChildrenRemoveAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_netflow_monitor_policy.test", "annotations.#", "0"),

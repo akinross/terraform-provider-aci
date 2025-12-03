@@ -19,7 +19,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.allow_test", "target_dn", "topology/pod-1/node-101"),
@@ -46,7 +46,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsNodeAttMinDependencyWithFvAEPgAllowExisting,
+				Config:      testConfigFvRsNodeAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.allow_test", "target_dn", "topology/pod-1/node-101"),
@@ -85,7 +85,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.test", "target_dn", "topology/pod-1/node-101"),
@@ -98,7 +98,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsNodeAttAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.test", "target_dn", "topology/pod-1/node-101"),
@@ -111,7 +111,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.test", "encapsulation", "vlan-101"),
@@ -120,7 +120,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsNodeAttResetDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttResetDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.test", "encapsulation", "vlan-101"),
@@ -139,7 +139,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsNodeAttChildrenDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttChildrenDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.test", "encapsulation", "vlan-101"),
@@ -175,7 +175,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsNodeAttChildrenRemoveFromConfigDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -196,7 +196,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsNodeAttChildrenRemoveOneDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -213,7 +213,7 @@ func TestAccResourceFvRsNodeAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsNodeAttChildrenRemoveAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsNodeAttChildrenRemoveAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_static_leaf.test", "annotations.#", "0"),

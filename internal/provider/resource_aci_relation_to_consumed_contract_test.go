@@ -19,7 +19,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsConsMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.allow_test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -40,7 +40,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsConsMinDependencyWithFvAEPgAllowExisting,
+				Config:      testConfigFvRsConsMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsConsMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.allow_test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -73,7 +73,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -83,7 +83,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -101,7 +101,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsConsResetDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsResetDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -117,7 +117,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsConsChildrenDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsChildrenDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -150,7 +150,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsConsChildrenRemoveFromConfigDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -171,7 +171,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsConsChildrenRemoveOneDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -188,7 +188,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsConsChildrenRemoveAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsChildrenRemoveAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "annotations.#", "0"),
@@ -197,7 +197,7 @@ func TestAccResourceFvRsConsWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigFvRsConsCustomTypeDependencyWithFvAEPg,
+				Config:             testConfigFvRsConsCustomTypeDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -216,7 +216,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvESgAllowExisting,
+				Config:             testConfigFvRsConsMinDependencyWithFvESgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.allow_test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -237,7 +237,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsConsMinDependencyWithFvESgAllowExisting,
+				Config:      testConfigFvRsConsMinDependencyWithFvESgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -250,7 +250,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvESgAllowExisting,
+				Config:             testConfigFvRsConsMinDependencyWithFvESgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.allow_test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -270,7 +270,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvESg,
+				Config:             testConfigFvRsConsMinDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -280,7 +280,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsConsAllDependencyWithFvESg,
+				Config:             testConfigFvRsConsAllDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -290,7 +290,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsConsMinDependencyWithFvESg,
+				Config:             testConfigFvRsConsMinDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -298,7 +298,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsConsResetDependencyWithFvESg,
+				Config:             testConfigFvRsConsResetDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -314,7 +314,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsConsChildrenDependencyWithFvESg,
+				Config:             testConfigFvRsConsChildrenDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -347,7 +347,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsConsChildrenRemoveFromConfigDependencyWithFvESg,
+				Config:             testConfigFvRsConsChildrenRemoveFromConfigDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -368,7 +368,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsConsChildrenRemoveOneDependencyWithFvESg,
+				Config:             testConfigFvRsConsChildrenRemoveOneDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -385,7 +385,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsConsChildrenRemoveAllDependencyWithFvESg,
+				Config:             testConfigFvRsConsChildrenRemoveAllDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "annotations.#", "0"),
@@ -394,7 +394,7 @@ func TestAccResourceFvRsConsWithFvESg(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigFvRsConsCustomTypeDependencyWithFvESg,
+				Config:             testConfigFvRsConsCustomTypeDependencyWithFvESg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_consumed_contract.test", "contract_name", "test_tn_vz_br_cp_name"),

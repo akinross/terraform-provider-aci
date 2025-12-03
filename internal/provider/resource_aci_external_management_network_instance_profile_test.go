@@ -19,7 +19,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigMgmtInstPMinAllowExisting,
+				Config: testConfigMgmtInstPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.allow_test_2", "name", "test_name"),
@@ -56,7 +56,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigMgmtInstPMinAllowExisting,
+				Config: testConfigMgmtInstPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.allow_test_2", "name", "test_name"),
@@ -79,7 +79,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigMgmtInstPMin,
+				Config: testConfigMgmtInstPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
@@ -90,7 +90,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfigMgmtInstPAll,
+				Config: testConfigMgmtInstPAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "annotation"),
@@ -101,7 +101,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfigMgmtInstPMin,
+				Config: testConfigMgmtInstPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
@@ -112,7 +112,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfigMgmtInstPReset,
+				Config: testConfigMgmtInstPReset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
@@ -129,7 +129,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config: testConfigMgmtInstPChildren,
+				Config: testConfigMgmtInstPChildren + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),
@@ -182,7 +182,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfigMgmtInstPChildrenRemoveFromConfig,
+				Config: testConfigMgmtInstPChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),
@@ -235,7 +235,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfigMgmtInstPChildrenRemoveOne,
+				Config: testConfigMgmtInstPChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),
@@ -267,7 +267,7 @@ func TestAccResourceMgmtInstP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfigMgmtInstPChildrenRemoveAll,
+				Config: testConfigMgmtInstPChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_external_management_network_instance_profile.test", "description", ""),

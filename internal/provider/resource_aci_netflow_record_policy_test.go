@@ -19,7 +19,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.allow_test", "name", "netfow_record"),
@@ -52,7 +52,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigNetflowRecordPolMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigNetflowRecordPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -65,7 +65,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.allow_test", "name", "netfow_record"),
@@ -97,7 +97,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.test", "name", "netfow_record"),
@@ -113,7 +113,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigNetflowRecordPolAllDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.test", "name", "netfow_record"),
@@ -132,7 +132,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.test", "name", "netfow_record"),
@@ -140,7 +140,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigNetflowRecordPolResetDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.test", "name", "netfow_record"),
@@ -162,7 +162,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigNetflowRecordPolChildrenDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.test", "name", "netfow_record"),
@@ -201,7 +201,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigNetflowRecordPolChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -222,7 +222,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigNetflowRecordPolChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -239,7 +239,7 @@ func TestAccResourceNetflowRecordPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigNetflowRecordPolChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigNetflowRecordPolChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_record_policy.test", "annotations.#", "0"),

@@ -19,7 +19,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDppPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigQosDppPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.allow_test", "name", "test_name"),
@@ -88,7 +88,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigQosDppPolMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigQosDppPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -101,7 +101,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDppPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigQosDppPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.allow_test", "name", "test_name"),
@@ -169,7 +169,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDppPolMinDependencyWithFvTenant,
+				Config:             testConfigQosDppPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "name", "test_name"),
@@ -203,7 +203,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigQosDppPolAllDependencyWithFvTenant,
+				Config:             testConfigQosDppPolAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "name", "test_name"),
@@ -237,7 +237,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigQosDppPolMinDependencyWithFvTenant,
+				Config:             testConfigQosDppPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "name", "test_name"),
@@ -245,7 +245,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigQosDppPolResetDependencyWithFvTenant,
+				Config:             testConfigQosDppPolResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "name", "test_name"),
@@ -285,7 +285,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigQosDppPolChildrenDependencyWithFvTenant,
+				Config:             testConfigQosDppPolChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "name", "test_name"),
@@ -342,7 +342,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigQosDppPolChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigQosDppPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -363,7 +363,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigQosDppPolChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigQosDppPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -380,7 +380,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigQosDppPolChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigQosDppPolChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "annotations.#", "0"),
@@ -389,7 +389,7 @@ func TestAccResourceQosDppPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigQosDppPolCustomTypeDependencyWithFvTenant,
+				Config:             testConfigQosDppPolCustomTypeDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_data_plane_policing_policy.test", "burst", "0xffffffffffffffff"),

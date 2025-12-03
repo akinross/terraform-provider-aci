@@ -19,7 +19,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOutAllowExisting,
+				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.allow_test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -38,7 +38,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOutAllowExisting,
+				Config:      testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -51,7 +51,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOutAllowExisting,
+				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.allow_test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -69,7 +69,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -78,7 +78,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigL3extRsOutToFBRGroupAllDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupAllDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -87,7 +87,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupMinDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -95,7 +95,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigL3extRsOutToFBRGroupResetDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupResetDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -110,7 +110,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigL3extRsOutToFBRGroupChildrenDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupChildrenDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.test", "target_dn", "uni/tn-test_name/ctx-test_vrf/fbrg-vrf_fallback_route_group_0"),
@@ -142,7 +142,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigL3extRsOutToFBRGroupChildrenRemoveFromConfigDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupChildrenRemoveFromConfigDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -163,7 +163,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigL3extRsOutToFBRGroupChildrenRemoveOneDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupChildrenRemoveOneDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceL3extRsOutToFBRGroupWithL3extOut(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigL3extRsOutToFBRGroupChildrenRemoveAllDependencyWithL3extOut,
+				Config:             testConfigL3extRsOutToFBRGroupChildrenRemoveAllDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_vrf_fallback_route_group.test", "annotations.#", "0"),

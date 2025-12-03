@@ -19,7 +19,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVnsLDevIfMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigVnsLDevIfMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.allow_test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -44,7 +44,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVnsLDevIfMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigVnsLDevIfMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -57,7 +57,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVnsLDevIfMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigVnsLDevIfMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.allow_test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -81,7 +81,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVnsLDevIfMinDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -93,7 +93,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVnsLDevIfAllDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -105,7 +105,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVnsLDevIfMinDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -113,7 +113,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVnsLDevIfResetDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -131,7 +131,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVnsLDevIfChildrenDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.test", "logical_device", "uni/tn-test_tenant_imported_device/lDevVip-test_imported_device"),
@@ -166,7 +166,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVnsLDevIfChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -187,7 +187,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVnsLDevIfChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -204,7 +204,7 @@ func TestAccResourceVnsLDevIfWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVnsLDevIfChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigVnsLDevIfChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_imported_logical_device.test", "annotations.#", "0"),

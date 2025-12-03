@@ -19,7 +19,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPolAllowExisting,
+				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.allow_test", "order", "1"),
@@ -52,7 +52,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPolAllowExisting,
+				Config:      testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPolAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -65,7 +65,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPolAllowExisting,
+				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.allow_test", "order", "1"),
@@ -97,7 +97,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.test", "order", "1"),
@@ -113,7 +113,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigPimRouteMapEntryAllDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryAllDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.test", "order", "1"),
@@ -129,7 +129,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryMinDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.test", "order", "1"),
@@ -137,7 +137,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigPimRouteMapEntryResetDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryResetDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.test", "order", "1"),
@@ -159,7 +159,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigPimRouteMapEntryChildrenDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryChildrenDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.test", "order", "1"),
@@ -198,7 +198,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigPimRouteMapEntryChildrenRemoveFromConfigDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryChildrenRemoveFromConfigDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -219,7 +219,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigPimRouteMapEntryChildrenRemoveOneDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryChildrenRemoveOneDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -236,7 +236,7 @@ func TestAccResourcePimRouteMapEntryWithPimRouteMapPol(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigPimRouteMapEntryChildrenRemoveAllDependencyWithPimRouteMapPol,
+				Config:             testConfigPimRouteMapEntryChildrenRemoveAllDependencyWithPimRouteMapPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_pim_route_map_entry.test", "annotations.#", "0"),

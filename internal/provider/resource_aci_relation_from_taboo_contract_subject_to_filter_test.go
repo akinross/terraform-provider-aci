@@ -19,7 +19,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubjAllowExisting,
+				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubjAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.allow_test", "filter_name", "test_tn_vz_filter_name"),
@@ -40,7 +40,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVzRsDenyRuleMinDependencyWithVzTSubjAllowExisting,
+				Config:      testConfigVzRsDenyRuleMinDependencyWithVzTSubjAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubjAllowExisting,
+				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubjAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.allow_test", "filter_name", "test_tn_vz_filter_name"),
@@ -73,7 +73,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.test", "filter_name", "test_tn_vz_filter_name"),
@@ -83,7 +83,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVzRsDenyRuleAllDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleAllDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.test", "filter_name", "test_tn_vz_filter_name"),
@@ -95,7 +95,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleMinDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.test", "filter_name", "test_tn_vz_filter_name"),
@@ -103,7 +103,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVzRsDenyRuleResetDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleResetDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.test", "filter_name", "test_tn_vz_filter_name"),
@@ -119,7 +119,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVzRsDenyRuleChildrenDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleChildrenDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.test", "filter_name", "test_tn_vz_filter_name"),
@@ -152,7 +152,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVzRsDenyRuleChildrenRemoveFromConfigDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleChildrenRemoveFromConfigDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -173,7 +173,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVzRsDenyRuleChildrenRemoveOneDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleChildrenRemoveOneDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -190,7 +190,7 @@ func TestAccResourceVzRsDenyRuleWithVzTSubj(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVzRsDenyRuleChildrenRemoveAllDependencyWithVzTSubj,
+				Config:             testConfigVzRsDenyRuleChildrenRemoveAllDependencyWithVzTSubj + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_taboo_contract_subject_to_filter.test", "annotations.#", "0"),

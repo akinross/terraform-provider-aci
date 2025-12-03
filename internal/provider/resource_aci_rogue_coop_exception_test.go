@@ -19,7 +19,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.allow_test", "mac", "00:00:00:00:00:01"),
@@ -44,7 +44,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRogueExceptionMacMinDependencyWithFvBDAllowExisting,
+				Config:      testConfigFvRogueExceptionMacMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -57,7 +57,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.allow_test", "mac", "00:00:00:00:00:01"),
@@ -81,7 +81,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "mac", "00:00:00:00:00:01"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRogueExceptionMacAllDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "mac", "00:00:00:00:00:01"),
@@ -105,7 +105,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "mac", "00:00:00:00:00:01"),
@@ -113,7 +113,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRogueExceptionMacResetDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacResetDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "mac", "00:00:00:00:00:01"),
@@ -131,7 +131,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRogueExceptionMacChildrenDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacChildrenDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "mac", "00:00:00:00:00:01"),
@@ -166,7 +166,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRogueExceptionMacChildrenRemoveFromConfigDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacChildrenRemoveFromConfigDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -187,7 +187,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRogueExceptionMacChildrenRemoveOneDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacChildrenRemoveOneDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -204,7 +204,7 @@ func TestAccResourceFvRogueExceptionMacWithFvBD(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRogueExceptionMacChildrenRemoveAllDependencyWithFvBD,
+				Config:             testConfigFvRogueExceptionMacChildrenRemoveAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_rogue_coop_exception.test", "annotations.#", "0"),

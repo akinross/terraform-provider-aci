@@ -19,7 +19,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraAttEntityPMinAllowExisting,
+				Config: testConfigInfraAttEntityPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.allow_test_2", "name", "test_name"),
@@ -58,7 +58,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraAttEntityPMinAllowExisting,
+				Config: testConfigInfraAttEntityPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.allow_test_2", "name", "test_name"),
@@ -83,7 +83,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraAttEntityPMin,
+				Config: testConfigInfraAttEntityPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
@@ -95,7 +95,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfigInfraAttEntityPAll,
+				Config: testConfigInfraAttEntityPAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "annotation"),
@@ -107,7 +107,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfigInfraAttEntityPMin,
+				Config: testConfigInfraAttEntityPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
@@ -119,7 +119,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfigInfraAttEntityPReset,
+				Config: testConfigInfraAttEntityPReset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
@@ -137,7 +137,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config: testConfigInfraAttEntityPChildren,
+				Config: testConfigInfraAttEntityPChildren + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "description", ""),
@@ -189,7 +189,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfigInfraAttEntityPChildrenRemoveFromConfig,
+				Config: testConfigInfraAttEntityPChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "description", ""),
@@ -241,7 +241,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfigInfraAttEntityPChildrenRemoveOne,
+				Config: testConfigInfraAttEntityPChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "description", ""),
@@ -273,7 +273,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfigInfraAttEntityPChildrenRemoveAll,
+				Config: testConfigInfraAttEntityPChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_attachable_access_entity_profile.test", "description", ""),
@@ -287,7 +287,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config: testConfigInfraAttEntityPLegacyAttributes,
+				Config: testConfigInfraAttEntityPLegacyAttributes + testConfigDataSourceSystem,
 			},
 		},
 		CheckDestroy: testCheckResourceDestroy,
@@ -298,7 +298,7 @@ func TestAccResourceInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config: testConfigInfraAttEntityPLegacyAttributes,
+				Config: testConfigInfraAttEntityPLegacyAttributes + testConfigDataSourceSystem,
 			},
 		},
 		CheckDestroy: testCheckResourceDestroy,

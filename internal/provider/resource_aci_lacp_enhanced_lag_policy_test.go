@@ -19,7 +19,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyContAllowExisting,
+				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyContAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.allow_test", "name", "test_name"),
@@ -46,7 +46,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyContAllowExisting,
+				Config:      testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyContAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyContAllowExisting,
+				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyContAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.allow_test", "name", "test_name"),
@@ -85,7 +85,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.test", "name", "test_name"),
@@ -98,7 +98,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigLacpEnhancedLagPolAllDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolAllDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.test", "name", "test_name"),
@@ -111,7 +111,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolMinDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.test", "name", "test_name"),
@@ -119,7 +119,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigLacpEnhancedLagPolResetDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolResetDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.test", "name", "test_name"),
@@ -138,7 +138,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigLacpEnhancedLagPolChildrenDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolChildrenDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.test", "name", "test_name"),
@@ -174,7 +174,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigLacpEnhancedLagPolChildrenRemoveFromConfigDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolChildrenRemoveFromConfigDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -195,7 +195,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigLacpEnhancedLagPolChildrenRemoveOneDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolChildrenRemoveOneDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -212,7 +212,7 @@ func TestAccResourceLacpEnhancedLagPolWithVmmVSwitchPolicyCont(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigLacpEnhancedLagPolChildrenRemoveAllDependencyWithVmmVSwitchPolicyCont,
+				Config:             testConfigLacpEnhancedLagPolChildrenRemoveAllDependencyWithVmmVSwitchPolicyCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_lacp_enhanced_lag_policy.test", "annotations.#", "0"),

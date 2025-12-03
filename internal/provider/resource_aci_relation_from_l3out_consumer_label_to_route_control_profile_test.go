@@ -19,7 +19,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLblAllowExisting,
+				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLblAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.allow_test", "target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_1"),
@@ -40,7 +40,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigL3extRsLblToProfileMinDependencyWithL3extConsLblAllowExisting,
+				Config:      testConfigL3extRsLblToProfileMinDependencyWithL3extConsLblAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLblAllowExisting,
+				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLblAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.allow_test", "target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_1"),
@@ -73,7 +73,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_1"),
@@ -83,7 +83,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigL3extRsLblToProfileAllDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileAllDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "target_dn", "uni/tn-test_name/prof-rt_ctrl_profile_1"),
@@ -93,7 +93,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileMinDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "direction", "import"),
@@ -102,7 +102,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigL3extRsLblToProfileResetDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileResetDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "direction", "import"),
@@ -118,7 +118,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigL3extRsLblToProfileChildrenDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileChildrenDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "direction", "import"),
@@ -151,7 +151,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigL3extRsLblToProfileChildrenRemoveFromConfigDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileChildrenRemoveFromConfigDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -172,7 +172,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigL3extRsLblToProfileChildrenRemoveOneDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileChildrenRemoveOneDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -189,7 +189,7 @@ func TestAccResourceL3extRsLblToProfileWithL3extConsLbl(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigL3extRsLblToProfileChildrenRemoveAllDependencyWithL3extConsLbl,
+				Config:             testConfigL3extRsLblToProfileChildrenRemoveAllDependencyWithL3extConsLbl + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_l3out_consumer_label_to_route_control_profile.test", "annotations.#", "0"),

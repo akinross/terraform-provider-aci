@@ -19,7 +19,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.allow_test", "name", "131"),
@@ -50,7 +50,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvIpAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:      testConfigFvIpAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -63,7 +63,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.allow_test", "name", "131"),
@@ -93,7 +93,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.test", "name", "131"),
@@ -108,7 +108,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvIpAttrAllDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.test", "name", "131"),
@@ -123,7 +123,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.test", "ip", "131.107.1.200"),
@@ -132,7 +132,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvIpAttrResetDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrResetDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.test", "ip", "131.107.1.200"),
@@ -153,7 +153,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvIpAttrChildrenDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrChildrenDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.test", "ip", "131.107.1.200"),
@@ -191,7 +191,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvIpAttrChildrenRemoveFromConfigDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrChildrenRemoveFromConfigDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -212,7 +212,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvIpAttrChildrenRemoveOneDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrChildrenRemoveOneDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -229,7 +229,7 @@ func TestAccResourceFvIpAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvIpAttrChildrenRemoveAllDependencyWithFvCrtrn,
+				Config:             testConfigFvIpAttrChildrenRemoveAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_ip_attribute.test", "annotations.#", "0"),

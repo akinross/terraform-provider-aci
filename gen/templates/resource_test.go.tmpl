@@ -23,7 +23,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}AllowExisting{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}AllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}{{$contains := definedInMap $key $.default}}
@@ -89,7 +89,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}AllowExisting{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}AllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -102,7 +102,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}AllowExisting{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}AllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}{{$contains := definedInMap $key $.default}}
@@ -168,7 +168,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}{{$contains := definedInMap $key $.default}}
@@ -218,7 +218,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfig{{$.resourceClassName}}All{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}All{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}{{$contains := definedInMap $key $.all}}
@@ -268,7 +268,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Min{{if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}
@@ -300,7 +300,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfig{{$.resourceClassName}}Reset{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Reset{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}
@@ -368,7 +368,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		{{- if $.children}}
 			// Update with children
 			{
-				Config: testConfig{{$.resourceClassName}}Children{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}Children{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}
@@ -503,7 +503,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 			},
 			// Update with children removed from config
 			{
-				Config: testConfig{{$.resourceClassName}}ChildrenRemoveFromConfig{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}ChildrenRemoveFromConfig{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
@@ -615,7 +615,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 			},
 			// Update with children first child removed
 			{
-				Config: testConfig{{$.resourceClassName}}ChildrenRemoveOne{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}ChildrenRemoveOne{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
@@ -752,7 +752,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 			},
 			// Update with all children removed
 			{
-				Config: testConfig{{$.resourceClassName}}ChildrenRemoveAll{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}ChildrenRemoveAll{{ if .class_name}}DependencyWith{{capitalize .class_name}}{{end}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
@@ -863,7 +863,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		{{- if $.custom_type}}
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config: testConfig{{$.resourceClassName}}CustomTypeDependencyWith{{capitalize .class_name}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}CustomTypeDependencyWith{{capitalize .class_name}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 				Check: resource.ComposeAggregateTestCheckFunc(
 			{{- range $key, $value := $.custom_type}}
@@ -879,7 +879,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		{{- if $.legacy_attributes}}
 			// Update with legacy attribute config
 			{
-				Config: testConfig{{$.resourceClassName}}LegacyAttributesWith{{capitalize .class_name}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}LegacyAttributesWith{{capitalize .class_name}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: {{.class_in_parent}},
 			},
 		{{- end}}
@@ -893,7 +893,7 @@ PreCheck: func() { testAccPreCheck(t, "{{.test_type}}", "{{$.class_version}}") }
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:      testConfig{{$.resourceClassName}}LegacyAttributesWith{{capitalize .class_name}}{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config:      testConfig{{$.resourceClassName}}LegacyAttributesWith{{capitalize .class_name}} + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -910,7 +910,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{.resourceClassName}}MinAllowExisting{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}MinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}{{$contains := definedInMap $key $.default}}
 			{{- if not $contains}}
@@ -964,7 +964,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{.resourceClassName}}MinAllowExisting{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}MinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := $.resource_required}}{{$contains := definedInMap $key $.default}}
 			{{- if not $contains}}
@@ -1004,7 +1004,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfig{{.resourceClassName}}Min{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}Min + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 	{{- range $key, $value := .resource_required}}{{$contains := definedInMap $key $.default}}
 		{{- if not $contains}}
@@ -1047,7 +1047,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfig{{.resourceClassName}}All{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}All + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 	{{- range $key, $value := .resource_required}}{{$contains := definedInMap $key $.all}}
 		{{- if not $contains}}
@@ -1092,7 +1092,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfig{{.resourceClassName}}Min{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}Min + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 	{{- range $key, $value := .resource_required}}{{$contains := definedInMap $key $.all}}
 		{{- if not $contains}}
@@ -1145,7 +1145,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfig{{.resourceClassName}}Reset{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}Reset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 	{{- range $key, $value := $.resource_required}}
 			{{- if eq $key "target_dn" }}
@@ -1199,7 +1199,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 	{{- if $.children}}
 			// Update with children
 			{
-				Config: testConfig{{.resourceClassName}}Children{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}Children + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
 			{{- if eq $key "target_dn" }}
@@ -1316,7 +1316,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfig{{.resourceClassName}}ChildrenRemoveFromConfig{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}ChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
 			{{- if eq $key "target_dn" }}
@@ -1427,7 +1427,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfig{{.resourceClassName}}ChildrenRemoveOne{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}ChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
 			{{- if eq $key "target_dn" }}
@@ -1583,7 +1583,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfig{{.resourceClassName}}ChildrenRemoveAll{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{.resourceClassName}}ChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 		{{- range $key, $value := .min}}
 			{{- if eq $key "target_dn" }}
@@ -1726,7 +1726,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 		{{- if $.legacy_attributes}}
 			// Update with legacy attribute config
 			{
-				Config: testConfig{{$.resourceClassName}}LegacyAttributes{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config: testConfig{{$.resourceClassName}}LegacyAttributes + testConfigDataSourceSystem,
 			},
 		{{- end}}
 		},
@@ -1739,7 +1739,7 @@ func TestAccResource{{.resourceClassName}}(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:      testConfig{{$.resourceClassName}}LegacyAttributes{{if $.version_mismatch}} + testConfigDataSourceSystem{{end}},
+				Config:      testConfig{{$.resourceClassName}}LegacyAttributes + testConfigDataSourceSystem,
 			},
 		},
 		CheckDestroy: testCheckResourceDestroy,

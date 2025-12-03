@@ -19,7 +19,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsProtByMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsProtByMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.allow_test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -38,7 +38,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsProtByMinDependencyWithFvAEPgAllowExisting,
+				Config:      testConfigFvRsProtByMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -51,7 +51,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsProtByMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsProtByMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.allow_test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -69,7 +69,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsProtByMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -78,7 +78,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsProtByAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -87,7 +87,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsProtByMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -95,7 +95,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsProtByResetDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByResetDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -110,7 +110,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsProtByChildrenDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByChildrenDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "taboo_contract_name", "test_tn_vz_taboo_name"),
@@ -142,7 +142,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsProtByChildrenRemoveFromConfigDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -163,7 +163,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsProtByChildrenRemoveOneDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceFvRsProtByWithFvAEPg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsProtByChildrenRemoveAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsProtByChildrenRemoveAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_taboo_contract.test", "annotations.#", "0"),

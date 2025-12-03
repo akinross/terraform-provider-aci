@@ -19,7 +19,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.allow_test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -44,7 +44,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsFcPathAttMinDependencyWithFvAEPgAllowExisting,
+				Config:      testConfigFvRsFcPathAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -57,7 +57,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.allow_test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -81,7 +81,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsFcPathAttAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -105,7 +105,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -113,7 +113,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsFcPathAttResetDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttResetDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -131,7 +131,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsFcPathAttChildrenDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttChildrenDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.test", "target_dn", "topology/pod-1/paths-101/pathep-[eth1/1]"),
@@ -166,7 +166,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsFcPathAttChildrenRemoveFromConfigDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -187,7 +187,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsFcPathAttChildrenRemoveOneDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -204,7 +204,7 @@ func TestAccResourceFvRsFcPathAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsFcPathAttChildrenRemoveAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsFcPathAttChildrenRemoveAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_fibre_channel_path.test", "annotations.#", "0"),

@@ -22,7 +22,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.allow_test", "name", "netfow_exporter"),
@@ -61,7 +61,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigNetflowExporterPolMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigNetflowExporterPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -74,7 +74,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.allow_test", "name", "netfow_exporter"),
@@ -112,7 +112,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "name", "netfow_exporter"),
@@ -131,7 +131,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigNetflowExporterPolAllDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "name", "netfow_exporter"),
@@ -150,7 +150,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "destination_ip_address", "2.2.2.1"),
@@ -161,7 +161,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigNetflowExporterPolResetDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "destination_ip_address", "2.2.2.1"),
@@ -186,7 +186,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigNetflowExporterPolChildrenDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "destination_ip_address", "2.2.2.1"),
@@ -236,7 +236,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigNetflowExporterPolChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -285,7 +285,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigNetflowExporterPolChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -328,7 +328,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigNetflowExporterPolChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "annotations.#", "0"),
@@ -361,7 +361,7 @@ func TestAccResourceNetflowExporterPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigNetflowExporterPolCustomTypeDependencyWithFvTenant,
+				Config:             testConfigNetflowExporterPolCustomTypeDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_netflow_exporter_policy.test", "destination_ip_address", "2.2.2.1"),

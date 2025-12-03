@@ -19,7 +19,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToOutMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvRsBDToOutMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.allow_test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -38,7 +38,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsBDToOutMinDependencyWithFvBDAllowExisting,
+				Config:      testConfigFvRsBDToOutMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -51,7 +51,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToOutMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvRsBDToOutMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.allow_test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -69,7 +69,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToOutMinDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -78,7 +78,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsBDToOutAllDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -87,7 +87,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsBDToOutMinDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -95,7 +95,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsBDToOutResetDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutResetDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -110,7 +110,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsBDToOutChildrenDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutChildrenDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.test", "l3_outside_name", "test_tn_l3ext_out_name"),
@@ -142,7 +142,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsBDToOutChildrenRemoveFromConfigDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutChildrenRemoveFromConfigDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -163,7 +163,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsBDToOutChildrenRemoveOneDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutChildrenRemoveOneDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceFvRsBDToOutWithFvBD(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsBDToOutChildrenRemoveAllDependencyWithFvBD,
+				Config:             testConfigFvRsBDToOutChildrenRemoveAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_bridge_domain_to_l3_outside.test", "annotations.#", "0"),

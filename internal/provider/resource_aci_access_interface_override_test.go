@@ -22,7 +22,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraHPathSMinAllowExisting,
+				Config: testConfigInfraHPathSMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.allow_test", "name", "host_path_selector"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.allow_test_2", "name", "host_path_selector"),
@@ -61,7 +61,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraHPathSMinAllowExisting,
+				Config: testConfigInfraHPathSMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.allow_test", "name", "host_path_selector"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.allow_test_2", "name", "host_path_selector"),
@@ -86,7 +86,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraHPathSMin,
+				Config: testConfigInfraHPathSMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "name", "host_path_selector"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
@@ -98,7 +98,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfigInfraHPathSAll,
+				Config: testConfigInfraHPathSAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "name", "host_path_selector"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "annotation"),
@@ -110,7 +110,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfigInfraHPathSMin,
+				Config: testConfigInfraHPathSMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "name", "host_path_selector"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
@@ -122,7 +122,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfigInfraHPathSReset,
+				Config: testConfigInfraHPathSReset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "name", "host_path_selector"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
@@ -140,7 +140,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config: testConfigInfraHPathSChildren,
+				Config: testConfigInfraHPathSChildren + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "description", ""),
@@ -193,7 +193,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfigInfraHPathSChildrenRemoveFromConfig,
+				Config: testConfigInfraHPathSChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "description", ""),
@@ -246,7 +246,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfigInfraHPathSChildrenRemoveOne,
+				Config: testConfigInfraHPathSChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "description", ""),
@@ -293,7 +293,7 @@ func TestAccResourceInfraHPathS(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfigInfraHPathSChildrenRemoveAll,
+				Config: testConfigInfraHPathSChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_access_interface_override.test", "description", ""),

@@ -19,7 +19,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzTSubjMinDependencyWithVzTabooAllowExisting,
+				Config:             testConfigVzTSubjMinDependencyWithVzTabooAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.allow_test", "name", "test_name"),
@@ -42,7 +42,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVzTSubjMinDependencyWithVzTabooAllowExisting,
+				Config:      testConfigVzTSubjMinDependencyWithVzTabooAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -55,7 +55,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzTSubjMinDependencyWithVzTabooAllowExisting,
+				Config:             testConfigVzTSubjMinDependencyWithVzTabooAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.allow_test", "name", "test_name"),
@@ -77,7 +77,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzTSubjMinDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjMinDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.test", "name", "test_name"),
@@ -88,7 +88,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVzTSubjAllDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjAllDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.test", "name", "test_name"),
@@ -99,7 +99,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVzTSubjMinDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjMinDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.test", "name", "test_name"),
@@ -107,7 +107,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVzTSubjResetDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjResetDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.test", "name", "test_name"),
@@ -124,7 +124,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVzTSubjChildrenDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjChildrenDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.test", "name", "test_name"),
@@ -168,7 +168,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVzTSubjChildrenRemoveFromConfigDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjChildrenRemoveFromConfigDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVzTSubjChildrenRemoveOneDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjChildrenRemoveOneDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -249,7 +249,7 @@ func TestAccResourceVzTSubjWithVzTaboo(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVzTSubjChildrenRemoveAllDependencyWithVzTaboo,
+				Config:             testConfigVzTSubjChildrenRemoveAllDependencyWithVzTaboo + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_taboo_contract_subject.test", "annotations.#", "0"),

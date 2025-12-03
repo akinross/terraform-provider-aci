@@ -19,7 +19,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPolAllowExisting,
+				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.allow_test", "from", "AF11"),
@@ -52,7 +52,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigQosDscpClassMinDependencyWithQosCustomPolAllowExisting,
+				Config:      testConfigQosDscpClassMinDependencyWithQosCustomPolAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -65,7 +65,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPolAllowExisting,
+				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.allow_test", "from", "AF11"),
@@ -97,7 +97,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "from", "AF11"),
@@ -113,7 +113,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigQosDscpClassAllDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassAllDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "from", "AF11"),
@@ -129,7 +129,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassMinDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "from", "AF11"),
@@ -138,7 +138,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigQosDscpClassResetDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassResetDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "from", "AF11"),
@@ -160,7 +160,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigQosDscpClassChildrenDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassChildrenDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "from", "AF11"),
@@ -199,7 +199,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigQosDscpClassChildrenRemoveFromConfigDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassChildrenRemoveFromConfigDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigQosDscpClassChildrenRemoveOneDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassChildrenRemoveOneDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -237,7 +237,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigQosDscpClassChildrenRemoveAllDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassChildrenRemoveAllDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "annotations.#", "0"),
@@ -246,7 +246,7 @@ func TestAccResourceQosDscpClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigQosDscpClassCustomTypeDependencyWithQosCustomPol,
+				Config:             testConfigQosDscpClassCustomTypeDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dscp_to_priority_map.test", "from", "0"),

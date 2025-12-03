@@ -19,7 +19,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.allow_test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -44,7 +44,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsAepAttMinDependencyWithFvAEPgAllowExisting,
+				Config:      testConfigFvRsAepAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -57,7 +57,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.allow_test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -81,7 +81,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsAepAttAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -105,7 +105,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -114,7 +114,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsAepAttResetDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttResetDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -132,7 +132,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsAepAttChildrenDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttChildrenDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "attachable_access_entity_profile_name", "test_tn_infra_att_entity_p_name"),
@@ -167,7 +167,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsAepAttChildrenRemoveFromConfigDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -188,7 +188,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsAepAttChildrenRemoveOneDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -205,7 +205,7 @@ func TestAccResourceFvRsAepAttWithFvAEPg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsAepAttChildrenRemoveAllDependencyWithFvAEPg,
+				Config:             testConfigFvRsAepAttChildrenRemoveAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_application_epg_to_attachable_access_entity_profile.test", "annotations.#", "0"),

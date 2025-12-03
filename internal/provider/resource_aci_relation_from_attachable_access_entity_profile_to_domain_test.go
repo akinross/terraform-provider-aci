@@ -19,7 +19,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityPAllowExisting,
+				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.allow_test", "target_dn", "uni/phys-physical_domain_0"),
@@ -38,7 +38,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigInfraRsDomPMinDependencyWithInfraAttEntityPAllowExisting,
+				Config:      testConfigInfraRsDomPMinDependencyWithInfraAttEntityPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -51,7 +51,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityPAllowExisting,
+				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.allow_test", "target_dn", "uni/phys-physical_domain_0"),
@@ -69,7 +69,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "target_dn", "uni/phys-physical_domain_0"),
@@ -78,7 +78,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigInfraRsDomPAllDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPAllDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "target_dn", "uni/phys-physical_domain_0"),
@@ -87,7 +87,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPMinDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "target_dn", "uni/phys-physical_domain_0"),
@@ -95,7 +95,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigInfraRsDomPResetDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPResetDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "target_dn", "uni/phys-physical_domain_0"),
@@ -110,7 +110,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigInfraRsDomPChildrenDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPChildrenDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "target_dn", "uni/phys-physical_domain_0"),
@@ -142,7 +142,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigInfraRsDomPChildrenRemoveFromConfigDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPChildrenRemoveFromConfigDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -163,7 +163,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigInfraRsDomPChildrenRemoveOneDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPChildrenRemoveOneDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceInfraRsDomPWithInfraAttEntityP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigInfraRsDomPChildrenRemoveAllDependencyWithInfraAttEntityP,
+				Config:             testConfigInfraRsDomPChildrenRemoveAllDependencyWithInfraAttEntityP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_attachable_access_entity_profile_to_domain.test", "annotations.#", "0"),

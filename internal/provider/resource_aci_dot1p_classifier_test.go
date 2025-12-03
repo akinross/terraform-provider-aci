@@ -19,7 +19,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPolAllowExisting,
+				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.allow_test", "annotation", "orchestrator:terraform"),
@@ -52,7 +52,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigQosDot1PClassMinDependencyWithQosCustomPolAllowExisting,
+				Config:      testConfigQosDot1PClassMinDependencyWithQosCustomPolAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -65,7 +65,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPolAllowExisting,
+				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.allow_test", "annotation", "orchestrator:terraform"),
@@ -97,7 +97,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotation", "orchestrator:terraform"),
@@ -113,7 +113,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigQosDot1PClassAllDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassAllDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotation", "annotation"),
@@ -129,7 +129,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassMinDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "from", "1"),
@@ -138,7 +138,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigQosDot1PClassResetDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassResetDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "from", "1"),
@@ -160,7 +160,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigQosDot1PClassChildrenDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassChildrenDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "from", "1"),
@@ -199,7 +199,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigQosDot1PClassChildrenRemoveFromConfigDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassChildrenRemoveFromConfigDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigQosDot1PClassChildrenRemoveOneDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassChildrenRemoveOneDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -237,7 +237,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigQosDot1PClassChildrenRemoveAllDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassChildrenRemoveAllDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "annotations.#", "0"),
@@ -246,7 +246,7 @@ func TestAccResourceQosDot1PClassWithQosCustomPol(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigQosDot1PClassCustomTypeDependencyWithQosCustomPol,
+				Config:             testConfigQosDot1PClassCustomTypeDependencyWithQosCustomPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_dot1p_classifier.test", "from", "0"),

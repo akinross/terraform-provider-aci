@@ -19,7 +19,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomPAllowExisting,
+				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.allow_test", "annotation", "orchestrator:terraform"),
@@ -40,7 +40,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVmmUplinkPContMinDependencyWithVmmDomPAllowExisting,
+				Config:      testConfigVmmUplinkPContMinDependencyWithVmmDomPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomPAllowExisting,
+				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.allow_test", "annotation", "orchestrator:terraform"),
@@ -73,7 +73,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotation", "orchestrator:terraform"),
@@ -83,7 +83,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPContAllDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContAllDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotation", "annotation"),
@@ -93,7 +93,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContMinDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "number_of_uplinks", "2"),
@@ -101,7 +101,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVmmUplinkPContResetDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContResetDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "number_of_uplinks", "2"),
@@ -117,7 +117,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVmmUplinkPContChildrenDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContChildrenDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "number_of_uplinks", "2"),
@@ -160,7 +160,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVmmUplinkPContChildrenRemoveFromConfigDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContChildrenRemoveFromConfigDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -212,7 +212,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVmmUplinkPContChildrenRemoveOneDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContChildrenRemoveOneDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -242,7 +242,7 @@ func TestAccResourceVmmUplinkPContWithVmmDomP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVmmUplinkPContChildrenRemoveAllDependencyWithVmmDomP,
+				Config:             testConfigVmmUplinkPContChildrenRemoveAllDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_container.test", "annotations.#", "0"),

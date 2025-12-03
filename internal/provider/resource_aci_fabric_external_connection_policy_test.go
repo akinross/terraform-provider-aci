@@ -19,7 +19,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigFvFabricExtConnPMinAllowExisting,
+				Config: testConfigFvFabricExtConnPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.allow_test", "fabric_id", "1"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.allow_test_2", "fabric_id", "1"),
@@ -64,7 +64,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigFvFabricExtConnPMinAllowExisting,
+				Config: testConfigFvFabricExtConnPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.allow_test", "fabric_id", "1"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.allow_test_2", "fabric_id", "1"),
@@ -95,7 +95,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigFvFabricExtConnPMin,
+				Config: testConfigFvFabricExtConnPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "fabric_id", "1"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "orchestrator:terraform"),
@@ -110,7 +110,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfigFvFabricExtConnPAll,
+				Config: testConfigFvFabricExtConnPAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "fabric_id", "1"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "annotation"),
@@ -125,7 +125,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfigFvFabricExtConnPMin,
+				Config: testConfigFvFabricExtConnPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "fabric_id", "1"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "orchestrator:terraform"),
@@ -140,7 +140,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfigFvFabricExtConnPReset,
+				Config: testConfigFvFabricExtConnPReset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "community", "extended:as2-nn4:5:16"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "fabric_id", "1"),
@@ -161,7 +161,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config: testConfigFvFabricExtConnPChildren,
+				Config: testConfigFvFabricExtConnPChildren + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "description", ""),
@@ -208,7 +208,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfigFvFabricExtConnPChildrenRemoveFromConfig,
+				Config: testConfigFvFabricExtConnPChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "description", ""),
@@ -255,7 +255,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfigFvFabricExtConnPChildrenRemoveOne,
+				Config: testConfigFvFabricExtConnPChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "description", ""),
@@ -294,7 +294,7 @@ func TestAccResourceFvFabricExtConnP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfigFvFabricExtConnPChildrenRemoveAll,
+				Config: testConfigFvFabricExtConnPChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_fabric_external_connection_policy.test", "description", ""),

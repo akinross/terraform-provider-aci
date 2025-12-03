@@ -19,7 +19,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPolAllowExisting,
+				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.allow_test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -38,7 +38,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPolAllowExisting,
+				Config:      testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPolAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -51,7 +51,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPolAllowExisting,
+				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPolAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.allow_test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -69,7 +69,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -78,7 +78,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigNetflowRsMonitorToExporterAllDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterAllDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -87,7 +87,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterMinDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -95,7 +95,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigNetflowRsMonitorToExporterResetDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterResetDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -110,7 +110,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with children
 			{
-				Config:             testConfigNetflowRsMonitorToExporterChildrenDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterChildrenDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.test", "netflow_exporter_policy_name", "test_tn_netflow_exporter_pol_name"),
@@ -142,7 +142,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigNetflowRsMonitorToExporterChildrenRemoveFromConfigDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterChildrenRemoveFromConfigDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -163,7 +163,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigNetflowRsMonitorToExporterChildrenRemoveOneDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterChildrenRemoveOneDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceNetflowRsMonitorToExporterWithNetflowMonitorPol(t *testing.T
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigNetflowRsMonitorToExporterChildrenRemoveAllDependencyWithNetflowMonitorPol,
+				Config:             testConfigNetflowRsMonitorToExporterChildrenRemoveAllDependencyWithNetflowMonitorPol + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_to_netflow_exporter.test", "annotations.#", "0"),

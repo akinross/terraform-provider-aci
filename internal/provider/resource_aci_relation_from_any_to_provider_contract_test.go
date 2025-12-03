@@ -19,7 +19,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAnyAllowExisting,
+				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAnyAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.allow_test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -42,7 +42,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVzRsAnyToProvMinDependencyWithVzAnyAllowExisting,
+				Config:      testConfigVzRsAnyToProvMinDependencyWithVzAnyAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -55,7 +55,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAnyAllowExisting,
+				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAnyAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.allow_test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -77,7 +77,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -88,7 +88,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVzRsAnyToProvAllDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvAllDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -99,7 +99,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvMinDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -107,7 +107,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVzRsAnyToProvResetDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvResetDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -124,7 +124,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVzRsAnyToProvChildrenDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvChildrenDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "contract_name", "test_tn_vz_br_cp_name"),
@@ -158,7 +158,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVzRsAnyToProvChildrenRemoveFromConfigDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvChildrenRemoveFromConfigDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -179,7 +179,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVzRsAnyToProvChildrenRemoveOneDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvChildrenRemoveOneDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -196,7 +196,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVzRsAnyToProvChildrenRemoveAllDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvChildrenRemoveAllDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "annotations.#", "0"),
@@ -205,7 +205,7 @@ func TestAccResourceVzRsAnyToProvWithVzAny(t *testing.T) {
 			},
 			// Update with minimum config and custom type semantic equivalent values
 			{
-				Config:             testConfigVzRsAnyToProvCustomTypeDependencyWithVzAny,
+				Config:             testConfigVzRsAnyToProvCustomTypeDependencyWithVzAny + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_any_to_provider_contract.test", "contract_name", "test_tn_vz_br_cp_name"),

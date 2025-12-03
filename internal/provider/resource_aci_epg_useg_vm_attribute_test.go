@@ -19,7 +19,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.allow_test", "name", "vm_attribute"),
@@ -56,7 +56,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvVmAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:      testConfigFvVmAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -69,7 +69,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.allow_test", "name", "vm_attribute"),
@@ -105,7 +105,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -123,7 +123,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrAllDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -141,7 +141,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -150,7 +150,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvVmAttrResetDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrResetDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -174,7 +174,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvVmAttrChildrenDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrChildrenDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -215,7 +215,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvVmAttrChildrenRemoveFromConfigDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrChildrenRemoveFromConfigDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -236,7 +236,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvVmAttrChildrenRemoveOneDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrChildrenRemoveOneDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -253,7 +253,7 @@ func TestAccResourceFvVmAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvVmAttrChildrenRemoveAllDependencyWithFvCrtrn,
+				Config:             testConfigFvVmAttrChildrenRemoveAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "annotations.#", "0"),
@@ -272,7 +272,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrnAllowExisting,
+				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.allow_test", "name", "vm_attribute"),
@@ -309,7 +309,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvVmAttrMinDependencyWithFvSCrtrnAllowExisting,
+				Config:      testConfigFvVmAttrMinDependencyWithFvSCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -322,7 +322,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrnAllowExisting,
+				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.allow_test", "name", "vm_attribute"),
@@ -358,7 +358,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -376,7 +376,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvVmAttrAllDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrAllDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -394,7 +394,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrMinDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -403,7 +403,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvVmAttrResetDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrResetDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -427,7 +427,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvVmAttrChildrenDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrChildrenDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "name", "vm_attribute"),
@@ -468,7 +468,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvVmAttrChildrenRemoveFromConfigDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrChildrenRemoveFromConfigDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -489,7 +489,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvVmAttrChildrenRemoveOneDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrChildrenRemoveOneDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -506,7 +506,7 @@ func TestAccResourceFvVmAttrWithFvSCrtrn(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvVmAttrChildrenRemoveAllDependencyWithFvSCrtrn,
+				Config:             testConfigFvVmAttrChildrenRemoveAllDependencyWithFvSCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_vm_attribute.test", "annotations.#", "0"),

@@ -19,7 +19,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.allow_test", "name", "dns_attribute"),
@@ -48,7 +48,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvDnsAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:      testConfigFvDnsAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -61,7 +61,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrnAllowExisting,
+				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrnAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.allow_test", "name", "dns_attribute"),
@@ -89,7 +89,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.test", "name", "dns_attribute"),
@@ -103,7 +103,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvDnsAttrAllDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.test", "name", "dns_attribute"),
@@ -117,7 +117,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrMinDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.test", "name", "dns_attribute"),
@@ -125,7 +125,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvDnsAttrResetDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrResetDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.test", "name", "dns_attribute"),
@@ -145,7 +145,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvDnsAttrChildrenDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrChildrenDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.test", "name", "dns_attribute"),
@@ -182,7 +182,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvDnsAttrChildrenRemoveFromConfigDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrChildrenRemoveFromConfigDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -203,7 +203,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvDnsAttrChildrenRemoveOneDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrChildrenRemoveOneDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceFvDnsAttrWithFvCrtrn(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvDnsAttrChildrenRemoveAllDependencyWithFvCrtrn,
+				Config:             testConfigFvDnsAttrChildrenRemoveAllDependencyWithFvCrtrn + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_epg_useg_dns_attribute.test", "annotations.#", "0"),

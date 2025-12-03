@@ -19,7 +19,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraAccPortPMinAllowExisting,
+				Config: testConfigInfraAccPortPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.allow_test_2", "name", "test_name"),
@@ -58,7 +58,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraAccPortPMinAllowExisting,
+				Config: testConfigInfraAccPortPMinAllowExisting + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.allow_test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.allow_test_2", "name", "test_name"),
@@ -83,7 +83,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config: testConfigInfraAccPortPMin,
+				Config: testConfigInfraAccPortPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
@@ -95,7 +95,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config: testConfigInfraAccPortPAll,
+				Config: testConfigInfraAccPortPAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "annotation"),
@@ -107,7 +107,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config: testConfigInfraAccPortPMin,
+				Config: testConfigInfraAccPortPMin + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
@@ -119,7 +119,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config: testConfigInfraAccPortPReset,
+				Config: testConfigInfraAccPortPReset + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "name", "test_name"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
@@ -137,7 +137,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config: testConfigInfraAccPortPChildren,
+				Config: testConfigInfraAccPortPChildren + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "description", ""),
@@ -162,7 +162,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config: testConfigInfraAccPortPChildrenRemoveFromConfig,
+				Config: testConfigInfraAccPortPChildrenRemoveFromConfig + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "description", ""),
@@ -187,7 +187,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config: testConfigInfraAccPortPChildrenRemoveOne,
+				Config: testConfigInfraAccPortPChildrenRemoveOne + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "description", ""),
@@ -208,7 +208,7 @@ func TestAccResourceInfraAccPortP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config: testConfigInfraAccPortPChildrenRemoveAll,
+				Config: testConfigInfraAccPortPChildrenRemoveAll + testConfigDataSourceSystem,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_leaf_interface_profile.test", "description", ""),

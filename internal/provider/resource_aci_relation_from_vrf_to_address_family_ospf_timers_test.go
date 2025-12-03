@@ -19,7 +19,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtxAllowExisting,
+				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.allow_test", "ospf_timers_name", "test_tn_ospf_ctx_pol_name"),
@@ -40,7 +40,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtxAllowExisting,
+				Config:      testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtxAllowExisting,
+				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.allow_test", "ospf_timers_name", "test_tn_ospf_ctx_pol_name"),
@@ -73,7 +73,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "ospf_timers_name", "test_tn_ospf_ctx_pol_name"),
@@ -83,7 +83,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolAllDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolAllDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "ospf_timers_name", "test_tn_ospf_ctx_pol_name"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolMinDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "address_family", "ipv4-ucast"),
@@ -102,7 +102,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolResetDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolResetDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "address_family", "ipv4-ucast"),
@@ -118,7 +118,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolChildrenDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolChildrenDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "address_family", "ipv4-ucast"),
@@ -151,7 +151,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveFromConfigDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveFromConfigDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -172,7 +172,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveOneDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveOneDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -189,7 +189,7 @@ func TestAccResourceFvRsCtxToOspfCtxPolWithFvCtx(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveAllDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToOspfCtxPolChildrenRemoveAllDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_address_family_ospf_timers.test", "annotations.#", "0"),

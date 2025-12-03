@@ -19,7 +19,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfPAllowExisting,
+				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.allow_test", "segment_id", "1"),
@@ -46,7 +46,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfPAllowExisting,
+				Config:      testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfPAllowExisting,
+				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.allow_test", "segment_id", "1"),
@@ -85,7 +85,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "segment_id", "1"),
@@ -98,7 +98,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigMplsNodeSidPAllDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPAllDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "segment_id", "1"),
@@ -111,7 +111,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPMinDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "segment_id", "1"),
@@ -119,7 +119,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigMplsNodeSidPResetDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPResetDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "segment_id", "1"),
@@ -138,7 +138,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigMplsNodeSidPChildrenDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPChildrenDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "segment_id", "1"),
@@ -174,7 +174,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigMplsNodeSidPChildrenRemoveFromConfigDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPChildrenRemoveFromConfigDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -195,7 +195,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigMplsNodeSidPChildrenRemoveOneDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPChildrenRemoveOneDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -212,7 +212,7 @@ func TestAccResourceMplsNodeSidPWithL3extLoopBackIfP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigMplsNodeSidPChildrenRemoveAllDependencyWithL3extLoopBackIfP,
+				Config:             testConfigMplsNodeSidPChildrenRemoveAllDependencyWithL3extLoopBackIfP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_node_sid_profile.test", "annotations.#", "0"),

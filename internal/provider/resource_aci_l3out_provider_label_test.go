@@ -19,7 +19,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extProvLblMinDependencyWithL3extOutAllowExisting,
+				Config:             testConfigL3extProvLblMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.allow_test", "name", "prov_label"),
@@ -48,7 +48,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigL3extProvLblMinDependencyWithL3extOutAllowExisting,
+				Config:      testConfigL3extProvLblMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -61,7 +61,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extProvLblMinDependencyWithL3extOutAllowExisting,
+				Config:             testConfigL3extProvLblMinDependencyWithL3extOutAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.allow_test", "name", "prov_label"),
@@ -89,7 +89,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extProvLblMinDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblMinDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "name", "prov_label"),
@@ -103,7 +103,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigL3extProvLblAllDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblAllDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "name", "prov_label"),
@@ -117,7 +117,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigL3extProvLblMinDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblMinDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "name", "prov_label"),
@@ -125,7 +125,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigL3extProvLblResetDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblResetDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "name", "prov_label"),
@@ -145,7 +145,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigL3extProvLblChildrenDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblChildrenDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "name", "prov_label"),
@@ -182,7 +182,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigL3extProvLblChildrenRemoveFromConfigDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblChildrenRemoveFromConfigDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -203,7 +203,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigL3extProvLblChildrenRemoveOneDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblChildrenRemoveOneDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceL3extProvLblWithL3extOut(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigL3extProvLblChildrenRemoveAllDependencyWithL3extOut,
+				Config:             testConfigL3extProvLblChildrenRemoveAllDependencyWithL3extOut + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_l3out_provider_label.test", "annotations.#", "0"),

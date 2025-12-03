@@ -19,7 +19,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvEpIpTagMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvEpIpTagMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.allow_test", "ip", "10.0.0.2"),
@@ -46,7 +46,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvEpIpTagMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigFvEpIpTagMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvEpIpTagMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigFvEpIpTagMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.allow_test", "ip", "10.0.0.2"),
@@ -85,7 +85,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvEpIpTagMinDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.test", "ip", "10.0.0.2"),
@@ -98,7 +98,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvEpIpTagAllDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.test", "ip", "10.0.0.2"),
@@ -111,7 +111,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvEpIpTagMinDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.test", "ip", "10.0.0.2"),
@@ -120,7 +120,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvEpIpTagResetDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.test", "ip", "10.0.0.2"),
@@ -139,7 +139,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvEpIpTagChildrenDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.test", "ip", "10.0.0.2"),
@@ -175,7 +175,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvEpIpTagChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -196,7 +196,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvEpIpTagChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -213,7 +213,7 @@ func TestAccResourceFvEpIpTagWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvEpIpTagChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigFvEpIpTagChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_endpoint_tag_ip.test", "annotations.#", "0"),

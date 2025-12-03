@@ -19,7 +19,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.allow_test", "name", "test_name"),
@@ -56,7 +56,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigEigrpCtxAfPolMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigEigrpCtxAfPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -69,7 +69,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.allow_test", "name", "test_name"),
@@ -105,7 +105,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.test", "name", "test_name"),
@@ -123,7 +123,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigEigrpCtxAfPolAllDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.test", "name", "test_name"),
@@ -141,7 +141,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.test", "name", "test_name"),
@@ -149,7 +149,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigEigrpCtxAfPolResetDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.test", "name", "test_name"),
@@ -173,7 +173,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigEigrpCtxAfPolChildrenDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.test", "name", "test_name"),
@@ -214,7 +214,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigEigrpCtxAfPolChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -235,7 +235,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigEigrpCtxAfPolChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -252,7 +252,7 @@ func TestAccResourceEigrpCtxAfPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigEigrpCtxAfPolChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigEigrpCtxAfPolChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_eigrp_address_family_context.test", "annotations.#", "0"),

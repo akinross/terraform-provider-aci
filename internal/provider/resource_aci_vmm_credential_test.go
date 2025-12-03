@@ -19,7 +19,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomPAllowExisting,
+				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.allow_test", "name", "test_name"),
@@ -48,7 +48,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVmmUsrAccPMinDependencyWithVmmDomPAllowExisting,
+				Config:      testConfigVmmUsrAccPMinDependencyWithVmmDomPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -61,7 +61,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomPAllowExisting,
+				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.allow_test", "name", "test_name"),
@@ -89,7 +89,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.test", "name", "test_name"),
@@ -103,7 +103,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVmmUsrAccPAllDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPAllDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.test", "name", "test_name"),
@@ -117,7 +117,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPMinDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.test", "name", "test_name"),
@@ -125,7 +125,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVmmUsrAccPResetDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPResetDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.test", "name", "test_name"),
@@ -146,7 +146,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVmmUsrAccPChildrenDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPChildrenDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.test", "name", "test_name"),
@@ -184,7 +184,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVmmUsrAccPChildrenRemoveFromConfigDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPChildrenRemoveFromConfigDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -205,7 +205,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVmmUsrAccPChildrenRemoveOneDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPChildrenRemoveOneDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -222,7 +222,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVmmUsrAccPChildrenRemoveAllDependencyWithVmmDomP,
+				Config:             testConfigVmmUsrAccPChildrenRemoveAllDependencyWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_credential.test", "annotations.#", "0"),
@@ -231,7 +231,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 			},
 			// Update with legacy attribute config
 			{
-				Config:             testConfigVmmUsrAccPLegacyAttributesWithVmmDomP,
+				Config:             testConfigVmmUsrAccPLegacyAttributesWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},
@@ -243,7 +243,7 @@ func TestAccResourceVmmUsrAccPWithVmmDomP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with legacy attribute config
 			{
-				Config:             testConfigVmmUsrAccPLegacyAttributesWithVmmDomP,
+				Config:             testConfigVmmUsrAccPLegacyAttributesWithVmmDomP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 			},
 		},

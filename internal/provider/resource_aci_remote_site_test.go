@@ -19,7 +19,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociatedAllowExisting,
+				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociatedAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.allow_test", "annotation", "orchestrator:terraform"),
@@ -52,7 +52,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRemoteIdMinDependencyWithFvSiteAssociatedAllowExisting,
+				Config:      testConfigFvRemoteIdMinDependencyWithFvSiteAssociatedAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -65,7 +65,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociatedAllowExisting,
+				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociatedAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.allow_test", "annotation", "orchestrator:terraform"),
@@ -97,7 +97,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.test", "annotation", "orchestrator:terraform"),
@@ -113,7 +113,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRemoteIdAllDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdAllDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.test", "annotation", "annotation"),
@@ -129,7 +129,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.test", "remote_pc_tag", "16387"),
@@ -138,7 +138,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRemoteIdResetDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdResetDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.test", "remote_pc_tag", "16387"),
@@ -160,7 +160,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRemoteIdChildrenDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdChildrenDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.test", "remote_pc_tag", "16387"),
@@ -199,7 +199,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRemoteIdChildrenRemoveFromConfigDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdChildrenRemoveFromConfigDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -220,7 +220,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRemoteIdChildrenRemoveOneDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdChildrenRemoveOneDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -237,7 +237,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRemoteIdChildrenRemoveAllDependencyWithFvSiteAssociated,
+				Config:             testConfigFvRemoteIdChildrenRemoveAllDependencyWithFvSiteAssociated + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_remote_site.test", "annotations.#", "0"),

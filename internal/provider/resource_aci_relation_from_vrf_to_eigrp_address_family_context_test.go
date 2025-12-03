@@ -19,7 +19,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtxAllowExisting,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.allow_test", "eigrp_address_family_context_name", "test_tn_eigrp_ctx_af_pol_name"),
@@ -40,7 +40,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtxAllowExisting,
+				Config:      testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtxAllowExisting,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtxAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.allow_test", "eigrp_address_family_context_name", "test_tn_eigrp_ctx_af_pol_name"),
@@ -73,7 +73,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "eigrp_address_family_context_name", "test_tn_eigrp_ctx_af_pol_name"),
@@ -83,7 +83,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolAllDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolAllDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "eigrp_address_family_context_name", "test_tn_eigrp_ctx_af_pol_name"),
@@ -93,7 +93,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolMinDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "address_family", "ipv4-ucast"),
@@ -102,7 +102,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolResetDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolResetDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "address_family", "ipv4-ucast"),
@@ -118,7 +118,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "address_family", "ipv4-ucast"),
@@ -151,7 +151,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveFromConfigDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveFromConfigDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -172,7 +172,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveOneDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveOneDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -189,7 +189,7 @@ func TestAccResourceFvRsCtxToEigrpCtxAfPolWithFvCtx(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveAllDependencyWithFvCtx,
+				Config:             testConfigFvRsCtxToEigrpCtxAfPolChildrenRemoveAllDependencyWithFvCtx + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_vrf_to_eigrp_address_family_context.test", "annotations.#", "0"),

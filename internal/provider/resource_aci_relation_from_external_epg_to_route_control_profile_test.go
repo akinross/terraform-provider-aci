@@ -19,7 +19,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstPAllowExisting,
+				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.allow_test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -40,7 +40,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigL3extRsInstPToProfileMinDependencyWithL3extInstPAllowExisting,
+				Config:      testConfigL3extRsInstPToProfileMinDependencyWithL3extInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -53,7 +53,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstPAllowExisting,
+				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstPAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.allow_test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -73,7 +73,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -83,7 +83,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigL3extRsInstPToProfileAllDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileAllDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.test", "route_control_profile_name", "test_tn_rtctrl_profile_name"),
@@ -93,7 +93,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileMinDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.test", "direction", "import"),
@@ -102,7 +102,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigL3extRsInstPToProfileResetDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileResetDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.test", "direction", "import"),
@@ -118,7 +118,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigL3extRsInstPToProfileChildrenDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileChildrenDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.test", "direction", "import"),
@@ -151,7 +151,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigL3extRsInstPToProfileChildrenRemoveFromConfigDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileChildrenRemoveFromConfigDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -172,7 +172,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigL3extRsInstPToProfileChildrenRemoveOneDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileChildrenRemoveOneDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -189,7 +189,7 @@ func TestAccResourceL3extRsInstPToProfileWithL3extInstP(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigL3extRsInstPToProfileChildrenRemoveAllDependencyWithL3extInstP,
+				Config:             testConfigL3extRsInstPToProfileChildrenRemoveAllDependencyWithL3extInstP + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_relation_from_external_epg_to_route_control_profile.test", "annotations.#", "0"),

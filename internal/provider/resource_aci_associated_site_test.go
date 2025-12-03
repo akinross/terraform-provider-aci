@@ -19,7 +19,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.allow_test", "annotation", "orchestrator:terraform"),
@@ -48,7 +48,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvSiteAssociatedMinDependencyWithFvAEPgAllowExisting,
+				Config:      testConfigFvSiteAssociatedMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -61,7 +61,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPgAllowExisting,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPgAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.allow_test", "annotation", "orchestrator:terraform"),
@@ -89,7 +89,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotation", "orchestrator:terraform"),
@@ -103,7 +103,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedAllDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotation", "annotation"),
@@ -117,13 +117,13 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check:              resource.ComposeAggregateTestCheckFunc(),
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvSiteAssociatedResetDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedResetDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check:              resource.ComposeAggregateTestCheckFunc(),
 			},
@@ -135,7 +135,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvSiteAssociatedChildrenDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedChildrenDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotation", "orchestrator:terraform"),
@@ -192,7 +192,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvSiteAssociatedChildrenRemoveFromConfigDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedChildrenRemoveFromConfigDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -254,7 +254,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvSiteAssociatedChildrenRemoveOneDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedChildrenRemoveOneDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -289,7 +289,7 @@ func TestAccResourceFvSiteAssociatedWithFvAEPg(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvSiteAssociatedChildrenRemoveAllDependencyWithFvAEPg,
+				Config:             testConfigFvSiteAssociatedChildrenRemoveAllDependencyWithFvAEPg + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.#", "0"),
@@ -309,7 +309,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.allow_test", "annotation", "orchestrator:terraform"),
@@ -338,7 +338,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigFvSiteAssociatedMinDependencyWithFvBDAllowExisting,
+				Config:      testConfigFvSiteAssociatedMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -351,7 +351,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBDAllowExisting,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBDAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.allow_test", "annotation", "orchestrator:terraform"),
@@ -379,7 +379,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotation", "orchestrator:terraform"),
@@ -393,7 +393,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigFvSiteAssociatedAllDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotation", "annotation"),
@@ -407,13 +407,13 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedMinDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check:              resource.ComposeAggregateTestCheckFunc(),
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigFvSiteAssociatedResetDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedResetDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check:              resource.ComposeAggregateTestCheckFunc(),
 			},
@@ -425,7 +425,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigFvSiteAssociatedChildrenDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedChildrenDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotation", "orchestrator:terraform"),
@@ -482,7 +482,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigFvSiteAssociatedChildrenRemoveFromConfigDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedChildrenRemoveFromConfigDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -544,7 +544,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigFvSiteAssociatedChildrenRemoveOneDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedChildrenRemoveOneDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -579,7 +579,7 @@ func TestAccResourceFvSiteAssociatedWithFvBD(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigFvSiteAssociatedChildrenRemoveAllDependencyWithFvBD,
+				Config:             testConfigFvSiteAssociatedChildrenRemoveAllDependencyWithFvBD + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_associated_site.test", "annotations.#", "0"),

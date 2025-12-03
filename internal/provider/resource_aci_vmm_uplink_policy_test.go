@@ -19,7 +19,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPContAllowExisting,
+				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPContAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.allow_test", "uplink_id", "1"),
@@ -42,7 +42,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigVmmUplinkPMinDependencyWithVmmUplinkPContAllowExisting,
+				Config:      testConfigVmmUplinkPMinDependencyWithVmmUplinkPContAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -55,7 +55,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPContAllowExisting,
+				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPContAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.allow_test", "uplink_id", "1"),
@@ -77,7 +77,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.test", "uplink_id", "1"),
@@ -88,7 +88,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigVmmUplinkPAllDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPAllDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.test", "uplink_id", "1"),
@@ -99,7 +99,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPMinDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.test", "uplink_id", "1"),
@@ -108,7 +108,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigVmmUplinkPResetDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPResetDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.test", "uplink_id", "1"),
@@ -125,7 +125,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigVmmUplinkPChildrenDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPChildrenDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.test", "uplink_id", "1"),
@@ -159,7 +159,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigVmmUplinkPChildrenRemoveFromConfigDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPChildrenRemoveFromConfigDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -180,7 +180,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigVmmUplinkPChildrenRemoveOneDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPChildrenRemoveOneDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -197,7 +197,7 @@ func TestAccResourceVmmUplinkPWithVmmUplinkPCont(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigVmmUplinkPChildrenRemoveAllDependencyWithVmmUplinkPCont,
+				Config:             testConfigVmmUplinkPChildrenRemoveAllDependencyWithVmmUplinkPCont + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_vmm_uplink_policy.test", "annotations.#", "0"),

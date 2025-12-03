@@ -19,7 +19,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosCustomPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigQosCustomPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.allow_test", "name", "test_name"),
@@ -46,7 +46,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:      testConfigQosCustomPolMinDependencyWithFvTenantAllowExisting,
+				Config:      testConfigQosCustomPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectError: regexp.MustCompile("Object Already Exists"),
 			},
 		},
@@ -59,7 +59,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosCustomPolMinDependencyWithFvTenantAllowExisting,
+				Config:             testConfigQosCustomPolMinDependencyWithFvTenantAllowExisting + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.allow_test", "name", "test_name"),
@@ -85,7 +85,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create with minimum config and verify default APIC values
 			{
-				Config:             testConfigQosCustomPolMinDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "name", "test_name"),
@@ -98,7 +98,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all config and verify default APIC values
 			{
-				Config:             testConfigQosCustomPolAllDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "name", "test_name"),
@@ -111,7 +111,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with minimum config and verify config is unchanged
 			{
-				Config:             testConfigQosCustomPolMinDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolMinDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "name", "test_name"),
@@ -119,7 +119,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with empty strings config or default value
 			{
-				Config:             testConfigQosCustomPolResetDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolResetDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "name", "test_name"),
@@ -138,7 +138,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children
 			{
-				Config:             testConfigQosCustomPolChildrenDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolChildrenDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "name", "test_name"),
@@ -214,7 +214,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children removed from config
 			{
-				Config:             testConfigQosCustomPolChildrenRemoveFromConfigDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolChildrenRemoveFromConfigDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -317,7 +317,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with children first child removed
 			{
-				Config:             testConfigQosCustomPolChildrenRemoveOneDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolChildrenRemoveOneDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					composeAggregateTestCheckFuncWithVersion(t, "3.2(1l)-", "inside",
@@ -370,7 +370,7 @@ func TestAccResourceQosCustomPolWithFvTenant(t *testing.T) {
 			},
 			// Update with all children removed
 			{
-				Config:             testConfigQosCustomPolChildrenRemoveAllDependencyWithFvTenant,
+				Config:             testConfigQosCustomPolChildrenRemoveAllDependencyWithFvTenant + testConfigDataSourceSystem,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr("aci_custom_qos_policy.test", "annotations.#", "0"),
