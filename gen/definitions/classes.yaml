@@ -179,6 +179,8 @@ fvRsDomAtt:
 
 fvRsPathAtt:
   resource_name: "relation_to_static_path"
+  remove_from_contains:
+    - "l2PortSecurityPol"
   ui_locations:
     - "Tenants -> Application Profiles -> Application EPGs -> Static Ports"
   sub_category: "Application Management"
@@ -1274,4 +1276,15 @@ dwdmIfPol:
     - "Fabric -> Access Policies -> Policies -> Interface -> DWDM"
   contained_by:
     - "polUni"
+  rn_prepend: "infra"
+
+l2PortSecurityPol:
+  resource_name: "port_security_interface_policy"
+  sub_category: "Access Policies"
+  ui_locations:
+    - "Fabric -> Access Policies -> Policies -> Interface -> Port Security"
+  contained_by:
+    - "polUni"
+  dn_formats:
+    - "uni/infra/portsecurityP-{name}"
   rn_prepend: "infra"

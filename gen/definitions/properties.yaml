@@ -2901,3 +2901,16 @@ dwdmIfPol:
     fcot_channel_number: channel_nummber
   documentation:
     fcotChannelNumber: "The channel number of the %s object."
+
+l2PortSecurityPol:
+  overwrites:
+    maximum: maximum_endpoints
+    violation: violation_action
+  documentation:
+    maximum: "The maximum endpoints for the %s object. The value must be in the range 0 - 12000."
+    violation: "The violation action of the %s object."
+    timeout: "The timeout of the %s object. The value must be in the range 60 - 3600."
+  test_values:
+    all:
+      timeout: "3200"
+      maximum_endpoints: "10101"
