@@ -1275,3 +1275,12 @@ dwdmIfPol:
   contained_by:
     - "polUni"
   rn_prepend: "infra"
+
+fabricHIfPol:
+  resource_name: "link_level_interface_policy"
+  sub_category: "Access Policies"
+  ui_locations:
+    - "Fabric -> Access Policies -> Policies -> Interface -> Link Level"
+  contained_by:
+    - "polUni"
+  rn_prepend: "infra"
