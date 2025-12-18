@@ -2,6 +2,226 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.0.0 (December 18, 2025)
+
+BREAKING CHANGES:
+- Fix contract filter read and rename entry_annotation and entry_description attributes to annotation and description (#922)
+- Add stateupgrader logic to support the type change of already released attributes with setnestedattribute that should be singlenestedattribute. this requires a configuration change when the relation_to_netflow_record attribute is defined for already existing aci_netflow_monitor_policy resources
+
+DEPRECATIONS:
+- Changed tn_netflow_monitor_pol_name -> tn_netflow_monitor_pol_dn and add deprecation in aci_logical_interface_profile (#1005)
+- Deprecate relation_config_rs_export_destination attribute of aci_configuration_export_policy. use relation_config_rs_remote_path instead. (#1088)
+- Deprecated relation_vz_rs_fwd_r_flt_p_att and relation_vz_rs_rev_r_flt_p_att for aci_filter and fixed null update by setting the relationships to computed
+- Add deprecation warning for relation_fv_rs_cust_qos_pol in aci_endpoint_security_group (esg) resource
+- Deprecated the non-functional `relation_vz_rs_graph_att` attribute from `aci_contract`. use `relation_vz_rs_subj_graph_att` on `aci_contract_subject` instead.
+- Deprecate aci_fabric_if_pol, which will be removed in the next major version of the provider.
+
+IMPROVEMENTS:
+- Addition of new resource and data source for l4-l7 concrete device( vnscdev) (#866)
+- Addition of resource and data source for concrete interface (vnscif) (#873)
+- Added set dampening option to the action rule profile resource and datasource (#857)
+- Added action rule profile resource test file and upgraded terraform-plugin-sdk version to v2.16.0(#864)
+- Addition of new resource and data source aci_l4_l7_device (vnsldevvip) (#861)
+- Addition of new resource and data source for l4-l7 logical interfaces (vnslif) (#865)
+- Addition of resource and data source aci_l4_l7_redirect_health_group (vnsredirecthealthgroup) (#877)
+- Added new resources and datasources aci_contract_subject_filter and aci_contract_subject_one_way_filter and support for one-way contracts in aci_contract_subject (#839).
+- Addition of resource and data source for aci_ip_sla_monitoring_policy (#881)
+- Added documentation for aci_contract_subject_one_way_filter module (#887)
+- Added enable_vm_folder attribute to aci_vmm_domain (#888)
+- Add data source aci_l4_l7_deployed_graph_connector_vlan
+- Added next_hop_addr, msnlb and anycast_mac attributes to aci_subnet (#895)
+- Allow nil return option for datasource aci_client_end_point (#893)
+- Error output change from client do functions
+- Add resource aci_bulk_epg_to_static_path for bulk static path creation (#896)
+- Add aci_vrf_leak_epg_bd_subnet resource and data source (leakroutes, leakinternalsubnet and leakto) (#900)
+- Documentation fix for mode attribute of l3out path attachment
+- Documentation enhancement for dhcp relay label
+- Default to global policy 'uni/infra'
+- Add missing attributes for aci_fabric_wide_settings (#926)
+- Add support for gcp to the aci_cloud_context_profile resource (#931)
+- Added aci_cloud_account, aci_tenant_to_cloud_account, aci_cloud_ad and aci_cloud_credentials resources and datasources for cloud apics. (#912)
+- Add aci_multicast_pool and aci_multicast_pool_block resources and datasources
+- Add aci_lacp_member_policy and aci_leaf_access_bundle_policy_sub_group resources and datasources (#927)
+- Add subnet group label to the aci_cloud_subnet resource (#943)
+- Add aci_cloud_vrf_leak_routes resource and data_source (#953)
+- Removed "required" condition for mac attribute (#951)
+- Add ability to import brownfield virtual networks in aci_cloud_context_profile (#949)
+- Add dhcp relay gateway to aci_l3out_path_attachment_secondary_ip (#992)
+- Add enhanced lag policy support to l3out_floating_svi (#966)
+- Add service redirect backup policy (aci_service_redirect_backup_policy) and l1/l2 destination (aci_pbr_l1_l2_destination) resources and datasources (#965)
+- Fix resource aci_l3_outside idempotency and relationship attribute import issues and add mpls_enabled attribute (#973)
+- Add  aci_cloud_ipsec_tunnel_subnet_pool, aci_cloud_external_network and aci_cloud_external_network_vpn_network resources and datasources for cloud apic (#948)
+- Add encap attribute to the relation_l3ext_rs_dyn_path_att attribute of aci_l3out_floating_svi (#1027)
+- Add new interface configuration resource aci_interface_config (#1033)
+- Add address_type_controls attribute and summary-only option to the ctrl attribute to aci_bgp_route_summarization resource (#1040)
+
+fix ctrl from string to list with state upgrader for aci_bgp_route_summarization
+- Add the ability to associate subnets with a secondary vrf (relation_cloud_rs_subnet_to_ctx) to aci_cloud_subnet (#1058)
+- Add the ability to disable/enable hub network peering for azure with aci_cloud_template_region_detail (#1063)
+- Add aci_pim_interface_policy and aci_igmp_interface_policy resources and data sources and add relationship attributes for pim/igmp/multicast into aci_l3_outside and aci_logical_interface_profile (#1061)
+- Add read-only attributes operational_associated_group, operational_associated_sub_group, port_dn, pc_port_dn in aci_interface_config (#1081)
+- Add new aci_bfd_multihop_interface_policy and aci_bfd_multihop_interface_profile resources  for bfd multihop interface policy and profile. (#1066)
+- Add new aci_snmp_user resource (#1077)
+- Add aci_power_supply_redundancy_policy (psuinstpol) resource and data source (#1070)
+- Add bfd_multihop_node_policy resource and data source (#1092)
+- Remove annotation from ignored attributes list in content for resource aci_rest_managed
+- Add default annotation setting when annotation is not provided for aci_rest_managed
+- Add forcenew to createonly attributes to allow for object replacement in resource aci_fabric_node_member
+- Added cloud l4-l7 device resources (aci_cloud_l4_l7_native_load_balancer and aci_cloud_l4_l7_third_party_device) and updated aci_l4_l7_service_graph_template examples (#1097)
+- Add aci_cloud_service_epg, aci_cloud_service_endpoint_selector and aci_cloud_private_link_label resources and datasources (#1096)
+- Mux existing provider with terraform-plugin-framework base for new provider, migrate aci_annotation resource and datasource to framework provider and add aci_external_management_network_instance_profile, aci_external_management_network_subnet, aci_l3out_consumer_label, aci_l3out_redistribute_policy, aci_out_of_band_contract, aci_pim_route_map_entry, aci_pim_route_map_policy and aci_relation_to_consumed_out_of_band_contract resources and data sources (#1113)
+
+co-authored-by: samitab <samitab@cisco.com>
+- Add ip_data_plane_learning attribute to aci_subnet resource and data source (#1138)
+- Migration of aci_rest_managed into plugin framework
+- Add support importing for specified children in aci_rest_managed_resource
+- Allow setting an empty string as default provider level annotation
+- Add support for mac endpoint tags in aci_endpoint_tag_mac resource and datasource
+- Add support for ip endpoint tags in aci_endpoint_tag_ip resource and datasource
+- Adding ip parameter to fix resource creation when is_static_ip parameter is set in aci_cloud_l4_l7_native_load_balancer resource/datasource.
+- Added connector_type and att_notify parameters to 'aci_function_mode' and fixed documentation for aci_function_node and and aci_connection to have a particular format for names and added examples to show these changes.
+- Migration of aci_tag into plugin framework
+- Added default route leak policy to the aci_l3_outside resource
+- Added aci_fallback_route_group and aci_fallback_member resource
+- Added support for double quotes in password.
+- Made changes to add copy-function node in on-prem apics
+- Fixed examples and documentation after rebasing.
+- Changed is_copy to forcenew, so that when changed the resource is recreated, it will work with adding the right connection.
+- Add aci_relation_to_fallback_route_group resource and data_source (#1195)
+- Add aci_l3out_provider_label resource and data-source and updated templates to accept parent_dependency_name from properties.yaml (#1200)
+- Enable toggling of escaping of html characters with escape_html attribute in aci_rest_managed payloads (#1199)
+- Remove flood_on_encap and prio from schema and change the non required attributes to read-only in aci_endpoint_security datasource
+- Add daci_netflow_monitor_policy and aci_relation_to_netflow_exporter resources and datasources (#1208)
+- Added aci_l3out_node_sid_profile resource and data-source files
+- Update aci-go-client to version 2.28.2
+- Allow dn based filtering for aci_client_end_point datasource
+- Add aci_netflow_record_policy resource and datasource. (#1220)
+- Added attributes pc_tag and scope to aci_vrf (#1238)
+- Migration of aci_endpoint_security_group into plugin framework
+- Add datasource and resource for fvfbroute in aci_vrf_fallback_route and aci_vrf_fallback_route_group
+- Introduction of a provider level flag to prevent creation of objects that are already existing in apic configuration
+- Display id during plan for plugin framework resources where the dn can be constructed
+- Added useg attribute resource and data-source files
+- Migration of aci_application_epg into plugin framework
+- Add default parent dn for data plane policing policy resource
+- Add read-only pctag attribute to aci_endpoint_security_group resource and datasource
+- [minor] removed legacy route_control_profile resource files and recreated the new route_control_profile resource using the generator
+- Add resource and datasource for host path selector (infrahpaths).
+- Add resource and data source for relation_to_host_path (infrarshpathatt). provide attribute to add access base group to host path selector.
+- Updated terraform plugin testing to v1.10.0 and aci go client to v2.31.0
+- Add relation_from_l3out_consumer_label_to_external_network_instance_profile and relation_from_l3out_consumer_label_to_route_control_profile resources (dcne-153) (#1277)
+- Migration of the data source aci_system into plugin framework
+- Add resource and datasource for netflow exporter policy (netflowexporterpol).
+- Added functionality to commission a node (decommissioned but not removed from controller).
+- Fixed documentation for adding 'commission' argument.
+- Add aci_certificate_authority and aci_key_ring resources and data sources (#1145)
+- Migration of aci_bridge_domain into plugin framework. new resources and datasources aci_first_hop_security_policy, aci_igmp_snooping_policy, aci_mld_snooping_policy, aci_neighbor_discovery_interface_policy, aci_relation_from_bridge_domain_to_l3_outside, aci_relation_from_bridge_domain_to_netflow_monitor_policy, and aci_rogue_coop_exception
+- Added generator function to re-fetch latest metadata and generate.
+- added a github workflow that runs the code regeneration weekly.
+- Added certificate_usage property to aci_certificate_authority
+- Addition of recursive logic in the templates to incorporate grand children of the parent class as nested children within the immediate child of the parent
+- Add read-only pctag, scope and segment attributes to aci_bridge_domain resource and datasource and add scope to aci_endpoint_security_group and aci_application_epg resources and datasources
+- Add resources and datasources to support qosdot1pclass and qosdscpclass and expose them in aci_custom_qos_policy resource and datasource as children
+- Add service_bd_routing_disable attribute to aci_bridge_domain resource and datasource
+- Migration of ap into plugin framework
+- Migration of tenant into plugin framework
+- Add auto as allowed value input to speed attribute for aci_fabric_if_pol
+- Add resources and datasources to support ip sla track lists and members
+- Add guide for migration to plugin framework
+- Migrate aci_taboo_contract and add support for taboo contract subjects vztsubj
+- Add versions for properties in documentation
+- Migration of vrf into plugin framework and addition of aci_eigrp_address_family_context resource and datasource
+- Add aci_remote_site and aci_associated_site resources and datasources for multisite translation mapping classes fvsiteassociated and fvremoteid
+- Add support for nutanix in the aci_vmm_domain resource
+- Add resources and datasources for external epg (l3extinstp) and its relation to route profile (l3extrsinstptoprofile)
+- Addition of new resource and test file for fabric_external_connection_policies
+- Add resource and data source for aci_lacp_enhanced_lag_policy.
+- Migration of the resource aci_any from sdkv2 to plugin
+- Updated aci-go-client to v2.31.1
+- Updated aci-go-client to v2.31.2
+- Added name to aci_l3_ext_subnet legacy resource and update aci-go-client files
+- Add resources and datasources for vmm uplink container (vmmuplinkpcont) and vmm uplink policy (vmmuplinkp)
+- Add support for uplink_order_container (fvuplinkordercont) in relation_to_domains attribute of aci_application_epg and aci_relation_to_domain resource and datasource
+- Add resource and data source to import l4-l7 logical devices from one tenant to another.
+- Addition of new attributes to resource_aci_rest_managed to modify an object during destroy instead of deleting it
+- Migrate resources and datasource aci_access_port_block, aci_access_port_selector, aci_fex_profile. aci_leaf_interface_profile, aci_spine_interface_profile and aci_spine_access_port_selector to terraform plugin framework
+- Migrate resource and datasource aci_vmm_credential to terraform plugin framework
+- Add resource and datasource aci_relation_from_application_epg_to_attachable_access_entity_profile for fvrsaepatt class support
+- Migrate resource and datasource aci_attachable_access_entity_profile to terraform plugin framework and add resource and datasource for aci_relation_from_attachable_access_entity_profile_to_domain
+- Add support for dwdm interface access policy with resources aci_dwdm_interface_policy
+- Add support for poe interface access policy with resource aci_poe_interface_policy
+- Add support for link level interface access policy with resource aci_link_level_interface_policy
+- Add support for slow drain interface access policy with resource aci_slow_drain_interface_policy
+
+BUG FIXES:
+- Set filter_ids and filter_entry_ids to computed in aci_contract to fix idempotency issue (#883)
+- Add example for user_security_domain and security_domain_role
+- Fix aci_imported_contract relation_vz_rs_if to properly set the relationship tdn (#894)
+- Fix idempotency issues in aci_l3out_bgp_protocol_profile with relation_bgp_rs_best_path_ctrl_pol attribute and add debugger support to provider (#904)
+- Created helper function to find elements that are in oldset but not in newset (#910)
+- Fix aci_bulk_epg_to_static_path idempotency and default values when optional attributes not provided.
+- Fix ip lookup issue for aci_client_end_point datasource (#940)
+- Fix relational attributes import issue (#924)
+- Fix  relation_cloud_rs_to_ctx attribute not working in aci_cloud_context_profile resource (#950)
+- Fix relational attribute import issue in aci_destination_of_redirected_traffic (#959)
+- Set attribute auth_key as optional in aci_l3out_ospf_interface_profile (#994)
+- Fix relationship removal issue in aci_any (#971)
+- Fix update function and validation for relationship attribute "relation_l3ext_rs_subnet_to_profile" in aci_l3_ext_subnet (#967)
+- Fix resource aci_external_network_instance_profile idempotency and relationship attribute import issues (#976)
+- Fix firmware policy empty read issue (#1003)
+- Update aci-go-client to v2.7.3 to fix issue in aci_cloud_context_profile when optional parameters cloud_brownfield and access_policy_type are not provided.
+- Allow for attributes to be set and idempotency when password has not changed in aci_local_user (#1001)
+- Fix update issue when enhanced_lag_policy is modified outside of terraform in aci_epg_to_domain (#1015)
+- Fixed aci_bgp_peer_connectivity_profile update and read function to work when local_asn is added after creation (#1017)
+- Fix issue where state was deleted if credentials to apic were incorrect (#1006)
+- Fix issue with client end points when endpoint is associated with an esg
+- Modified errorforobjectnotfound() to accommodate the change in state when the object does not exist (#1036)
+- Ensure relational attribute relation_infra_rs_dom_p is not removed when not defined in configuration of resource aci_attachable_access_entity_profile (#1045)
+- Fixed aci_contract_subject resource read function call issue
+- Fix for the list element order mismatch issue on the typelist attributes
+- Enabled computed to the relational attributes in the aci_external_network_instance_profile resource
+- Fixed relation_infra_rs_acc_bndl_subgrp attribute in aci_access_port_block to gather target dn instead of name
+- Avoid type assertion crash in update when all filters are removed (manually or with aci_filter resource) from contract in aci_contract resource
+- Fix relation_fv_rs_node_att by changing it to a block and fix relationship attribute import in aci_application_epg  (#1083)
+- Modify resource for aci_bgp_peer_connectivity_profile to normalize ipv6 different formats. (#1101)
+- Fix import issue with leaf_port_dn attribute for aci_l3out_vpc_member.
+- Remove non configurable properties from post payload when child configuration is present for aci_rest_managed
+- Ignore changes to relation_l3ext_rs_dyn_path_att.encap when going from unknown to empty to fix idempotency issue in 'l3out_floating_svi' (#1114)
+- Fixed aci_epg_to_contract import issue and updated documentation
+- Set type attribute for import operation of aci_static_node_mgmt_address
+- Add missing annotation attribute to aci_rest_managed datasource
+- Fix example link in documentation
+- Fix regex match to allow matching full dn in aci_rest_managed (#1147)
+- Fix path for signature calculation for private_key authentication in plugin framework provider resources
+- Error when object not found for datasources aci_interface_config, aci_cloud_l4_l7_third_party_device, and aci_cloud_l4_l7_native_load_balancer
+- Allow import where an semicolon is part of the dn for ipv6 address
+- Fix import functionality for aci_rest_managed when brackets are present in dn
+- Fix to avoid known after applies for children when they are not provided and not configured on apic
+- Prevent error by setting flood_on_encap and prio for aci_endpoint_security_group
+- Add error handling in try login function for aaa_user
+- Modified functionality of dorestrequest in utils.go to catch the appropriate errors returned by apic
+- Fix to set version to match the pre-migration version when a resource is migrated without changes
+- Resolves deletion of nodes from controller upon destroy.
+- Fix computed behaviour when configuration not provided for relation_infra_rs_att_ent_p and relation_infra_rs_l2_inst_pol in the aci_leaf_access_bundle_policy_group resource
+- Fix to allow updating of attributes in the aci_external_network_instance_profile resource
+- Fix issue when apic return error 'cannot be deleted.' with wrong error code (dcne-380) (#1354)
+- Fix to avoid panic runtime error when annotation is updated for l3outs in aci_l3_outside resource
+- Fixed an issue with `aci_contract_subject_filter` when using "none" in the directives attribute.
+- Fix to allow all children for a resource that are defined in state to be removed with aci_rest_managed resource
+- Fix to prevent annotation to be added to the child payload for classes that do not allow the annotation attribute to be configured with aci_rest_managed_resource
+- Fix documentation valid values and default when empty string
+- Added json string support to import multiple children objects, instead of using a colon-separated import statement
+- Bug fix for update of single nested children
+- Fix documentation examples for importing with a json string in aci_rest_managed
+
+OTHER:
+- Document relation_bgp_rs_best_path_ctrl_pol
+- Closes #905
+- Update terraform-plugin-sdk and aci-go-client to latest
+- Fix rest managed resource for pkiexportencryptionkey class
+- Fix intermittent issue with delayed object updates in aci_rest_managed (#972)
+- [docs] fix categorization for aci_cloud_ipsec_tunnel_subnet_pool on terraform registry
+
 ## 2.18.0 (November 7, 2025)
 
 IMPROVEMENTS:
